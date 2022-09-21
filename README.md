@@ -85,9 +85,15 @@ To get a local copy up and running follow these simple example steps.
 ### Installation
 
 1.  Clone the repo
+
     ```sh
+    # Use SSH auth (Recommended for development)
+    git clone git@github.com:redxouls/Echo.git
+
+    # Default clone
     git clone https://github.com/redxouls/Echo.git
     ```
+
 2.  trigger git-lfs (Install git-lfs at [https://git-lfs.github.com/](https://git-lfs.github.com/))
     ```sh
     cd Echo
