@@ -44,6 +44,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#development">Development</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -97,6 +98,37 @@ To get a local copy up and running follow these simple example steps.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
+
+## Development
+
+1. Create your Feature Branch
+
+   ```sh
+   # Make your local main up-to-date
+   git checkout main
+   git fetch origin
+   git rebase origin/main
+
+   # Create and checkout to a new branch with name feature/AmazingFeature
+   git checkout -b feature/AmazingFeature
+   ```
+
+2. Commit your Changes
+   ```
+   git commit -m 'Add some AmazingFeature'
+   ```
+3. Sync your local branch with upstream/main
+   ```sh
+   git fetch origin
+   git rebase origin/main
+   ```
+4. Push to the Branch
+   ```sh
+   git push origin feature/AmazingFeature
+   ```
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
 
