@@ -50,7 +50,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _multy: 4.47
+    - _multy: 4.08
     - _offset: 0.85
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
