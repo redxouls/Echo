@@ -40,15 +40,19 @@ Material:
     m_Floats:
     - _Amount: 1
     - _Amplitude: 1
-    - _CutoutThresh: 0.272
+    - _CutoutThresh: 0
     - _Distace: 1
+    - _OutlineSize: 1.165
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 1
-    - _Transparency: 0.04
+    - _Transparency: 0.274
     - _multy: 0
     - _offset: 0
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 0}
-    - _TintColor: {r: 0.7264151, g: 0.41460484, b: 0.41460484, a: 1}
+    - _Color1: {r: 0, g: 0, b: 0, a: 1}
+    - _Color2: {r: 1, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TintColor: {r: 0.9716981, g: 0.88571197, b: 0.66460484, a: 1}
   m_BuildTextureStacks: []
