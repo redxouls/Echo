@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {   
         isGrounded = Physics.CheckSphere(groundCheck.position,  groundDis, groundMask); // Ground Check
         JumpAndGravity();
-        moving = Move();
+        Move();
         Echo();
     }
 
@@ -45,12 +45,12 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-    private bool Move() {
+    private void Move() {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        moving = x != 0 || z != 0;
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
-        return x != 0 || z != 0;
     }
 
     private void Echo() {
