@@ -33,10 +33,10 @@ public class SoundWaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        UpdateWaveSource();
+        UpdateWave();
     }
 
-    public void UpdateWaveSource()
+    public void UpdateWave()
     {
         int newStartIndex = startIndex;
         for (int i = 0; i < (endIndex + points.Length - startIndex) % points.Length; i++) 
@@ -54,10 +54,18 @@ public class SoundWaveManager : MonoBehaviour
         postProcessingMaterial.SetVectorArray("_Points", points);
     }
 
-    public void AddWaveSource(Vector4 waveSourcePosition)
+    public void AddWave(Vector3 waveSourcePosition)
     {
         points[endIndex] = new Vector4(waveSourcePosition.x, waveSourcePosition.y, waveSourcePosition.z, 0);
         endIndex = (endIndex + 1) % points.Length;
     }
-
+    private IEnumerator AddWaveIEnum(Vector3 waveSourcePosition, float delay) {
+        yield return new WaitForSeconds(delay);
+        AddWave(waveSourcePosition);
+    }
+    public void AddWaveSet(Vector3 waveSourcePosition, float interval, int count) {
+        for (int i = 0; i < count; ++i) {
+            StartCoroutine(AddWaveIEnum(waveSourcePosition, i*interval));
+        }
+    }
 }

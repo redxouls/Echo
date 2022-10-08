@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     public float minEchoInterval;
+    public float soundWaveSetInterval;
+    public int soundWaveSetCount;
     public SoundWaveManager soundWaveManager;
 
     private Vector3 velocity;
@@ -21,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     private bool moving;
 
     private float timer = 0.2f;
-    private bool released = false;
 
     // Start is called before the first frame update
     void Start()
@@ -66,8 +67,8 @@ public class PlayerMovement : MonoBehaviour
         if (timer >= minEchoInterval && moving) 
         {
             // Add a sound source upon moving
-            soundWaveManager.AddWaveSource(transform.position);
-
+            //soundWaveManager.AddWaveSource(transform.position);
+            soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount);
             // GameObject echo = Instantiate(prefab, transform.position, Quaternion.identity);
             // echo.SetActive(true);
             // Destroy(echo, echoLifeSpan);
