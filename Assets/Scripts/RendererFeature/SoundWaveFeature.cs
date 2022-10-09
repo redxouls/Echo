@@ -31,7 +31,7 @@ public class SoundWaveFeature : ScriptableRendererFeature
         {
             this.settings = settings;
             this.renderPassEvent = settings.renderPassEvent;
-            if (settings.material == null) material = CoreUtils.CreateEngineMaterial("Hidden/SoundWavePlane");
+            if (settings.material == null) material = CoreUtils.CreateEngineMaterial("Hidden/SoundWave");
             else material = settings.material;
         }
 

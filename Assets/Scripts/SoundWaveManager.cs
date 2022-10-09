@@ -17,7 +17,7 @@ public class SoundWaveManager : MonoBehaviour
 
     // Internal sound wave data structure. Use array as a Queue
     public Vector4[] points;
-    public Vector4[] settings;
+    // public Vector4[] settings;
     public int startIndex;
     public int endIndex;
 
@@ -48,7 +48,7 @@ public class SoundWaveManager : MonoBehaviour
                 newStartIndex ++;
             }
         }
-        startIndex = newStartIndex;
+        startIndex = newStartIndex % points.Length;
         postProcessingMaterial.SetInt("_StartIndex", startIndex);
         postProcessingMaterial.SetInt("_EndIndex", endIndex);
         postProcessingMaterial.SetVectorArray("_Points", points);
@@ -59,11 +59,15 @@ public class SoundWaveManager : MonoBehaviour
         points[endIndex] = new Vector4(waveSourcePosition.x, waveSourcePosition.y, waveSourcePosition.z, 0);
         endIndex = (endIndex + 1) % points.Length;
     }
-    private IEnumerator AddWaveIEnum(Vector3 waveSourcePosition, float delay) {
+
+    private IEnumerator AddWaveIEnum(Vector3 waveSourcePosition, float delay)
+    {
         yield return new WaitForSeconds(delay);
         AddWave(waveSourcePosition);
     }
-    public void AddWaveSet(Vector3 waveSourcePosition, float interval, int count) {
+
+    public void AddWaveSet(Vector3 waveSourcePosition, float interval, int count)
+    {
         for (int i = 0; i < count; ++i) {
             StartCoroutine(AddWaveIEnum(waveSourcePosition, i*interval));
         }

@@ -8,9 +8,9 @@ Shader "Hidden/SoundWave"
     }
     SubShader
     {
-        // Tags { "RenderType"="Opaque" }
-        Tags { "RenderType"="Transparent" "Queue"="Transparent" }
-        Blend srcAlpha oneMinusSrcAlpha
+        Tags { "RenderType"="Opaque" }
+        // Tags { "RenderType"="Transparent" "Queue"="Transparent" }
+        // Blend srcAlpha oneMinusSrcAlpha
 
         LOD 100
 
@@ -60,23 +60,39 @@ Shader "Hidden/SoundWave"
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.screenPos = ComputeScreenPos(o.vertex);
                 o.normal = UnityObjectToWorldNormal(v.normal);
-                o.viewDir = mul (_InvProjectionMatrix, float4 (o.uv * 2.0 - 1.0, 1.0, 1.0));
+                o.viewDir = mul(_InvProjectionMatrix, float4 (o.uv * 2.0 - 1.0, 1.0, 1.0));
                 return o;
             }
 
             float intersectWithWave(float3 worldPos) 
             {
+                // Initial alpha set to 0.0
+                float alpha = 0.0;
+
                 for (int i = 0; i < (_EndIndex + 100 - _StartIndex) % 100; i++)
                 {
                     int index = (_StartIndex + i) % 100;
+
+                    // Calculate distance to the wave source
                     float3 r = distance(worldPos.xyz, _Points[index].xyz);
-                    float factor = r - _Points[index].w;
+                    // Caululate (distance - wave_radius)
+                    float delta = r - _Points[index].w;
                     
-                    if (abs(factor) < 0.33 * _Thickness) return 1;
-                    if (abs(factor) < 0.66 * _Thickness)  return 0.66;
-                    if (abs(factor) <  _Thickness)  return 0.33;
+                    // double side smooth to simulate ripple
+                    // if (delta <  _Thickness)
+                    // {
+                    //     alpha += pow(1 - delta/_Thickness, 3);
+                    // }
+                    
+                    // Single side smooth more sharp on one side
+                    if (abs(delta) < _Thickness)
+                    {
+                        alpha += smoothstep(0, _Thickness, delta);
+                    }
                 }
-                return 0;
+                
+                // Set maximum alpha to 1
+                return clamp(alpha, 0, 1);
             }
 
             fixed4 frag (v2f i) : SV_Target
@@ -94,18 +110,14 @@ Shader "Hidden/SoundWave"
                 
                 // For debugging only
                 // float factor = length(worldPos.xyz) - _Distance;
+                
+                // Calculate alpha of this pixel
+                float alpha = intersectWithWave(worldPos.xyz);
 
-                float factor = intersectWithWave(worldPos.xyz);
-
-                if (factor != 0) 
-                {                    
-                    col.a = factor;
-                    return col;
-                }
-                else 
-                {
-                    return fixed4(0,0,0,1);
-                }
+                // Scale the color with alpha
+                col *= alpha;
+                
+                return col;
             }
             ENDCG
         }
