@@ -66,8 +66,9 @@ Shader "Hidden/SoundWave"
             {
                 // Initial alpha set to 0.0
                 float alpha = 0.0;
-                uint iter =  _EndIndex + 100 - _StartIndex;
-
+                // Circular calculation
+                uint iter = (uint)(_EndIndex + 100 - _StartIndex) % 100;
+                
                 for (uint i = 0; i < iter; i++)
                 {
                     uint index = (_StartIndex + i) % 100;
