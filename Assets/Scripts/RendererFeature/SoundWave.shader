@@ -26,7 +26,7 @@ Shader "Hidden/SoundWave"
             {
                 float4 vertex : POSITION;
                 float2 uv : TEXCOORD0;
-                float3 normal : NORMAL;
+                // float3 normal : NORMAL;
             };
 
             struct v2f
@@ -34,8 +34,8 @@ Shader "Hidden/SoundWave"
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
                 float4 screenPos: TEXCOORD1;
-                float3 normal : TEXCOORD2;
-                float4 viewDir : TEXCOORD3;
+                float4 viewDir : TEXCOORD2;
+                // float3 normal : TEXCOORD3;
             };
 
             sampler2D _MainTex;
@@ -57,8 +57,8 @@ Shader "Hidden/SoundWave"
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.screenPos = ComputeScreenPos(o.vertex);
-                o.normal = UnityObjectToWorldNormal(v.normal);
                 o.viewDir = mul(_InvProjectionMatrix, float4 (o.uv * 2.0 - 1.0, 1.0, 1.0));
+                // o.normal = UnityObjectToWorldNormal(v.normal);
                 return o;
             }
 
@@ -66,10 +66,11 @@ Shader "Hidden/SoundWave"
             {
                 // Initial alpha set to 0.0
                 float alpha = 0.0;
+                uint iter =  _EndIndex + 100 - _StartIndex;
 
-                for (int i = 0; i < (_EndIndex + 100 - _StartIndex) % 100; i++)
+                for (uint i = 0; i < iter; i++)
                 {
-                    int index = (_StartIndex + i) % 100;
+                    uint index = (_StartIndex + i) % 100;
 
                     // Calculate distance to the wave source
                     float3 r = distance(worldPos.xyz, _Points[index].xyz);
