@@ -16,7 +16,14 @@ public class SoundWaveManager : MonoBehaviour
     public Material postProcessingMaterial;
 
     // Internal sound wave data structure. Use array as a Queue
+    public int maxNumOfWave = 100; // TODO: this should be const to avoid 
     public Vector4[] points;
+    public enum WAVE_ATTRIBUTE {
+        PLAYER,
+        ENV,
+        PROP
+    }
+    public WAVE_ATTRIBUTE[] waveAttributes;
     // public Vector4[] settings;
     public int startIndex;
     public int endIndex;
@@ -26,7 +33,8 @@ public class SoundWaveManager : MonoBehaviour
     {
         startIndex = 0;
         endIndex = 0;
-        points = new Vector4[100];
+        points = new Vector4[maxNumOfWave];
+        waveAttributes = new WAVE_ATTRIBUTE[maxNumOfWave];
         postProcessingMaterial.SetFloat("_Thickness", thickness);
     }
 
@@ -54,22 +62,23 @@ public class SoundWaveManager : MonoBehaviour
         postProcessingMaterial.SetVectorArray("_Points", points);
     }
 
-    public void AddWave(Vector3 waveSourcePosition)
+    public void AddWave(Vector3 waveSourcePosition, WAVE_ATTRIBUTE waveAttribute)
     {
         points[endIndex] = new Vector4(waveSourcePosition.x, waveSourcePosition.y, waveSourcePosition.z, 0);
+        waveAttributes[endIndex] = waveAttribute;
         endIndex = (endIndex + 1) % points.Length;
     }
 
-    private IEnumerator AddWaveIEnum(Vector3 waveSourcePosition, float delay)
+    private IEnumerator AddWaveIEnum(Vector3 waveSourcePosition, float delay, WAVE_ATTRIBUTE waveAttribute)
     {
         yield return new WaitForSeconds(delay);
-        AddWave(waveSourcePosition);
+        AddWave(waveSourcePosition, waveAttribute);
     }
 
-    public void AddWaveSet(Vector3 waveSourcePosition, float interval, int count)
+    public void AddWaveSet(Vector3 waveSourcePosition, float interval, int count, WAVE_ATTRIBUTE waveAttribute)
     {
         for (int i = 0; i < count; ++i) {
-            StartCoroutine(AddWaveIEnum(waveSourcePosition, i*interval));
+            StartCoroutine(AddWaveIEnum(waveSourcePosition, i*interval, waveAttribute));
         }
     }
 }
