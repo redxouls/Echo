@@ -650,8 +650,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 427658572}
-  - {fileID: 307799592}
   - {fileID: 1497419206}
+  - {fileID: 307799592}
   - {fileID: 29663178}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -681,6 +681,7 @@ MonoBehaviour:
   soundWaveSetInterval: 0.12
   soundWaveSetCount: 3
   soundWaveManager: {fileID: 981087759}
+  MyAudioSource: {fileID: 0}
 --- !u!143 &533210245
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7036,7 +7037,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7594e2fb761494ecba74b77ad2efb1c9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7263,7 +7264,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 533210243}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1497419207
 MonoBehaviour:
