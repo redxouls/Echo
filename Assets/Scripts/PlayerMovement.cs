@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public int soundWaveSetCount;
     public SoundWaveManager soundWaveManager;
 
+    public AudioSource MyAudioSource;
+
     private Vector3 velocity;
     private bool isGrounded;
     private bool moving;
@@ -27,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        MyAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -72,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
             // GameObject echo = Instantiate(prefab, transform.position, Quaternion.identity);
             // echo.SetActive(true);
             // Destroy(echo, echoLifeSpan);
+            MyAudioSource.Play();
             timer = 0f;
         }
     }
