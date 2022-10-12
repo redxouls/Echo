@@ -31,6 +31,6 @@ public class Bell : MonoBehaviour
     {
         m_MyAudioSource.Stop();
         m_MyAudioSource.Play();
-        soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount);
+        soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount, SoundWaveManager.WAVE_ATTRIBUTE.ENV);
     }
 }

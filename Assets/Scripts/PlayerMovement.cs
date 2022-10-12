@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Add a sound source upon moving
             //soundWaveManager.AddWaveSource(transform.position);
-            soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount);
+            soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount, SoundWaveManager.WAVE_ATTRIBUTE.PLAYER);
             // GameObject echo = Instantiate(prefab, transform.position, Quaternion.identity);
             // echo.SetActive(true);
             // Destroy(echo, echoLifeSpan);
