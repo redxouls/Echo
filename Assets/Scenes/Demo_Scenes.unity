@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1113,7 +1113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528717846}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 37.4, y: 3.8268, z: 16.5}
+  m_LocalPosition: {x: 25.9, y: 3.8268, z: 16.5}
   m_LocalScale: {x: 68.02734, y: 9.614312, z: 2.3361473}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1242,9 +1242,9 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  minEchoInterval: 1
+  minEchoInterval: 1.5
   soundWaveSetInterval: 0.12
-  soundWaveSetCount: 3
+  soundWaveSetCount: 1
   soundWaveManager: {fileID: 981087759}
   MyAudioSource: {fileID: 0}
 --- !u!143 &533210245
@@ -7219,7 +7219,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.25
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -7379,7 +7379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923835630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.5, y: 1, z: -23.3}
+  m_LocalPosition: {x: -20.2, y: 1, z: -17.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7763,9 +7763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2929857ca9254f91855488ccf26049b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveSpeed: 7
-  echoLifeSpan: 5
-  thickness: 0.3
+  waveSpeed: 5
+  echoLifeSpan: 3
+  thickness: 1.5
   postProcessingMaterial: {fileID: 2100000, guid: bf3211d7d830740aaaeff5c750a60dd7,
     type: 2}
   maxNumOfWave: 100
@@ -8567,7 +8567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1434685756
 Transform:
   m_ObjectHideFlags: 0
