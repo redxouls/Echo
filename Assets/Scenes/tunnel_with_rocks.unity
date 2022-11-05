@@ -679,7 +679,7 @@ MonoBehaviour:
     m_Bits: 64
   minEchoInterval: 1
   soundWaveSetInterval: 0.12
-  soundWaveSetCount: 3
+  soundWaveSetCount: 1
   soundWaveManager: {fileID: 981087759}
   MyAudioSource: {fileID: 0}
 --- !u!143 &533210245
@@ -6715,9 +6715,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2929857ca9254f91855488ccf26049b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveSpeed: 7
+  waveSpeed: 5
   echoLifeSpan: 5
-  thickness: 0.3
+  thickness: 2.5
   postProcessingMaterial: {fileID: 2100000, guid: bf3211d7d830740aaaeff5c750a60dd7,
     type: 2}
   maxNumOfWave: 100

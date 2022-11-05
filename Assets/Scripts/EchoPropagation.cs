@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EchoPropagation : MonoBehaviour
 {   
@@ -20,6 +21,7 @@ public class EchoPropagation : MonoBehaviour
     void Update()
     {   
         timer += Time.deltaTime * speed;
-        transform.localScale = scale * (1 + timer);
+        transform.localScale = scale * (float)(Math.Round((1 + timer)/20)*20);
+        Debug.Log(scale * (float)(Math.Round((1 + timer)/20)*20));
     }
 }

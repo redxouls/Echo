@@ -9,7 +9,7 @@ public class SoundWaveManager : MonoBehaviour
     public float waveSpeed = 5.0f;
     [Range(0.0f, 20.0f)]
     public float echoLifeSpan = 5.0f;
-    [Range(0.0f, 1.0f)]
+    [Range(0.0f, 20.0f)]
     public float thickness = 0.3f;
     
     // Set the right postProcessingMaterial
