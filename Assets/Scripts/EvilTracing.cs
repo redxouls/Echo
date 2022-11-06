@@ -24,42 +24,22 @@ public class EvilTracing : MonoBehaviour
     // Update is called once per frame
     void Update() {
         // VisualizeEvil();
-        // code vector4 points to vector3 position
-        target = soundWaveManager.points[soundWaveManager.endIndex - 1];
-        agent.SetDestination(target);
-        NavMesh.CalculatePath(transform.position, target, NavMesh.AllAreas, path);
+        if (soundWaveManager.endIndex != soundWaveManager.startIndex) {
+            // code vector4 points to vector3 position
+            target = soundWaveManager.points[soundWaveManager.endIndex - 1];
+            Trace(target);
+        }
+    }
+    void Trace(Vector3 position) {
+        NavMesh.CalculatePath(transform.position, position, NavMesh.AllAreas, path);
         route_length = 0.0f;
         for (int i = 0; i < path.corners.Length - 1; i++) {
-            Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red, 2);
+            // Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
             route_length += (path.corners[i] - path.corners[i + 1]).sqrMagnitude;
-            // if (route_length > triget_dst) {
-            //     break;
-            // }
         }
-        Debug.Log("route_length");
         Debug.Log(route_length);
-        Debug.Log("target");
-        Debug.Log(target);
+        agent.SetDestination(position);
     }
-    // void Trace() {
-        // NavMesh.CalculatePath(transform.position, target.transform.position, NavMesh.AllAreas, path);
-        // route_length = 0.0f;
-        // for (int i = 0; i < path.corners.Length - 1; i++) {
-        //     Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
-        //     route_length += (path.corners[i] - path.corners[i + 1]).sqrMagnitude;
-            // if (route_length > triget_dst) {
-            //     break;
-            // }
-        // }
-        // Debug.Log(route_length);
-        // if (route_length <= triget_dst){
-        //     moving = true;
-        //     agent.SetDestination(target.transform.position);
-        // }
-        // else {
-        //     moving = false;
-        // }
-    // }
     void VisualizeEvil() {
         if (moving)
         {
