@@ -71,9 +71,10 @@ public class PlayerMovement : MonoBehaviour
         }
         if (timer >= minEchoInterval && moving) 
         {
+            soundWaveManager.AddPlayerWave(transform.position);
             // Add a sound source upon moving
-            //soundWaveManager.AddWaveSource(transform.position);
-            soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount, SoundWaveManager.WAVE_ATTRIBUTE.PLAYER);
+            // soundWaveManager.AddWaveSource(transform.position);
+            // soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount, SoundWaveManager.WAVE_ATTRIBUTE.PLAYER);
             // GameObject echo = Instantiate(prefab, transform.position, Quaternion.identity);
             // echo.SetActive(true);
             // Destroy(echo, echoLifeSpan);

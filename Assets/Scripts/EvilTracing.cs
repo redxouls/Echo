@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EvilTracing : MonoBehaviour
 {
+    /*
     public SoundWaveManager soundWaveManager;
     public float speed;
     public CharacterController controller;
@@ -80,4 +81,5 @@ public class EvilTracing : MonoBehaviour
             // Debug.Log("stop");
         }
     }
+    */
 }

@@ -17,6 +17,8 @@ Shader "Hidden/SoundWave"
         Pass
         {
             CGPROGRAM
+// Upgrade NOTE: excluded shader from DX11, OpenGL ES 2.0 because it uses unsized arrays
+#pragma exclude_renderers d3d11 gles
             #pragma vertex vert
             #pragma fragment frag
             
@@ -43,10 +45,26 @@ Shader "Hidden/SoundWave"
 
             float4 _MainTex_ST;
             float _Distance;
-            float _Thickness;
-            int _StartIndex;
-            int _EndIndex;
-            float4 _Points[100];
+        
+            // player wave
+            float4 _PlayerWaves[10];
+            int _PlayerWaveNum;
+            float _PlayerWaveThickness;
+
+            // grenade wave
+            float4 _GrenadeWaves[10];
+            int _GrenadeWaveNum;
+            float _GrenadeWaveThickness;
+            
+            // envLight
+            float4 _EnvLights[10];
+            int _EnvLightNum;
+            // There is no thickness in envLight
+
+            // passiveLight wave
+            float4 _PassiveLightWaves[10];
+            int _PassiveLightWaveNum;
+            float _PassiveLightWaveThickness;
 
             uniform float4x4 _InvProjectionMatrix;    //Pass this in via 'camera.projectionMatrix.inverse'
             uniform float4x4 _ViewToWorld;    //Pass this in via 'camera.cameraToWorldMatrix'
@@ -62,21 +80,18 @@ Shader "Hidden/SoundWave"
                 return o;
             }
 
-            float intersectWithWave(float3 worldPos) 
+            float intersectWithWave(float4 waves[10], uint num, float thickness, float3 worldPos) 
             {
                 // Initial alpha set to 0.0
                 float alpha = 0.0;
-                // Circular calculation
-                uint iter = (uint)(_EndIndex + 100 - _StartIndex) % 100;
-                
-                for (uint i = 0; i < iter; i++)
-                {
-                    uint index = (_StartIndex + i) % 100;
 
+                // Circular calculation
+                for (uint i = 0; i < num; ++i)
+                {
                     // Calculate distance to the wave source
-                    float3 r = distance(worldPos.xyz, _Points[index].xyz);
+                    float r = distance(worldPos.xyz, waves[i].xyz);
                     // Caululate (distance - wave_radius)
-                    float delta = r - _Points[index].w;
+                    float delta = r - waves[i].w;
                     
                     // double side smooth to simulate ripple
                     // if (delta <  _Thickness)
@@ -85,13 +100,27 @@ Shader "Hidden/SoundWave"
                     // }
                     
                     // Single side smooth more sharp on one side
-                    if (abs(delta) < _Thickness)
+                    if (abs(delta) < thickness)
                     {
-                        alpha += smoothstep(0, _Thickness, delta);
+                        alpha += smoothstep(0, thickness, delta);
                     }
                 }
-                
                 // Set maximum alpha to 1
+                return clamp(alpha, 0, 1);
+            }
+
+            float envLight(float3 worldPos)
+            {
+                float alpha = 0.0;
+                for (uint i = 0; i < _EnvLightNum; ++i)
+                {
+                    float r = distance(worldPos.xyz, _EnvLights[i].xyz);
+                    float delta = _EnvLights[i].w - r;
+                    if (delta > 0)
+                    {
+                        alpha += delta * delta; 
+                    }
+                }
                 return clamp(alpha, 0, 1);
             }
 
@@ -112,10 +141,18 @@ Shader "Hidden/SoundWave"
                 // float factor = length(worldPos.xyz) - _Distance;
                 
                 // Calculate alpha of this pixel
-                float alpha = intersectWithWave(worldPos.xyz);
+                float playerWeight = 0.3;
+                float grenadeWeight = 0.3;
+                float envLightWeight = 0.4;
+
+                float playerAlpha = playerWeight * intersectWithWave(_PlayerWaves, _PlayerWaveNum, _PlayerWaveThickness, worldPos.xyz);
+                float grenadeAlpha = grenadeWeight * intersectWithWave(_GrenadeWaves, _GrenadeWaveNum, _GrenadeWaveThickness, worldPos.xyz);
+                float envLightAlpha = envLightWeight * envLight(worldPos.xyz);
+
+                float alpha = playerAlpha + grenadeAlpha + envLightAlpha;
 
                 // Scale the color with alpha
-                col *= alpha;
+                col *= clamp(alpha, 0, 1);
                 
                 return col;
             }
