@@ -7739,7 +7739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundWaveManager: {fileID: 981087759}
   soundWaveSetInterval: 0.2
-  soundWaveSetCount: 3
+  soundWaveSetCount: 0
 --- !u!1 &1480139329
 GameObject:
   m_ObjectHideFlags: 0
