@@ -8,10 +8,10 @@ public class SoundWaveManager : MonoBehaviour
     // Set the right postProcessingMaterial
     public Material postProcessingMaterial;
     public int maxNumOfWave = 100;
-    Wave[] waves;
+    public Wave[] waves;
 
     // Data for shader, which should be the same as data in waves
-    Vector4[] _Points;  // update only when a wave is added. _Points use xyz only, w is useless. 
+    public Vector4[] _Points;  // update only when a wave is added. _Points use xyz only, w is useless. 
     // Use Vector4 because SetVectorArray only supports Vector4[]
     float[] _Radius;    // update every Update()
     float[] _thickness; // update only when a wave is added
