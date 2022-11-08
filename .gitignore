@@ -88,3 +88,6 @@ Temporary Items
 
 # Cloudflare deploy configuration
 _headers
+
+# Crash Log
+mono_crash.*

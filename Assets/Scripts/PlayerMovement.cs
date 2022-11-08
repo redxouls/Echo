@@ -30,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
     public float waveSpeed;
     public float waveLifespan;
 
+    private float baseStepSpeed = 0.5f;
+    private float crouchstepMultipler = 1.5f;
+    private float sprintStepMultipler = 0.6f;
+    public AudioClip woodSteps;
+    // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,9 +50,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        isGrounded = Physics.CheckSphere(groundCheck.position,  groundDis, groundMask); // Ground Check
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDis, groundMask); // Ground Check
         JumpAndGravity();
         Move();
+        HandleFootsteps();
         Echo();
     }
     
@@ -86,9 +92,32 @@ public class PlayerMovement : MonoBehaviour
             // GameObject echo = Instantiate(prefab, transform.position, Quaternion.identity);
             // echo.SetActive(true);
             // Destroy(echo, echoLifeSpan);
-            MyAudioSource.Play();
+            // MyAudioSource.Play();
             timer = 0f;
         }
     }
 
+    private void HandleFootsteps()
+    {
+        if (timer >= minEchoInterval - Time.deltaTime && moving)
+        {
+            if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
+            {
+                // Debug.Log(hit.collider.tag);
+                switch (hit.collider.tag)
+                {
+                    case "Footsteps/WOOD":
+                        MyAudioSource.PlayOneShot(woodSteps);
+                        break;
+                    default:
+                        MyAudioSource.Play();
+                        break;
+                }
+            }
+            else
+            {
+                MyAudioSource.Play();
+            }
+        }
+    }
 }
