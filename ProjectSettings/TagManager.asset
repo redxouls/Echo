@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Footsteps/WOOD
   - Footsteps/GRASS
+  - Trap
   layers:
   - Default
   - TransparentFX

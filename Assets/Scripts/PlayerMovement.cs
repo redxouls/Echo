@@ -120,4 +120,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    void OnTriggerEnter(Collider collisionInfo)
+    {
+        if(collisionInfo.tag == "Trap")
+        {
+            speed = 0;
+        }
+        Debug.Log(collisionInfo.name);
+    }
 }

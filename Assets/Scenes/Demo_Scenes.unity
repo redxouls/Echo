@@ -1247,6 +1247,7 @@ MonoBehaviour:
   soundWaveSetCount: 1
   soundWaveManager: {fileID: 981087759}
   MyAudioSource: {fileID: 0}
+  woodSteps: {fileID: 0}
 --- !u!143 &533210245
 CharacterController:
   m_ObjectHideFlags: 0
