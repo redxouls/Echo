@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -30,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
     public float waveSpeed;
     public float waveLifespan;
 
+    private bool isDead = false;
+    public AudioClip woodSteps;
+    public AudioClip deathSound;
+    public GameObject deathScreen;
+    // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,10 +51,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        isGrounded = Physics.CheckSphere(groundCheck.position,  groundDis, groundMask); // Ground Check
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDis, groundMask); // Ground Check
         JumpAndGravity();
         Move();
+        HandleFootsteps();
         Echo();
+    }
+    void LateUpdate()
+    {
+        if(isDead)
+        {
+            timer = 0;
+            var color = deathScreen.GetComponent<Image>().color;
+            if(color.a < 0.8f)
+            {
+                color.a += 1f * Time.deltaTime;
+            }
+            deathScreen.GetComponent<Image>().color = color;
+        }
     }
     
     // TODO: maybe can add jump ?
@@ -86,9 +106,53 @@ public class PlayerMovement : MonoBehaviour
             // GameObject echo = Instantiate(prefab, transform.position, Quaternion.identity);
             // echo.SetActive(true);
             // Destroy(echo, echoLifeSpan);
-            MyAudioSource.Play();
+            // MyAudioSource.Play();
             timer = 0f;
         }
     }
 
+    private void HandleFootsteps()
+    {
+        if (timer >= minEchoInterval - Time.deltaTime && moving)
+        {
+            if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
+            {
+                // Debug.Log(hit.collider.tag);
+                switch (hit.collider.tag)
+                {
+                    case "Footsteps/WOOD":
+                        MyAudioSource.PlayOneShot(woodSteps);
+                        break;
+                    default:
+                        MyAudioSource.Play();
+                        break;
+                }
+            }
+            else
+            {
+                MyAudioSource.Play();
+            }
+        }
+    }
+    // Player Death by hitting trap or evil, stop moving and show deathScreen
+    void OnTriggerEnter(Collider collisionInfo)
+    {
+        switch (collisionInfo.tag)
+        {
+            case "Trap":
+                speed = 0;
+                MyAudioSource.PlayOneShot(deathSound);
+                isDead = true;
+                break;
+            case "Destination":
+                #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+                #endif
+                #if UNITY_STANDALONE
+                Application.Quit();
+                #endif
+                break;
+        }
+        // Debug.Log(collisionInfo.tag);
+    }
 }
