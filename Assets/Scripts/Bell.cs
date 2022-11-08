@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Bell : MonoBehaviour
 {
-    public SoundWaveManager soundWaveManager;
+    // public SoundWaveManager soundWaveManager;
     
-    public float soundWaveSetInterval = 0.2f;
-    public int soundWaveSetCount = 3;
+    // public float soundWaveSetInterval = 0.2f;
+    // public int soundWaveSetCount = 3;
 
     private AudioSource m_MyAudioSource;
 
@@ -31,6 +31,6 @@ public class Bell : MonoBehaviour
     {
         m_MyAudioSource.Stop();
         m_MyAudioSource.Play();
-        soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount, SoundWaveManager.WAVE_ATTRIBUTE.ENV);
+        // soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount, SoundWaveManager.WAVE_ATTRIBUTE.ENV);
     }
 }
