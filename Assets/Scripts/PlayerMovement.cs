@@ -26,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float timer = 0.2f;
 
+    public float waveThickness;
+    public float waveSpeed;
+    public float waveLifeSpan;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,7 +75,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (timer >= minEchoInterval && moving) 
         {
-            soundWaveManager.AddPlayerWave(transform.position);
+            soundWaveManager.AddWave(waveThickness, waveLifeSpan, waveSpeed, transform.position, WAVE_ATTRIBUTE.PLAYER);
+            // soundWaveManager.AddPlayerWave(transform.position);
             // Add a sound source upon moving
             // soundWaveManager.AddWaveSource(transform.position);
             // soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount, SoundWaveManager.WAVE_ATTRIBUTE.PLAYER);

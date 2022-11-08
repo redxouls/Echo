@@ -47,7 +47,7 @@ public class GrenadeManager : MonoBehaviour
 
     void Shoot() {
         Ray ray = fpsCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        Vector3 shootDir = (ray.GetPoint(1) - transform.position).normalized;
+        Vector3 shootDir = (ray.GetPoint(75) - transform.position).normalized;
         grenade.SetActive(true);
         GameObject newGrenade = Instantiate(grenade, transform.position, Quaternion.identity);
         newGrenade.transform.forward = shootDir;

@@ -32,8 +32,12 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD
   controlID: 20
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
+=======
+  controlID: 11719
+>>>>>>> f375aa6 (update SoundWaveManager)
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -182,8 +186,12 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
+<<<<<<< HEAD
   controlID: 21
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
+=======
+  controlID: 11720
+>>>>>>> f375aa6 (update SoundWaveManager)
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -217,8 +225,12 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
+<<<<<<< HEAD
   controlID: 22
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
+=======
+  controlID: 11721
+>>>>>>> f375aa6 (update SoundWaveManager)
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -229,7 +241,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
+  m_Name: SceneHierarchyWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -292,6 +304,7 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_SelectedIDs: 90a40100
       m_LastClickedID: 107664
       m_ExpandedIDs: 28cef9ff34f1f9ffcef6f9ffee29fafff62cfaff2435faffbaa2faff88a3faff8abffaff86c0faff52ddfaff0ee9faff4622fbff7631fbff2433fbffda3bfbff263efbff5c43fbff5844fbff3c84fbff4a8cfbff2492fbff0ac5fbff9cccfbffc4e9fbff5e0bfcfffc21fcff2423fcff4e24fcff4625fcff3426fcff6027fcffb628fcff3e2afcff2c2bfcff142dfcff3233fcfff06dfcff3674fcff2a75fcffe827fdff962cfdff3236fdff1287fdff688efdff42a1fdffa0b2fdffe6d4fdff20e4fdff76e5fdffe4e9fdff2050feff285efeff20b0feff98b1feffeabafeff44f3ffff8ef4ffffc2f7ffff36fbfffff4ffffff0671000004920000789b0000b6bd0000e2e400004cfe0000041a0100742301000c27010082460100005e0100
@@ -300,6 +313,11 @@ MonoBehaviour:
       m_LastClickedID: 27884
       m_ExpandedIDs: 36fbffff886c0000fa6c0000406d0000
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 36fbffff886c0000be6c0000fa6c0000406d0000
+>>>>>>> f375aa6 (update SoundWaveManager)
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: Main Camera
@@ -315,7 +333,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 0
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 5}
+        m_ClientGUIView: {fileID: 0}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -630,6 +648,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 0, y: 1, z: -10}
     speed: 2
     m_Value: {x: 0, y: 1, z: -10}
@@ -638,6 +657,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 2.268, z: 0}
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
+=======
+    m_Target: {x: 0, y: 2.2679996, z: 0}
+    speed: 2
+    m_Value: {x: 0, y: 2.2679996, z: 0}
+>>>>>>> f375aa6 (update SoundWaveManager)
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -684,6 +708,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.010805536, y: -0.027897708, z: 0.00030144549, w: -0.9995517}
     speed: 2
     m_Value: {x: -0.0108055435, y: -0.027897727, z: 0.0003014457, w: -0.99955237}
@@ -697,6 +722,15 @@ MonoBehaviour:
     speed: 2
     m_Value: 8.359348
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
+=======
+    m_Target: {x: 0.17014098, y: 0.68633235, z: -0.17014089, w: 0.68633294}
+    speed: 2
+    m_Value: {x: 0.17014098, y: 0.6863324, z: -0.1701409, w: 0.68633294}
+  m_Size:
+    m_Target: 5.699357
+    speed: 2
+    m_Value: 5.699357
+>>>>>>> f375aa6 (update SoundWaveManager)
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -732,10 +766,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: GameView
 =======
   m_Name: ConsoleWindow
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
+=======
+  m_Name: ProjectBrowser
+>>>>>>> f375aa6 (update SoundWaveManager)
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -756,15 +794,20 @@ MonoBehaviour:
     y: 431
     width: 969.5
     height: 297
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 11}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 10}
   m_Panes:
   - {fileID: 10}
   - {fileID: 11}
+<<<<<<< HEAD
   m_Selected: 1
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
   m_LastSelected: 0
+=======
+  m_Selected: 0
+  m_LastSelected: 1
+>>>>>>> f375aa6 (update SoundWaveManager)
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -913,10 +956,14 @@ MonoBehaviour:
     height: 241
 =======
     x: 0
-    y: 495.5
+    y: 514
     width: 968.5
+<<<<<<< HEAD
     height: 263.5
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
+=======
+    height: 276
+>>>>>>> f375aa6 (update SoundWaveManager)
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -934,18 +981,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/daniel/Desktop/NTU/semester4-1/Game/Echo
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 79}
 <<<<<<< HEAD
     m_SelectedIDs: 586e0000
@@ -954,6 +1002,11 @@ MonoBehaviour:
 =======
     m_SelectedIDs: 8a6e0000
     m_LastClickedID: 28298
+=======
+    scrollPos: {x: 0, y: 68}
+    m_SelectedIDs: 866e0000
+    m_LastClickedID: 28294
+>>>>>>> f375aa6 (update SoundWaveManager)
     m_ExpandedIDs: 00000000866e0000886e00008a6e00008c6e00008e6e000000ca9a3b
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
     m_RenameOverlay:
@@ -984,10 +1037,14 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 000000009a6c00009c6c0000586e000000ca9a3b
 =======
     m_ExpandedIDs: 00000000866e0000886e00008a6e00008c6e00008e6e0000
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
+=======
+    m_ExpandedIDs: 00000000866e0000886e00008a6e00008c6e00008e6e000000ca9a3b
+>>>>>>> f375aa6 (update SoundWaveManager)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1013,6 +1070,7 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 20a50100
     m_LastClickedInstanceID: 107808
 =======
@@ -1021,6 +1079,12 @@ MonoBehaviour:
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
+=======
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c623000000000000
+>>>>>>> f375aa6 (update SoundWaveManager)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1110,8 +1174,8 @@ MonoBehaviour:
 =======
     width: 310.5
     height: 728
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
 >>>>>>> cc4c91b (add grenade and envLight, reorganize SoundWaveManager)
   m_Panes:
