@@ -30,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         MyAudioSource = GetComponent<AudioSource>();
+        //Load Player Setting
+        // speed = PlayerPrefs.GetFloat("speed");
+        // minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
     }
 
     // Update is called once per frame
