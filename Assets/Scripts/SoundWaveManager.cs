@@ -53,10 +53,6 @@ public class SoundWaveManager : MonoBehaviour
             waves[i].Update();
             _Radius[i] = waves[i].GetRadius();
             _Attributes[i] = (float)waves[i].GetAttribute();
-            // if (waves[i].GetAttribute() == WAVE_ATTRIBUTE.DEAD)
-            //     _Attributes[i] = 0;
-            // else
-            //     _Attributes[i] = 1;
         }
         postProcessingMaterial.SetFloatArray("_Radius", _Radius);
         postProcessingMaterial.SetFloatArray("_Attributes", _Attributes);
@@ -73,10 +69,7 @@ public class SoundWaveManager : MonoBehaviour
                 _Radius[i] = 0;
                 _thickness[i] = thickness;
                 _Attributes[i] = (float)attribute;
-                // if (attribute == WAVE_ATTRIBUTE.DEAD)
-                //     _Attributes[i] = 0;
-                // else
-                //     _Attributes[i] = 1;
+                
                 // Update _Points, _Thickness to shader
                 postProcessingMaterial.SetVectorArray("_Points", _Points);
                 postProcessingMaterial.SetFloatArray("_thickness", _thickness);

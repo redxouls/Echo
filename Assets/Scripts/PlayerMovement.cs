@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {   
     public GameObject prefab;
     public CharacterController controller;
-    public float speed = 1.0f;
+    public float speed;
     public float gravity = -9.8f;
     public Transform groundCheck;
     public float groundDis = 0.4f;
@@ -28,15 +28,18 @@ public class PlayerMovement : MonoBehaviour
 
     public float waveThickness;
     public float waveSpeed;
-    public float waveLifeSpan;
+    public float waveLifespan;
 
     // Start is called before the first frame update
     void Start()
     {
         MyAudioSource = GetComponent<AudioSource>();
         //Load Player Setting
-        // speed = PlayerPrefs.GetFloat("speed");
-        // minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
+        speed = PlayerPrefs.GetFloat("playerSpeed");
+        waveThickness = PlayerPrefs.GetFloat("waveThickness");
+        waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
+        waveLifespan = PlayerPrefs.GetFloat("waveLifespan");
+        minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
     }
 
     // Update is called once per frame
@@ -75,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (timer >= minEchoInterval && moving) 
         {
-            soundWaveManager.AddWave(waveThickness, waveLifeSpan, waveSpeed, transform.position, WAVE_ATTRIBUTE.PLAYER);
+            soundWaveManager.AddWave(waveThickness, waveLifespan, waveSpeed, transform.position, WAVE_ATTRIBUTE.PLAYER);
             // soundWaveManager.AddPlayerWave(transform.position);
             // Add a sound source upon moving
             // soundWaveManager.AddWaveSource(transform.position);
