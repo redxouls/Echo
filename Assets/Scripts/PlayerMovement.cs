@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private float crouchstepMultipler = 1.5f;
     private float sprintStepMultipler = 0.6f;
     public AudioClip woodSteps;
+    public AudioClip deathSound;
     // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
     void Start()
@@ -125,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
         if(collisionInfo.tag == "Trap")
         {
             speed = 0;
+            MyAudioSource.PlayOneShot(deathSound);
         }
         Debug.Log(collisionInfo.name);
     }
