@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -33,8 +34,10 @@ public class PlayerMovement : MonoBehaviour
     private float baseStepSpeed = 0.5f;
     private float crouchstepMultipler = 1.5f;
     private float sprintStepMultipler = 0.6f;
+    private bool isDead = false;
     public AudioClip woodSteps;
     public AudioClip deathSound;
+    public GameObject deathScreen;
     // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
     void Start()
@@ -56,6 +59,18 @@ public class PlayerMovement : MonoBehaviour
         Move();
         HandleFootsteps();
         Echo();
+    }
+    void LateUpdate()
+    {
+        if(isDead)
+        {
+            var color = deathScreen.GetComponent<Image>().color;
+            if(color.a < 0.8f)
+            {
+                color.a += 1f * Time.deltaTime;
+            }
+            deathScreen.GetComponent<Image>().color = color;
+        }
     }
     
     // TODO: maybe can add jump ?
@@ -121,12 +136,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    // Player Death by hitting trap or evil, stop moving and show deathScreen
     void OnTriggerEnter(Collider collisionInfo)
     {
         if(collisionInfo.tag == "Trap")
         {
             speed = 0;
             MyAudioSource.PlayOneShot(deathSound);
+            isDead = true;
         }
         Debug.Log(collisionInfo.name);
     }
