@@ -40,10 +40,10 @@ public class SettingMenu : MonoBehaviour
     {
         waveSpeed.value = 3;
         waveLifespan.value = 5;
-        minEchoInterval.value = 1.5f;
+        minEchoInterval.value = 2f;
         playerSpeed.value = 1.5f;
         Volume.value = 5;
-        waveThickness.value = 3;
+        waveThickness.value = 2;
     }
     void Start() 
     {

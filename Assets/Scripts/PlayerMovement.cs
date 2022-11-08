@@ -31,9 +31,6 @@ public class PlayerMovement : MonoBehaviour
     public float waveSpeed;
     public float waveLifespan;
 
-    private float baseStepSpeed = 0.5f;
-    private float crouchstepMultipler = 1.5f;
-    private float sprintStepMultipler = 0.6f;
     private bool isDead = false;
     public AudioClip woodSteps;
     public AudioClip deathSound;
@@ -64,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isDead)
         {
+            timer = 0;
             var color = deathScreen.GetComponent<Image>().color;
             if(color.a < 0.8f)
             {
@@ -139,12 +137,22 @@ public class PlayerMovement : MonoBehaviour
     // Player Death by hitting trap or evil, stop moving and show deathScreen
     void OnTriggerEnter(Collider collisionInfo)
     {
-        if(collisionInfo.tag == "Trap")
+        switch (collisionInfo.tag)
         {
-            speed = 0;
-            MyAudioSource.PlayOneShot(deathSound);
-            isDead = true;
+            case "Trap":
+                speed = 0;
+                MyAudioSource.PlayOneShot(deathSound);
+                isDead = true;
+                break;
+            case "Destination":
+                #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+                #endif
+                #if UNITY_STANDALONE
+                Application.Quit();
+                #endif
+                break;
         }
-        Debug.Log(collisionInfo.name);
+        // Debug.Log(collisionInfo.tag);
     }
 }

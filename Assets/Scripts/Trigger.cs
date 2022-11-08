@@ -5,6 +5,7 @@ using UnityEngine;
 public class Trigger : MonoBehaviour
 {
     public float velocity = -2.0f;
+    public AudioSource MyAudioSource;
     public Transform Wall1;
     public Transform Wall2;
     float mvdst = 0;
@@ -14,13 +15,14 @@ public class Trigger : MonoBehaviour
         if(collisionInfo.tag == "Player")
         {
             triggered = true;
+            MyAudioSource.Play();
         }
         // Debug.Log(collisionInfo.tag);
     }
     // Start is called before the first frame update
     void Start()
     {   
-
+        MyAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

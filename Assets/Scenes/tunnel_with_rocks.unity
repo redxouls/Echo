@@ -645,7 +645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533210242}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -11.09, y: 1.63, z: 12.29}
+  m_LocalPosition: {x: -0.4, y: 1.63, z: -0.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -685,7 +685,12 @@ MonoBehaviour:
   soundWaveSetCount: 1
   soundWaveManager: {fileID: 981087759}
   MyAudioSource: {fileID: 0}
+  waveThickness: 0
+  waveSpeed: 0
+  waveLifespan: 0
   woodSteps: {fileID: 8300000, guid: 782533d7d9bee4d3085818388f27f822, type: 3}
+  deathSound: {fileID: 0}
+  deathScreen: {fileID: 0}
 --- !u!143 &533210245
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6635,11 +6640,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundWaveManager: {fileID: 981087759}
-  speed: 1
-  controller: {fileID: 923835635}
-  target: {x: 0, y: 0, z: 0}
-  moving: 0
   particleSystem: {fileID: 691499791}
+  agent: {fileID: 0}
+  trigger_dst: 5
 --- !u!114 &923835637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6949,16 +6952,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2929857ca9254f91855488ccf26049b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveSpeed: 3
-  echoLifeSpan: 5
-  thickness: 0.7
   postProcessingMaterial: {fileID: 2100000, guid: bf3211d7d830740aaaeff5c750a60dd7,
     type: 2}
   maxNumOfWave: 100
-  points: []
-  waveAttributes: 
-  startIndex: 0
-  endIndex: 0
+  _Points: []
 --- !u!4 &981087760
 Transform:
   m_ObjectHideFlags: 0
@@ -7395,7 +7392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1434685756
 Transform:
   m_ObjectHideFlags: 0
@@ -7519,9 +7516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62de9c512b174debbdb94666a3b78b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundWaveManager: {fileID: 981087759}
-  soundWaveSetInterval: 0.2
-  soundWaveSetCount: 3
 --- !u!1 &1480139329
 GameObject:
   m_ObjectHideFlags: 0
