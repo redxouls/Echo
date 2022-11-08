@@ -36,6 +36,10 @@ public class SoundWaveManager : MonoBehaviour
         points = new Vector4[maxNumOfWave];
         waveAttributes = new WAVE_ATTRIBUTE[maxNumOfWave];
         postProcessingMaterial.SetFloat("_Thickness", thickness);
+        // Load Wave Setting
+        waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
+        echoLifeSpan = PlayerPrefs.GetFloat("echoLifeSpan");
+        thickness = PlayerPrefs.GetFloat("thickness");
     }
 
     // Update is called once per frame
