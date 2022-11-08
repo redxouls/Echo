@@ -17,6 +17,8 @@ Shader "Hidden/SoundWave"
         Pass
         {
             CGPROGRAM
+// Upgrade NOTE: excluded shader from DX11, OpenGL ES 2.0 because it uses unsized arrays
+#pragma exclude_renderers d3d11 gles
             #pragma vertex vert
             #pragma fragment frag
             
@@ -43,10 +45,18 @@ Shader "Hidden/SoundWave"
 
             float4 _MainTex_ST;
             float _Distance;
-            float _Thickness;
-            int _StartIndex;
-            int _EndIndex;
+        
+            // waves
             float4 _Points[100];
+            float _Radius[100];
+            float _thickness[100];
+            float _Attributes[100]; // DEAD = 0, PLAYER = 1, GRENADE = 2, PASSIVE = 3
+            float _Weight[] = {0.0, 0.4, 0.3, 0.3}; // weight for each attribute
+
+            // envLights
+            float4 _EnvLightPoints[100];
+            int _EnvLightNum;
+            float _EnvLightRadius[100];
 
             uniform float4x4 _InvProjectionMatrix;    //Pass this in via 'camera.projectionMatrix.inverse'
             uniform float4x4 _ViewToWorld;    //Pass this in via 'camera.cameraToWorldMatrix'
@@ -66,18 +76,19 @@ Shader "Hidden/SoundWave"
             {
                 // Initial alpha set to 0.0
                 float alpha = 0.0;
-                // Circular calculation
-                uint iter = (uint)(_EndIndex + 100 - _StartIndex) % 100;
-                
-                for (uint i = 0; i < iter; i++)
-                {
-                    uint index = (_StartIndex + i) % 100;
 
+                // Circular calculation
+                for (uint i = 0; i < 100; ++i)
+                {
+                    if (_Attributes[i] == 0) // DEAD
+                    {
+                        continue;
+                    }
                     // Calculate distance to the wave source
-                    float3 r = distance(worldPos.xyz, _Points[index].xyz);
+                    float r = distance(worldPos.xyz, _Points[i].xyz);
                     // Caululate (distance - wave_radius)
-                    float delta = r - _Points[index].w;
-                    
+                    float delta = r - _Radius[i];
+
                     // double side smooth to simulate ripple
                     // if (delta <  _Thickness)
                     // {
@@ -85,13 +96,28 @@ Shader "Hidden/SoundWave"
                     // }
                     
                     // Single side smooth more sharp on one side
-                    if (abs(delta) < _Thickness)
+                    if (abs(delta) < _thickness[i])
                     {
-                        alpha += smoothstep(0, _Thickness, delta);
+                        // TODO: add _Weight[i]
+                        alpha += 0.3 * smoothstep(0, _thickness[i], delta);
                     }
                 }
-                
                 // Set maximum alpha to 1
+                return clamp(alpha, 0, 1);
+            }
+
+            float envLight(float3 worldPos)
+            {
+                float alpha = 0.0;
+                for (uint i = 0; i < _EnvLightNum; ++i)
+                {
+                    float r = distance(worldPos.xyz, _EnvLightPoints[i].xyz);
+                    float delta = _EnvLightRadius[i] - r;
+                    if (delta > 0)
+                    {
+                        alpha += delta * delta; 
+                    }
+                }
                 return clamp(alpha, 0, 1);
             }
 
@@ -112,11 +138,14 @@ Shader "Hidden/SoundWave"
                 // float factor = length(worldPos.xyz) - _Distance;
                 
                 // Calculate alpha of this pixel
-                float alpha = intersectWithWave(worldPos.xyz);
+                float waveWeight = 0.7;
+                float lightWeight = 0.3;
+                float envLightAlpha = envLight(worldPos.xyz);
+                float waveAlpha = intersectWithWave(worldPos.xyz);
+                float alpha = waveWeight * waveAlpha + lightWeight * envLightAlpha;
 
                 // Scale the color with alpha
-                col *= alpha;
-                
+                col *= clamp(alpha, 0, 1);
                 return col;
             }
             ENDCG

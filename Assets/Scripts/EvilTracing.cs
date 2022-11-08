@@ -28,9 +28,10 @@ public class EvilTracing : MonoBehaviour
         Trace();
     }
     void Trace() {
-        if (soundWaveManager.endIndex != soundWaveManager.startIndex) {
+        Vector3 wavePoint;
+        if (HasTarget(out wavePoint)) {
             // code vector4 points to vector3 position
-            NavMesh.SamplePosition(soundWaveManager.points[soundWaveManager.endIndex - 1], out target, 5.0f, NavMesh.AllAreas);
+            NavMesh.SamplePosition(wavePoint, out target, 5.0f, NavMesh.AllAreas);
             Debug.Log(moving);
             // agent.SetDestination(position);
             if(NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path)) {
@@ -64,5 +65,27 @@ public class EvilTracing : MonoBehaviour
             route_length += Vector3.Distance(path.corners[i], path.corners[i + 1]);
         }
         return route_length;
+    }
+
+    bool HasTarget(out Vector3 target)
+    {
+        target = Vector3.zero;
+        float minDistance = float.MaxValue;
+        bool found = false;
+        for (int i = 0; i < soundWaveManager.maxNumOfWave; ++i) 
+        {
+            WAVE_ATTRIBUTE attribute = soundWaveManager.waves[i].GetAttribute();
+            if (attribute == WAVE_ATTRIBUTE.PLAYER || attribute == WAVE_ATTRIBUTE.GRENADE)
+            {
+                float distance = Vector3.Distance(soundWaveManager._Points[i], transform.position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    target = soundWaveManager._Points[i];
+                    found = true;
+                }
+            }
+        }
+        return found;
     }
 }
