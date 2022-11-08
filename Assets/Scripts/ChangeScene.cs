@@ -5,13 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {   
-    public GameObject InitialCanvas;
-    public GameObject MainCanvas;
-    public GameObject SettingCanvas;
+    public Canvas InitialCanvas;
+    public Canvas MainCanvas;
+    public Canvas SettingCanvas;
+
+    private static bool created = false;
 
     void Start() {
-        if (PlayerPrefs.GetString("sceneStatus") == null) {
+        if (! created) {
             PlayerPrefs.SetString("sceneStatus", "Main");
+            created = true;
         }
     }
 
@@ -19,19 +22,17 @@ public class ChangeScene : MonoBehaviour
         string sceneStatus = PlayerPrefs.GetString("sceneStatus");
         Debug.Log(sceneStatus);
         if (sceneStatus == "Main") {
-            SceneManager.LoadScene(sceneName);
+            // InitialCanvas.enabled = false;
+            // MainCanvas.enabled = false;
+            // SettingCanvas.enabled = false;
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             Debug.Log(sceneName);
-            InitialCanvas.SetActive(false);
-            MainCanvas.SetActive(false);
-            SettingCanvas.SetActive(false);
             PlayerPrefs.SetString("sceneStatus", "Game");
         }
         else if (sceneStatus == "Game") {
-            Debug.Log(sceneStatus);
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
             Debug.Log(sceneName);
-            MainCanvas = FindInactiveObjectsByName("MainCanvas");
-            MainCanvas.SetActive(true);
+            // MainCanvas.enabled = true;
             PlayerPrefs.SetString("sceneStatus", "Main");
         }
     }
@@ -47,13 +48,13 @@ public class ChangeScene : MonoBehaviour
         }
     }
 
-    GameObject FindInactiveObjectsByName(string objectName) {
-        GameObject[] objects = GameObject.FindObjectsOfType<GameObject>(true);
-        for(int i = 0; i < objects.Length; i++) {
-            if (objects[i].name == objectName) {
-                return objects[i];
-            }
-        }
-        return null;
-    }
+    // GameObject FindInactiveObjectsByName(string objectName) {
+    //     GameObject[] objects = GameObject.FindObjectsOfType<GameObject>(true);
+    //     for(int i = 0; i < objects.Length; i++) {
+    //         if (objects[i].name == objectName) {
+    //             return objects[i];
+    //         }
+    //     }
+    //     return null;
+    // }
 }

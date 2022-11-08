@@ -4,32 +4,46 @@ using UnityEngine;
 
 public class ChangeCanvas : MonoBehaviour
 {
-    public GameObject InitialCanvas;
-    public GameObject MainCanvas;
-    public GameObject SettingCanvas;
+    public Canvas InitialCanvas;
+    public Canvas MainCanvas;
+    public Canvas SettingCanvas;
 
-    // Start is called before the first frame update
+    private static bool created = false;
     void Start(){
-        InitialCanvas.SetActive(true);
-        MainCanvas.SetActive(false);
-        SettingCanvas.SetActive(false);
+        if (!created) {
+            SetCanvasActive("InitialCanvas");
+            created = true;
+        }
+        else {
+            SetCanvasActive("MainCanvas");
+        }
     }
 
     public void SetCanvasActive(string canvasName) {
         if (canvasName == "InitialCanvas") {
-            InitialCanvas.SetActive(true);
-            MainCanvas.SetActive(false);
-            SettingCanvas.SetActive(false);
+            InitialCanvas.enabled = true;
+            MainCanvas.enabled = false;
+            SettingCanvas.enabled = false;
         }   
         else if (canvasName == "MainCanvas") {
-            InitialCanvas.SetActive(false);
-            MainCanvas.SetActive(true);
-            SettingCanvas.SetActive(false);
+            InitialCanvas.enabled = false;
+            MainCanvas.enabled = true;
+            SettingCanvas.enabled = false;
         }
         else if (canvasName == "SettingCanvas") {
-            InitialCanvas.SetActive(false);
-            MainCanvas.SetActive(false);
-            SettingCanvas.SetActive(true);
+            InitialCanvas.enabled = false;
+            MainCanvas.enabled = false;
+            SettingCanvas.enabled = true;
         }
     }
+
+    // GameObject FindInactiveObjectsByName(string objectName) {
+    //     GameObject[] objects = GameObject.FindObjectsOfType<GameObject>(true);
+    //     for(int i = 0; i < objects.Length; i++) {
+    //         if (objects[i].name == objectName) {
+    //             return objects[i];
+    //         }
+    //     }
+    //     return null;
+    // }
 }

@@ -709,6 +709,8 @@ GameObject:
   - component: {fileID: 178529208}
   - component: {fileID: 178529210}
   - component: {fileID: 178529211}
+  - component: {fileID: 178529212}
+  - component: {fileID: 178529213}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -728,9 +730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5ccbe5cc7d4456499181aacb548352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialCanvas: {fileID: 1983138408}
-  MainCanvas: {fileID: 6270542}
-  SettingCanvas: {fileID: 658772357}
+  InitialCanvas: {fileID: 1983138411}
+  MainCanvas: {fileID: 6270543}
+  SettingCanvas: {fileID: 658772361}
 --- !u!4 &178529209
 Transform:
   m_ObjectHideFlags: 0
@@ -758,9 +760,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a0f0bb86abc4686aabd8e5ecfeccd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialCanvas: {fileID: 1983138408}
-  MainCanvas: {fileID: 6270542}
-  SettingCanvas: {fileID: 658772357}
+  InitialCanvas: {fileID: 1983138411}
+  MainCanvas: {fileID: 6270543}
+  SettingCanvas: {fileID: 658772361}
 --- !u!114 &178529211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +776,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 6e5400bfd75484240bc018faa810ee92, type: 2}
+--- !u!114 &178529212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178529207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4868e10e0f0094a94b427100682ca37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &178529213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178529207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88a9ba4700108469693fe74a19d293ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &197707296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,7 +1985,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 658772357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 347a38293143e47b3929bb427b2519bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 12e2fe874e3b0403cae7aae91a93c35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &788606678
