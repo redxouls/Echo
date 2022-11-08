@@ -1,88 +1,97 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class SoundWaveManager : MonoBehaviour
 {   
-    // Settings for wave
-    [Range(0.0f, 20.0f)]
-    public float waveSpeed = 5.0f;
-    [Range(0.0f, 20.0f)]
-    public float echoLifeSpan = 5.0f;
-    [Range(0.0f, 1.0f)]
-    public float thickness = 0.3f;
-    
     // Set the right postProcessingMaterial
     public Material postProcessingMaterial;
+    public int maxNumOfWave = 100;
+    Wave[] waves;
 
-    // Internal sound wave data structure. Use array as a Queue
-    public int maxNumOfWave = 100; // TODO: this should be const to avoid 
-    public Vector4[] points;
-    public enum WAVE_ATTRIBUTE {
-        PLAYER,
-        ENV,
-        PROP
-    }
-    public WAVE_ATTRIBUTE[] waveAttributes;
-    // public Vector4[] settings;
-    public int startIndex;
-    public int endIndex;
+    // Data for shader, which should be the same as data in waves
+    Vector4[] _Points;  // update only when a wave is added. _Points use xyz only, w is useless. 
+    // Use Vector4 because SetVectorArray only supports Vector4[]
+    float[] _Radius;    // update every Update()
+    float[] _thickness; // update only when a wave is added
+    float[] _Attributes;  // wave attributes (e.g DEAD, PLAYER...), update every Update()
+    // Use float for _Attributes because there is not setIntegerArray function -> use SetFloatArray instead
 
+    // Some parameters for envLight
+    int[] envLightDir;
+    float[] envLightSpeed;
+    float[] envLightSmallestRange;
+    float [] envLightLargestRange;
+
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        startIndex = 0;
-        endIndex = 0;
-        points = new Vector4[maxNumOfWave];
-        waveAttributes = new WAVE_ATTRIBUTE[maxNumOfWave];
-        postProcessingMaterial.SetFloat("_Thickness", thickness);
-        // Load Wave Setting
-        waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
-        echoLifeSpan = PlayerPrefs.GetFloat("echoLifeSpan");
-        thickness = PlayerPrefs.GetFloat("thickness");
+        waves = new Wave[maxNumOfWave];
+        for (int i = 0; i < maxNumOfWave; ++i)
+        {
+            waves[i] = new Wave();
+        }
+        _Points = new Vector4[maxNumOfWave];
+        _Radius = new float[maxNumOfWave];
+        _thickness = new float[maxNumOfWave];
+        _Attributes = new float[maxNumOfWave];
     }
 
     // Update is called once per frame
     void Update()
     {   
-        UpdateWave();
+       UpdateWave();
     }
 
-    public void UpdateWave()
+    void UpdateWave() // Update _Radius, _Attributes to shader
     {
-        int newStartIndex = startIndex;
-        for (int i = 0; i < (endIndex + points.Length - startIndex) % points.Length; i++) 
+        for (int i = 0; i < maxNumOfWave; ++i)
         {
-            int index = (startIndex + i) % points.Length;
-            points[index].w += Time.deltaTime * waveSpeed;
-            if (points[index].w > echoLifeSpan * waveSpeed)
+            waves[i].Update();
+            _Radius[i] = waves[i].GetRadius();
+            _Attributes[i] = (float)waves[i].GetAttribute();
+        }
+        postProcessingMaterial.SetFloatArray("_Radius", _Radius);
+        postProcessingMaterial.SetFloatArray("_Attributes", _Attributes);
+    }
+
+    public void AddWave(float thickness, float lifeSpan, float speed, Vector3 position, WAVE_ATTRIBUTE attribute)
+    {
+        for (int i = 0; i < maxNumOfWave; ++i)
+        {
+            if (waves[i].IsDead())
             {
-                newStartIndex ++;
+                waves[i].Init(thickness, lifeSpan, speed, position, attribute);
+                _Points[i] = position;
+                _Radius[i] = 0;
+                _thickness[i] = thickness;
+                _Attributes[i] = (float)attribute;
+                
+                // Update _Points, _Thickness to shader
+                postProcessingMaterial.SetVectorArray("_Points", _Points);
+                postProcessingMaterial.SetFloatArray("_thickness", _thickness);
+                return;
             }
         }
-        startIndex = newStartIndex % points.Length;
-        postProcessingMaterial.SetInt("_StartIndex", startIndex);
-        postProcessingMaterial.SetInt("_EndIndex", endIndex);
-        postProcessingMaterial.SetVectorArray("_Points", points);
+        Debug.Log("EEEEEEEorror: wave is out of ragne");
     }
 
-    public void AddWave(Vector3 waveSourcePosition, WAVE_ATTRIBUTE waveAttribute)
-    {
-        points[endIndex] = new Vector4(waveSourcePosition.x, waveSourcePosition.y, waveSourcePosition.z, 0);
-        waveAttributes[endIndex] = waveAttribute;
-        endIndex = (endIndex + 1) % points.Length;
-    }
-
-    private IEnumerator AddWaveIEnum(Vector3 waveSourcePosition, float delay, WAVE_ATTRIBUTE waveAttribute)
+    private IEnumerator AddWaveIEnum(float delay, float thickness, float lifeSpan, float speed, Vector3 position, WAVE_ATTRIBUTE attribute)
     {
         yield return new WaitForSeconds(delay);
-        AddWave(waveSourcePosition, waveAttribute);
+        AddWave(thickness, lifeSpan, speed, position, attribute);
     }
 
-    public void AddWaveSet(Vector3 waveSourcePosition, float interval, int count, WAVE_ATTRIBUTE waveAttribute)
+    public void AddWaveSet(float interval, int count, float thickness, float lifeSpan, float speed, Vector3 position, WAVE_ATTRIBUTE attribute)
     {
-        for (int i = 0; i < count; ++i) {
-            StartCoroutine(AddWaveIEnum(waveSourcePosition, i*interval, waveAttribute));
+        for (int i = 0; i < count; ++i)
+        {
+            StartCoroutine(AddWaveIEnum(i*interval, thickness, lifeSpan, speed, position, attribute));
         }
     }
 }
+
+
