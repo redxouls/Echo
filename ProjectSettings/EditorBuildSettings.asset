@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Demo_Scenes.unity
-    guid: 82648c420157342c49d8056e51e89556
-  - enabled: 1
     path: Assets/Scenes/UI.unity
     guid: 1afffcf40bb594402b48c528e46cb170
   - enabled: 1
-    path: Assets/Scenes/tunnel_with_rocks.unity
-    guid: 5a521c58f7024437087130b9e3516574
-  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 0574886309a5c46aeadc1c329e8b0e40
+  - enabled: 1
+    path: Assets/Scenes/Demo_Scenes.unity
+    guid: 82648c420157342c49d8056e51e89556
+  - enabled: 1
+    path: Assets/Scenes/tunnel_with_rocks.unity
+    guid: 5a521c58f7024437087130b9e3516574
   m_configObjects: {}
