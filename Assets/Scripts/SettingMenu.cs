@@ -47,22 +47,23 @@ public class SettingMenu : MonoBehaviour
     }
     void Start() 
     {
-        if (!created)
-        {
-            created = true;
-            Debug.Log("First time");
-            DefaultSetting();
-        }
-        else
-        {
-            Debug.Log("Second time");
-            waveSpeed.value = PlayerPrefs.GetFloat("waveSpeed");
-            waveLifespan.value = PlayerPrefs.GetFloat("waveLifespan");
-            minEchoInterval.value = PlayerPrefs.GetFloat("minEchoInterval");
-            playerSpeed.value = PlayerPrefs.GetFloat("playerSpeed");
-            Volume.value = PlayerPrefs.GetFloat("Volume");
-            waveThickness.value = PlayerPrefs.GetFloat("waveThickness");
-        }
+        // if (!created)
+        // {
+        //     created = true;
+        //     Debug.Log("First time");
+        //     DefaultSetting();
+        // }
+        // else
+        // {
+        //     Debug.Log("Second time");
+        //     waveSpeed.value = PlayerPrefs.GetFloat("waveSpeed");
+        //     waveLifespan.value = PlayerPrefs.GetFloat("waveLifespan");
+        //     minEchoInterval.value = PlayerPrefs.GetFloat("minEchoInterval");
+        //     playerSpeed.value = PlayerPrefs.GetFloat("playerSpeed");
+        //     Volume.value = PlayerPrefs.GetFloat("Volume");
+        //     waveThickness.value = PlayerPrefs.GetFloat("waveThickness");
+        // }
+        
         /*
         if (!PlayerPrefs.HasKey("waveSpeed") || !PlayerPrefs.HasKey("waveLifespan") ||
             !PlayerPrefs.HasKey("minEchoInterval") || !PlayerPrefs.HasKey("playerSpeed") ||

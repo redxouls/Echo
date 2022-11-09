@@ -12,7 +12,7 @@ public class SliderValue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sliderUI.value = PlayerPrefs.GetFloat(title);
+        // sliderUI.value = PlayerPrefs.GetFloat(title);
     }
 
     // Update is called once per frame
