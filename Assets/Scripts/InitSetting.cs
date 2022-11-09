@@ -32,7 +32,7 @@ public class InitSetting : MonoBehaviour
         waveLifespan.value = 5;
         minEchoInterval.value = 2f;
         playerSpeed.value = 1.5f;
-        Volume.value = 5;
+        Volume.value = 150;
         waveThickness.value = 2;
     }
 }

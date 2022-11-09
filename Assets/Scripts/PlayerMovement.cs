@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject respawnButton;
     public GameObject deadText;
 
+    public GameObject winScreen;
+
     
     // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
@@ -158,12 +160,17 @@ public class PlayerMovement : MonoBehaviour
                 isDead = true;
                 break;
             case "Destination":
-                #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-                #endif
-                #if UNITY_STANDALONE
-                Application.Quit();
-                #endif
+                // #if UNITY_EDITOR
+                // UnityEditor.EditorApplication.isPlaying = false;
+                // #endif
+                // #if UNITY_STANDALONE
+                // Application.Quit();
+                // #endif
+                Cursor.visible = true;
+                Screen.lockCursor = false;
+                winScreen.SetActive(true);
+                // respawnButton.SetActive(true);
+                // deadText.SetActive(true);
                 break;
         }
         // Debug.Log(collisionInfo.tag);
