@@ -32,11 +32,11 @@ public class EvilTracing : MonoBehaviour
         if (HasTarget(out wavePoint)) {
             // code vector4 points to vector3 position
             NavMesh.SamplePosition(wavePoint, out target, 5.0f, NavMesh.AllAreas);
-            Debug.Log(moving);
+            // Debug.Log(moving);
             // agent.SetDestination(position);
             if(NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path)) {
                 route_length = CalcPathDistance(path);
-                Debug.Log(route_length);          
+                // Debug.Log(route_length);          
                 if (route_length <= trigger_dst) {
                     moving = true;
                     agent.SetPath(path);

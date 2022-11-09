@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip woodSteps;
     public AudioClip deathSound;
     public GameObject deathScreen;
+    public GameObject respawnButton;
+    public GameObject deadText;
+
+    
     // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
     void Start()
@@ -61,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isDead)
         {
+            Cursor.visible = true;
+            Screen.lockCursor = false;
+            respawnButton.SetActive(true);
+            deadText.SetActive(true);
             timer = 0;
             var color = deathScreen.GetComponent<Image>().color;
             if(color.a < 0.8f)
@@ -68,6 +76,11 @@ public class PlayerMovement : MonoBehaviour
                 color.a += 1f * Time.deltaTime;
             }
             deathScreen.GetComponent<Image>().color = color;
+        }
+        else
+        {
+            respawnButton.SetActive(false);
+            deadText.SetActive(false);
         }
     }
     
