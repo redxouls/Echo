@@ -136,6 +136,24 @@ To get a local copy up and running follow these simple example steps.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Pull Request
+
+Once the development is done, you can make a pull request with your branch.
+
+**Make a pull request**
+
+<img src="./doc/images/pull_request_bar.png" alt="Pull Request Bar">
+
+1. Click the `Pull request` tab.
+2. Click the `New pull request` button.
+
+<img src="./doc/images/compare_changes.png" alt="Pull Request Bar">
+
+3. Choose the `compare branch` to the branch you developed.
+4. Review the file changes you make in the branch.
+5. Change the title of your pull request according to the issue you are dealing with. The tiltle should be in the follow format `ECHO-#{ISSUE_NUMBER} {ISSUE_NAME}`
+6. Briefly describe what you've done and fill out the template for your pull request.
+
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
