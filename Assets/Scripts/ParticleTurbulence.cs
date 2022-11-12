@@ -13,11 +13,8 @@ public class ParticleTurbulence : MonoBehaviour
 
     [Range(0.01f, 100.0f)]
     public float Frequency = 4.0f;
-
     public bool UseRandomSeed = true;
-
     public AnimationCurve OverLifetime = AnimationCurve.Linear(0.0f, 1.0f, 1.0f, 1.0f);
-
 	public void Start()
     {
         OnScriptReload();
@@ -38,9 +35,9 @@ public class ParticleTurbulence : MonoBehaviour
 
     public void Update()
     {
-        var particleCount = system.GetParticles(particles);
-        var dt = Time.deltaTime;
-        var seedFactor = UseRandomSeed ? 1.0f : 0.0f;
+        int particleCount = system.GetParticles(particles);
+        float dt = Time.deltaTime;
+        float seedFactor = UseRandomSeed ? 1.0f : 0.0f;
 
 #if UNITY_EDITOR
         dt = 1.0f / 90.0f;
@@ -48,24 +45,24 @@ public class ParticleTurbulence : MonoBehaviour
 
         for (int i = 0; i < particleCount; ++i)
         {
-            var pos = particles[i].position;
-            var force = Force;
-            var freq = Frequency;
+            Vector3 pos = particles[i].position;
+            float force = Force;
+            float freq = Frequency;
 
             pos += Vector3.one * (float)(system.randomSeed % 1024) * seedFactor;
 
-            var noiseX = Mathf.PerlinNoise(pos.x * freq, pos.y * freq);
-            var noiseY = Mathf.PerlinNoise(pos.z * freq, pos.x * freq);
-            var noiseZ = Mathf.PerlinNoise(pos.y * freq, pos.z * freq);
+            float noiseX = Mathf.PerlinNoise(pos.x * freq, pos.y * freq);
+            float noiseY = Mathf.PerlinNoise(pos.z * freq, pos.x * freq);
+            float noiseZ = Mathf.PerlinNoise(pos.y * freq, pos.z * freq);
 
             noiseX = noiseX * 2.0f - 1.0f;
             noiseY = noiseY * 2.0f - 1.0f;
             noiseZ = noiseZ * 2.0f - 1.0f;
 
-            var targetVelocity = new Vector3(noiseX, noiseY, noiseZ) * force;
+            Vector3 targetVelocity = new Vector3(noiseX, noiseY, noiseZ) * force;
 
-            var t = 1.0f - particles[i].remainingLifetime / particles[i].startLifetime;
-            var apply = OverLifetime.Evaluate(t);
+            float t = 1.0f - particles[i].remainingLifetime / particles[i].startLifetime;
+            float apply = OverLifetime.Evaluate(t);
 
             particles[i].velocity += targetVelocity * dt * apply;
         }
