@@ -45,6 +45,7 @@
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
         <li><a href="#development">Development</a></li>
+        <li><a href="#pull-request">Pull Request</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -135,6 +136,33 @@ To get a local copy up and running follow these simple example steps.
 5. Open a Pull Request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Pull Request
+
+Once the development is done, you can make a pull request with your branch.
+
+**Make a pull request**
+
+<img src="./doc/images/pull_request_bar.png">
+
+1. Click the `Pull request` tab.
+2. Click the `New pull request` button.
+
+<img src="./doc/images/compare_changes.png">
+
+3. At the `compare branch` dropdown, choose the branch you developed.
+4. Review the file changes you made in the branch. After confirming the changes, click `Create pull request`.
+5. Change the title of your pull request according to the issue you are dealing with. The tiltle should follow the format `ECHO-#{ISSUE_NUMBER} {ISSUE_NAME}`
+6. Briefly describe what you've done and fill out the template for your pull request.
+
+**Merge Pull Request**
+<img src="./doc/images/files_changed.png">
+
+1. Go to `Files changed` tab to review the changes.
+2. If no conflict the merge button should be green.
+   <img src="./doc/images/merge_pr_no_conflict.png" alt="Pull Request Bar">
+3. **Click on `Squash and merge`**. and change the commit message to be as same as the title of this PR. The commit message should follow the format `ECHO-#{ISSUE_NUMBER} {ISSUE_NAME}`.
+4. If the green `merge` button is not available, the conflict error is shown on the website. You should go back to your branch and fix the conflict first. You should `git fetch` and `git rebase origin\main`.
 
 ## Usage
 
