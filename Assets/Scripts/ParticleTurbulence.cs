@@ -49,8 +49,10 @@ public class ParticleTurbulence : MonoBehaviour
             float force = Force;
             float freq = Frequency;
 
+            // set random seed
             pos += Vector3.one * (float)(system.randomSeed % 1024) * seedFactor;
 
+            // create Perlin noise on each 2D plane and map it onto the original particle space
             float noiseX = Mathf.PerlinNoise(pos.x * freq, pos.y * freq);
             float noiseY = Mathf.PerlinNoise(pos.z * freq, pos.x * freq);
             float noiseZ = Mathf.PerlinNoise(pos.y * freq, pos.z * freq);
@@ -59,8 +61,10 @@ public class ParticleTurbulence : MonoBehaviour
             noiseY = noiseY * 2.0f - 1.0f;
             noiseZ = noiseZ * 2.0f - 1.0f;
 
+            // apply force on random positions to create target velocities
             Vector3 targetVelocity = new Vector3(noiseX, noiseY, noiseZ) * force;
 
+            // apply animation curve
             float t = 1.0f - particles[i].remainingLifetime / particles[i].startLifetime;
             float apply = OverLifetime.Evaluate(t);
 
