@@ -7,10 +7,11 @@ public class Skills : MonoBehaviour
     public SoundWaveManager soundWaveManager;
     
     private float lifeSpan;
+    private Transform playerCylinder;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerCylinder = transform.Find("Cylinder");
     }
 
     // Update is called once per frame
@@ -34,7 +35,7 @@ public class Skills : MonoBehaviour
             lifeSpan = strength * 5f + 1f;
             float speed = strength * 1.5f + 0.5f;
             
-            soundWaveManager.AddWave(thickness, lifeSpan, speed, transform.position, WAVE_ATTRIBUTE.PLAYER);
+            soundWaveManager.AddWave(thickness, lifeSpan, speed, playerCylinder.position, WAVE_ATTRIBUTE.PLAYER);
         }
     }
 }
