@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         JumpAndGravity();
         Move();
         HandleFootsteps();
-        Echo();
+        // Echo();
     }
     void LateUpdate()
     {

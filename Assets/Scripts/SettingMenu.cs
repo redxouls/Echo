@@ -20,7 +20,7 @@ public class SettingMenu : MonoBehaviour
         PlayerPrefs.SetFloat("waveSpeed", waveSpeed);
     }
     public void SetWaveDuration(float waveLifespan) {
-        Debug.Log(waveLifespan);
+        // Debug.Log(waveLifespan);
         PlayerPrefs.SetFloat("waveLifespan", waveLifespan);
     }
     public void SetWaveInterval(float waveInterval) {

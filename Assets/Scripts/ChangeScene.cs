@@ -20,18 +20,18 @@ public class ChangeScene : MonoBehaviour
 
     public void MoveToScene(string sceneName) {
         string sceneStatus = PlayerPrefs.GetString("sceneStatus");
-        Debug.Log(sceneStatus);
+        // Debug.Log(sceneStatus);
         if (sceneStatus == "Main") {
             // InitialCanvas.enabled = false;
             // MainCanvas.enabled = false;
             // SettingCanvas.enabled = false;
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-            Debug.Log(sceneName);
+            // Debug.Log(sceneName);
             PlayerPrefs.SetString("sceneStatus", "Game");
         }
         else if (sceneStatus == "Game") {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-            Debug.Log(sceneName);
+            // Debug.Log(sceneName);
             // MainCanvas.enabled = true;
             PlayerPrefs.SetString("sceneStatus", "Main");
         }
@@ -40,8 +40,8 @@ public class ChangeScene : MonoBehaviour
     void Update() {
         string sceneStatus = PlayerPrefs.GetString("sceneStatus");
         if (Input.GetKey("q")){
-            Debug.Log("press q");
-            Debug.Log(sceneStatus);
+            // Debug.Log("press q");
+            // Debug.Log(sceneStatus);
             if (sceneStatus == "Game") {
                 MoveToScene("UI");
             }
