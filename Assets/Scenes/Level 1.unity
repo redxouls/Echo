@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414726, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5826,6 +5826,7 @@ GameObject:
   - component: {fileID: 301088062}
   - component: {fileID: 301088061}
   - component: {fileID: 301088060}
+  - component: {fileID: 301088063}
   m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
@@ -5912,6 +5913,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301088058}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &301088063
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301088058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.218789, y: 0.49149814, z: 9.974205}
+  m_Center: {x: -0.056011457, y: -0.24574907, z: 0.012915039}
 --- !u!1 &322924551
 GameObject:
   m_ObjectHideFlags: 0
@@ -6491,7 +6505,7 @@ MonoBehaviour:
   grenade: {fileID: 540105885}
   cursor: {fileID: 212260678}
   shootForce: 4
-  timeBetweenShoot: 5
+  timeBetweenShoot: 1
 --- !u!1 &540105885
 GameObject:
   m_ObjectHideFlags: 0
