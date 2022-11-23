@@ -36,7 +36,6 @@ public class Grenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.position);
         timer += Time.deltaTime;
         if (timer >= flyingTime)
         {
