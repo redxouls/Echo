@@ -10,7 +10,7 @@ public class SettingMenu : MonoBehaviour
     public Slider waveLifespan;
     public Slider minEchoInterval;
     public Slider playerSpeed;
-    public Slider Volume;
+    public Slider mouseSensitivity;
     public Slider waveThickness;
     public AudioMixer audioMixer;
     public static SoundWaveManager soundWaveManager;
@@ -30,7 +30,7 @@ public class SettingMenu : MonoBehaviour
         PlayerPrefs.SetFloat("playerSpeed", playerSpeed);
     }
     public void SetVolume(float volume) {
-        audioMixer.SetFloat("Volume", volume);
+        PlayerPrefs.SetFloat("mouseSensitivity", volume);
     }
     public void SetWaveWidth(float waveWidth) {
         PlayerPrefs.SetFloat("waveThickness", waveWidth);
@@ -42,7 +42,7 @@ public class SettingMenu : MonoBehaviour
         waveLifespan.value = 5;
         minEchoInterval.value = 2f;
         playerSpeed.value = 1.5f;
-        Volume.value = 5;
+        mouseSensitivity.value = 100;
         waveThickness.value = 2;
     }
     void Start() 

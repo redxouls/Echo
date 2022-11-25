@@ -40,8 +40,8 @@ public class ChangeScene : MonoBehaviour
     void Update() {
         string sceneStatus = PlayerPrefs.GetString("sceneStatus");
         if (Input.GetKey("q")){
-            // Debug.Log("press q");
-            // Debug.Log(sceneStatus);
+            Debug.Log("press q");
+            Debug.Log(sceneStatus);
             if (sceneStatus == "Game") {
                 MoveToScene("UI");
             }
