@@ -10,9 +10,13 @@ public class Grenade : MonoBehaviour
     // public float flyingTime; // how long can grenade fly without collide with object
     public int numberOfWave; // how many wave will be created after explosion
     // public float explosionInterval; // interval between each explosion wave
+<<<<<<< HEAD
     public int countOfWave; // should be private, set to public for debug
     public float reduceFactor; // (0, 1], reduction rate of AlphaAttenuation each collision
     public float initAlpha; // initial alphaAttenuation
+=======
+    public int countOfWave;
+>>>>>>> f9817c3 (add physic material for bouncing grenade)
 
     // grenade wave parameters
     public float waveThickness; 
@@ -55,8 +59,13 @@ public class Grenade : MonoBehaviour
     {
         if (countOfWave < numberOfWave)
         {
+<<<<<<< HEAD
             CreateWave();
             countOfWave++;
+=======
+            countOfWave++;
+            CreateWave();
+>>>>>>> f9817c3 (add physic material for bouncing grenade)
         }
     }
 
