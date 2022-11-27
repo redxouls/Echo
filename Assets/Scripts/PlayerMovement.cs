@@ -52,11 +52,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDis, groundMask); // Ground Check
-        JumpAndGravity();
-        Move();
-        HandleFootsteps();
-        // Echo();
+        if(!PauseController.GamePaused)
+        {
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDis, groundMask); // Ground Check
+            JumpAndGravity();
+            Move();
+            HandleFootsteps();
+            // Echo();
+        }
     }
     void LateUpdate()
     {

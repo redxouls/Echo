@@ -29,9 +29,8 @@ public class SettingMenu : MonoBehaviour
     public void SetPlayerSpeed(float playerSpeed) {
         PlayerPrefs.SetFloat("playerSpeed", playerSpeed);
     }
-    public void SetVolume(float volume) {
-        PlayerPrefs.SetFloat("mouseSensitivity", volume);
-    }
+    public void SetVolume(float volume) { 
+      }
     public void SetWaveWidth(float waveWidth) {
         PlayerPrefs.SetFloat("waveThickness", waveWidth);
     }
