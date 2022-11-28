@@ -16,7 +16,7 @@ public class SoundWaveManager : MonoBehaviour
     float[] _Radius;    // update every Update()
     float[] _thickness; // update only when a wave is added
     float[] _Attributes;  // wave attributes (e.g DEAD, PLAYER...), update every Update()
-    float[] _AlphaAttenuation;  // wave age 0 ~ 1, update every Update()
+    float[] _AlphaAttenuation;  // wave alpha attenuation 0 ~ 1, update every Update()
     // Use float for _Attributes because there is not setIntegerArray function -> use SetFloatArray instead
 
     // Some parameters for envLight

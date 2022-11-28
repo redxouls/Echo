@@ -6,9 +6,7 @@ public class Skills : MonoBehaviour
 {
     public float minLifeSpan;
     public float maxLifeSpan;
-    public float minThickness;
-    public float minWaveSpeed;
-
+    
     public SoundWaveManager soundWaveManager;
     
     private float pressedDuration;
@@ -34,10 +32,8 @@ public class Skills : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             pressedDuration = Time.time - pressedDuration;
-            
-            
+
             float factor = Mathf.Min(Mathf.Max(pressedDuration, minLifeSpan), maxLifeSpan) / maxLifeSpan;
-            // strength = Mathf.Sqrt(1 - Mathf.Pow(strength - 1, 2));
             float lifeSpan, thickness, speed;
             
             // Small wave: search area arround the player (near)
@@ -52,7 +48,7 @@ public class Skills : MonoBehaviour
             // Medium wave: search area arround the player (far)
             if (factor < 0.75f)
             {
-                Debug.Log("Medium Wave");
+                // Debug.Log("Medium Wave");
                 lifeSpan = factor * 5f;
                 thickness = 1f;
                 speed = 1.0f;
@@ -61,7 +57,7 @@ public class Skills : MonoBehaviour
             // Large wave: obeserve the entire environment
             else
             {
-                Debug.Log("Large Wave");
+                // Debug.Log("Large Wave");
                 lifeSpan = factor * 5f;
                 thickness = 1.5f;
                 speed = 1.3f;
