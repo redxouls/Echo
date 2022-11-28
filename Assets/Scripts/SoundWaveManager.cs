@@ -16,6 +16,7 @@ public class SoundWaveManager : MonoBehaviour
     float[] _Radius;    // update every Update()
     float[] _thickness; // update only when a wave is added
     float[] _Attributes;  // wave attributes (e.g DEAD, PLAYER...), update every Update()
+    float[] _AlphaAttenuation;  // wave age 0 ~ 1, update every Update()
     // Use float for _Attributes because there is not setIntegerArray function -> use SetFloatArray instead
 
     // Some parameters for envLight
@@ -24,8 +25,6 @@ public class SoundWaveManager : MonoBehaviour
     float[] envLightSmallestRange;
     float [] envLightLargestRange;
 
-
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +35,7 @@ public class SoundWaveManager : MonoBehaviour
         }
         _Points = new Vector4[maxNumOfWave];
         _Radius = new float[maxNumOfWave];
+        _AlphaAttenuation = new float[maxNumOfWave];
         _thickness = new float[maxNumOfWave];
         _Attributes = new float[maxNumOfWave];
     }
@@ -52,21 +52,24 @@ public class SoundWaveManager : MonoBehaviour
         {
             waves[i].Update();
             _Radius[i] = waves[i].GetRadius();
+            _AlphaAttenuation[i] = waves[i].GetAlphaAttenuation();
             _Attributes[i] = (float)waves[i].GetAttribute();
         }
         postProcessingMaterial.SetFloatArray("_Radius", _Radius);
+        postProcessingMaterial.SetFloatArray("_AlphaAttenuation", _AlphaAttenuation);
         postProcessingMaterial.SetFloatArray("_Attributes", _Attributes);
     }
 
-    public void AddWave(float thickness, float lifeSpan, float speed, Vector3 position, WAVE_ATTRIBUTE attribute)
+    public void AddWave(float thickness, float lifeSpan, float speed, float alphaAttenuation, Vector3 position, WAVE_ATTRIBUTE attribute)
     {
         for (int i = 0; i < maxNumOfWave; ++i)
         {
             if (waves[i].IsDead())
             {
-                waves[i].Init(thickness, lifeSpan, speed, position, attribute);
+                waves[i].Init(thickness, lifeSpan, speed, alphaAttenuation, position, attribute);
                 _Points[i] = position;
                 _Radius[i] = 0;
+                _AlphaAttenuation[i] = alphaAttenuation;
                 _thickness[i] = thickness;
                 _Attributes[i] = (float)attribute;
                 
@@ -79,17 +82,17 @@ public class SoundWaveManager : MonoBehaviour
         Debug.Log("EEEEEEEorror: wave is out of ragne");
     }
 
-    private IEnumerator AddWaveIEnum(float delay, float thickness, float lifeSpan, float speed, Vector3 position, WAVE_ATTRIBUTE attribute)
+    private IEnumerator AddWaveIEnum(float delay, float thickness, float lifeSpan, float speed, float alphaAttenuation, Vector3 position, WAVE_ATTRIBUTE attribute)
     {
         yield return new WaitForSeconds(delay);
-        AddWave(thickness, lifeSpan, speed, position, attribute);
+        AddWave(thickness, lifeSpan, speed, alphaAttenuation, position, attribute);
     }
 
-    public void AddWaveSet(float interval, int count, float thickness, float lifeSpan, float speed, Vector3 position, WAVE_ATTRIBUTE attribute)
+    public void AddWaveSet(float interval, int count, float thickness, float lifeSpan, float speed, float alphaAttenuation, Vector3 position, WAVE_ATTRIBUTE attribute)
     {
         for (int i = 0; i < count; ++i)
         {
-            StartCoroutine(AddWaveIEnum(i*interval, thickness, lifeSpan, speed, position, attribute));
+            StartCoroutine(AddWaveIEnum(i*interval, thickness, lifeSpan, speed, alphaAttenuation, position, attribute));
         }
     }
 }

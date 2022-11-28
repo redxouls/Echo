@@ -51,6 +51,7 @@ Shader "Hidden/SoundWave"
             float _Radius[100];
             float _thickness[100];
             float _Attributes[100]; // DEAD = 0, PLAYER = 1, GRENADE = 2, PASSIVE = 3
+            float _AlphaAttenuation[100]; // the age of the wave 0 ~ 1
             float _Weight[] = {0.0, 0.4, 0.3, 0.3}; // weight for each attribute
 
             // envLights
@@ -88,7 +89,7 @@ Shader "Hidden/SoundWave"
                     float r = distance(worldPos.xyz, _Points[i].xyz);
                     // Caululate (distance - wave_radius)
                     float delta = r - _Radius[i];
-
+                    
                     // double side smooth to simulate ripple
                     // if (delta <  _Thickness)
                     // {
@@ -99,7 +100,7 @@ Shader "Hidden/SoundWave"
                     if (abs(delta) < _thickness[i])
                     {
                         // TODO: add _Weight[i]
-                        alpha += 0.3 * smoothstep(0, _thickness[i], delta);
+                        alpha += 0.3 * smoothstep(0, _thickness[i], delta) *  _AlphaAttenuation[i];
                     }
                 }
                 // Set maximum alpha to 1
