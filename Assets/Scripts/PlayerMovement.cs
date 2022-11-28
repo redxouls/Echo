@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDis = 0.4f;
     public LayerMask groundMask;
+    public Transform camera;
 
     public float minEchoInterval;
     public float soundWaveSetInterval;
@@ -85,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+        transform.rotation = Quaternion.Euler(0, camera.eulerAngles.y, 0);
         moving = x != 0 || z != 0;
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
