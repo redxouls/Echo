@@ -49,18 +49,18 @@ public class Skills : MonoBehaviour
             if (factor < 0.75f)
             {
                 // Debug.Log("Medium Wave");
-                lifeSpan = factor * 5f;
+                lifeSpan = factor * 6f;
                 thickness = 1f;
-                speed = 1.0f;
+                speed = 1.3f;
             }
 
             // Large wave: obeserve the entire environment
             else
             {
                 // Debug.Log("Large Wave");
-                lifeSpan = factor * 5f;
+                lifeSpan = factor * 8f;
                 thickness = 1.5f;
-                speed = 1.3f;
+                speed = 1.7f;
             }
 
             soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, Trail.position, WAVE_ATTRIBUTE.PLAYER);

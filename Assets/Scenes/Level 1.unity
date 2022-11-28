@@ -6659,8 +6659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2580a96a33045288f02df76bc7664d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLifeSpan: 0.75
-  maxLifeSpan: 2
+  minLifeSpan: 0.25
+  maxLifeSpan: 1.25
   soundWaveManager: {fileID: 1098908001}
 --- !u!1 &448006847
 GameObject:
@@ -24871,7 +24871,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216600054}
-  m_LocalRotation: {x: 0.04654691, y: -0.7055734, z: 0.04654694, w: 0.70557284}
+  m_LocalRotation: {x: 0.046546906, y: -0.7055734, z: 0.046546936, w: 0.70557284}
   m_LocalPosition: {x: 1.0499995, y: 2.009804, z: 0.000000683941}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -43960,7 +43960,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106183187}
-  m_LocalRotation: {x: 0.046546906, y: -0.7055733, z: 0.046546936, w: 0.70557284}
+  m_LocalRotation: {x: 0.046546903, y: -0.7055733, z: 0.046546936, w: 0.70557284}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
