@@ -71,7 +71,7 @@ public class Grenade : MonoBehaviour
 
     void CreateWave()
     {
-        soundWaveManager.AddWave(thickness, lifeSpan, speed, transform.position, WAVE_ATTRIBUTE.GRENADE);
+        soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, transform.position, WAVE_ATTRIBUTE.GRENADE);
         audioSource.PlayOneShot(clip, 0.7F);
     }
 }

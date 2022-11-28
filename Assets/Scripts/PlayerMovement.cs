@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (timer >= minEchoInterval && moving) 
         {
-            soundWaveManager.AddWave(waveThickness, waveLifespan, waveSpeed, transform.position, WAVE_ATTRIBUTE.PLAYER);
+            soundWaveManager.AddWave(waveThickness, waveLifespan, waveSpeed, 1, transform.position, WAVE_ATTRIBUTE.PLAYER);
             // soundWaveManager.AddPlayerWave(transform.position);
             // Add a sound source upon moving
             // soundWaveManager.AddWaveSource(transform.position);
