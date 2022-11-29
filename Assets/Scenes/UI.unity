@@ -820,6 +820,7 @@ MonoBehaviour:
   InitialCanvas: {fileID: 1983138411}
   MainCanvas: {fileID: 6270543}
   SettingCanvas: {fileID: 658772361}
+  TutorialCanvas: {fileID: 1677169360}
 --- !u!114 &178529211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1972,8 +1973,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 500, y: -62}
-  m_SizeDelta: {x: 224.515, y: 333.392}
+  m_AnchoredPosition: {x: 517, y: -46.138}
+  m_SizeDelta: {x: 538.16, y: 596.223}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952841719
 MonoBehaviour:
@@ -1995,7 +1996,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ebc9b6d1560ae4b6282814ca5c2ec5e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54b5350676d3e4b41a25537bcd4a1de1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3232,7 +3233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1677169357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4013,7 +4014,7 @@ GameObject:
   - component: {fileID: 1963172675}
   - component: {fileID: 1963172674}
   m_Layer: 5
-  m_Name: image
+  m_Name: key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4036,8 +4037,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -470, y: -62}
-  m_SizeDelta: {x: 451.341, y: 420.843}
+  m_AnchoredPosition: {x: -199.286, y: -46.138}
+  m_SizeDelta: {x: 1065.423, y: 476.969}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1963172674
 MonoBehaviour:
@@ -4059,7 +4060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2f65838ab9766455aaec98c3af7bc563, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83df4ea92b2ef4978a77606f034fde4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
