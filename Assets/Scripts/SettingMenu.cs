@@ -9,7 +9,7 @@ public class SettingMenu : MonoBehaviour
     public Slider mouseSensitivity;
     public Slider volume;
     [SerializeField] private AudioMixer audioMixer;
-    bool created = false;
+    // bool created = false;
 
     public void SetVolume(float volume)
     {
@@ -17,14 +17,14 @@ public class SettingMenu : MonoBehaviour
         audioMixer.SetFloat("MainVolume", Mathf.Log10(volume) * 20);
     }
 
-    public void SetMouseSensitivity(float waveWidth)
+    public void SetMouseSensitivity(float mouseSensitivity)
     {
-        PlayerPrefs.SetFloat("waveThickness", waveWidth);
+        PlayerPrefs.SetFloat("MouseSensitivity", mouseSensitivity);
     }
 
     public void DefaultSetting()
     {
-        mouseSensitivity.value = 100;
+        mouseSensitivity.value = 0.5f;
         volume.value = 1;
     }
 

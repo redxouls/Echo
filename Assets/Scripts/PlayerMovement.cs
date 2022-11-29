@@ -44,11 +44,11 @@ public class PlayerMovement : MonoBehaviour
     {
         MyAudioSource = GetComponent<AudioSource>();
         //Load Player Setting
-        speed = PlayerPrefs.GetFloat("playerSpeed");
-        waveThickness = PlayerPrefs.GetFloat("waveThickness");
-        waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
-        waveLifespan = PlayerPrefs.GetFloat("waveLifespan");
-        minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
+        // speed = PlayerPrefs.GetFloat("playerSpeed");
+        // waveThickness = PlayerPrefs.GetFloat("waveThickness");
+        // waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
+        // waveLifespan = PlayerPrefs.GetFloat("waveLifespan");
+        // minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
         deathScreen.enabled = isDead;
     }
 

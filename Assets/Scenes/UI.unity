@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1551,10 +1551,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1135501119}
   m_HandleRect: {fileID: 809466507}
   m_Direction: 0
-  m_MinValue: 50
-  m_MaxValue: 150
+  m_MinValue: 0
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderUI: {fileID: 805556125}
   textSliderValue: {fileID: 23406376}
-  title: Mouse Sensitivity
+  title: MouseSensitivity
 --- !u!1 &809466506
 GameObject:
   m_ObjectHideFlags: 0
