@@ -24,8 +24,12 @@ public class EvilTracing : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        VisualizeEvil();
-        Trace();
+        if(!PauseController.GamePaused)
+        {
+            VisualizeEvil();
+            Trace();    
+        }
+        
     }
     void Trace() {
         Vector3 wavePoint;

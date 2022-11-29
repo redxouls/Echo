@@ -20,11 +20,14 @@ public class Skills : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Clap();
+        if (!PauseController.GamePaused)
+        {
+            Clap();
+        }
     }
 
     void Clap()
-    {
+    {   
         if (Input.GetKeyDown(KeyCode.Space))
         {
             pressedDuration = Time.time;

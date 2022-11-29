@@ -6,48 +6,31 @@ using UnityEngine.UI;
 
 public class SettingMenu : MonoBehaviour
 {
-    public Slider waveSpeed;
-    public Slider waveLifespan;
-    public Slider minEchoInterval;
-    public Slider playerSpeed;
-    public Slider Volume;
-    public Slider waveThickness;
-    public AudioMixer audioMixer;
-    public static SoundWaveManager soundWaveManager;
-    bool created = false;
-    public void SetWaveSpeed(float waveSpeed) {
-        // soundWaveManager.SetFloat("waveSpeed", waveSpeed);
-        PlayerPrefs.SetFloat("waveSpeed", waveSpeed);
+    public Slider mouseSensitivity;
+    public Slider volume;
+    [SerializeField] private AudioMixer audioMixer;
+    // bool created = false;
+
+    public void SetVolume(float volume)
+    {
+        PlayerPrefs.SetFloat("volume", volume);
+        audioMixer.SetFloat("MainVolume", Mathf.Log10(volume) * 20);
     }
-    public void SetWaveDuration(float waveLifespan) {
-        // Debug.Log(waveLifespan);
-        PlayerPrefs.SetFloat("waveLifespan", waveLifespan);
-    }
-    public void SetWaveInterval(float waveInterval) {
-        PlayerPrefs.SetFloat("minEchoInterval", waveInterval);
-    }
-    public void SetPlayerSpeed(float playerSpeed) {
-        PlayerPrefs.SetFloat("playerSpeed", playerSpeed);
-    }
-    public void SetVolume(float volume) {
-        audioMixer.SetFloat("Volume", volume);
-    }
-    public void SetWaveWidth(float waveWidth) {
-        PlayerPrefs.SetFloat("waveThickness", waveWidth);
+
+    public void SetMouseSensitivity(float mouseSensitivity)
+    {
+        PlayerPrefs.SetFloat("MouseSensitivity", mouseSensitivity);
     }
 
     public void DefaultSetting()
     {
-        waveSpeed.value = 3;
-        waveLifespan.value = 5;
-        minEchoInterval.value = 2f;
-        playerSpeed.value = 1.5f;
-        Volume.value = 5;
-        waveThickness.value = 2;
+        mouseSensitivity.value = 0.5f;
+        volume.value = 1;
     }
+
     void Start() 
     {
-        
+       DefaultSetting(); 
     }
 
 }

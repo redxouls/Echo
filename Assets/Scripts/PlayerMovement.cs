@@ -32,43 +32,57 @@ public class PlayerMovement : MonoBehaviour
     public float waveSpeed;
     public float waveLifespan;
 
-    private bool isDead = false;
+    public bool isDead = false;
     public AudioClip woodSteps;
     public AudioClip deathSound;
-    public GameObject deathScreen;
+    public Canvas deathScreen;
+    public GameObject deathBG;
+
     // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
     void Start()
     {
         MyAudioSource = GetComponent<AudioSource>();
         //Load Player Setting
-        speed = PlayerPrefs.GetFloat("playerSpeed");
-        waveThickness = PlayerPrefs.GetFloat("waveThickness");
-        waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
-        waveLifespan = PlayerPrefs.GetFloat("waveLifespan");
-        minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
+        // speed = PlayerPrefs.GetFloat("playerSpeed");
+        // waveThickness = PlayerPrefs.GetFloat("waveThickness");
+        // waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
+        // waveLifespan = PlayerPrefs.GetFloat("waveLifespan");
+        // minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
+        deathScreen.enabled = isDead;
     }
 
     // Update is called once per frame
     void Update()
     {   
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDis, groundMask); // Ground Check
-        JumpAndGravity();
-        Move();
-        HandleFootsteps();
-        // Echo();
+        if (!PauseController.GamePaused)
+        {
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDis, groundMask); // Ground Check
+            JumpAndGravity();
+            Move();
+            HandleFootsteps();
+            // Echo();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isDead = !isDead;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
     void LateUpdate()
     {
-        if(isDead)
+        if (isDead)
         {
+            // Debug.Log("You dead.");
+            deathScreen.enabled = isDead;
             timer = 0;
-            var color = deathScreen.GetComponent<Image>().color;
+            var color = deathBG.GetComponent<Image>().color;
             if(color.a < 0.8f)
             {
                 color.a += 1f * Time.deltaTime;
             }
-            deathScreen.GetComponent<Image>().color = color;
+            deathBG.GetComponent<Image>().color = color;
         }
     }
     

@@ -16,6 +16,7 @@ public class ThirdPersonCameraManager : MonoBehaviour
     {
         // Cursor.lockState = CursorLockMode.Locked;
         // Cursor.lockState = CursorLockMode.Locked;
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
         Cursor.visible = false;
         Screen.lockCursor = true;
     }

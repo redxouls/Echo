@@ -9,20 +9,22 @@ public class GrenadeManager : MonoBehaviour
     public GameObject cursor;
     public float shootForce;
     public float timeBetweenShoot;
+    public PlayerMovement player;
     
-   
-    bool readyToShoot;
+    private bool aiming;
+    private bool readyToShoot;
 
     // Start is called before the first frame update
     void Start()
     {
         readyToShoot = true;
+        aiming = false;
         cursor.SetActive(false);
         grenade.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         HandleInput();
     }
@@ -32,14 +34,16 @@ public class GrenadeManager : MonoBehaviour
         {
             return;
         }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !PauseController.GamePaused && !player.isDead)
         {
             cursor.SetActive(true);
+            aiming = true;
         }
-        if (Input.GetMouseButtonUp(0))
-        {
+        if (Input.GetMouseButtonUp(0) && aiming)
+        {   
             cursor.SetActive(false);
             readyToShoot = false;
+            aiming = false;
             Shoot();
             Invoke("Reload", timeBetweenShoot);
         }
