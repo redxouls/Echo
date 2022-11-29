@@ -9,41 +9,70 @@ public class TriggerDoor : MonoBehaviour
     public GameObject GreenGem;
     public GameObject YellowGem;
 
-    public Material GemMaterial;
+    public Material[] RBGY_mat; // length = 4, order should be R, B, G, Y
+
+    float[] timer;
+    bool[] completed;
+
     public CollectionManager collectionMgr;
     public float fadeinFactor;
-    float timer = 0f;
-    float factor = 0f;
-    bool triggered;
+    
     void Start()
     {
-        triggered = false;
-        GemMaterial.SetFloat("_Transparency", 0);
+        timer = new float[4]{0, 0, 0, 0};
+        completed = new bool[4]{false, false, false, false};
+        for (int i = 0; i < 4; ++i)
+        {
+            SetTransparency(i, 0);
+        }
     }
     void OnTriggerEnter(Collider collisionInfo)
     {
-        if (collisionInfo.tag == "Player" && !triggered)
+        if (collisionInfo.tag == "Player")
         {
-            collectionMgr.CompletetGem("Fire");
-            Debug.Log("TRIGGGGGGER");
-            triggered = true;
-            timer = 0f;
+            CompletetGem();
         }
-        Debug.Log(collisionInfo.tag);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (triggered && factor <= 0.9f){
-            timer += Time.deltaTime * 0.1f;
-            factor = 1f - Mathf.Pow(fadeinFactor, timer);
-            Debug.Log(factor);
-            GemMaterial.SetFloat("_Transparency", factor);
-        }
-        if (factor > 0.9f)
+        ShowGem();
+    }
+
+    void CompletetGem()
+    {
+        string[] gemName = new string[4]{"Fire", "Water", "Grass", "Light"};
+        int gemCollection = collectionMgr.GetGemColletion();
+        for (int i = 0; i < 4; ++i)
         {
-            GemMaterial.SetFloat("_Transparency", 1);
+            if ((gemCollection & (1 << i)) > 0)
+            {
+                collectionMgr.CompletetGem(gemName[i]);
+                timer[i] = 0;
+                completed[i] = true;
+            }
         }
+    }
+
+    void ShowGem()
+    {
+        for (int i = 0; i < 4; ++i)
+        {
+            if (completed[i])
+            {
+                timer[i] += Time.deltaTime * 0.01f;
+                float factor = 1f - Mathf.Pow(fadeinFactor, timer[i]);
+                SetTransparency(i, factor);
+                // RBGY_mat[i].SetFloat("_Transparency", factor);
+            }
+        }
+    }
+
+    void SetTransparency(int index, float value)
+    {
+        Color color = RBGY_mat[index].color;
+        color.a = value;
+        RBGY_mat[index].color = color;
     }
 }

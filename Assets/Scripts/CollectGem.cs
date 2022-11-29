@@ -8,7 +8,7 @@ public class CollectGem : MonoBehaviour
     public float fadeoutFactor;
     float timer;
     public Material gemMaterial;
-    public GameObject LevelUp;
+    public GameObject LevelUp; // TODO: add particle effect
     public CollectionManager collectionMgr;
     public string gemName;
     // Start is called before the first frame update
@@ -43,7 +43,7 @@ public class CollectGem : MonoBehaviour
         if (factor < 0.01)
         {
             gemMaterial.SetFloat("_Transparency", 0);
-            LevelUp.SetActive(false);
+            // LevelUp.SetActive(false);
             collectionMgr.CollectGem(gemName);
         }
     }
