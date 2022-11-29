@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gem1
+  m_Name: Gem1_fadein
   m_Shader: {fileID: -6465566751694194690, guid: 45bf0c4a74d416e4bb98179acd817fc7,
     type: 3}
   m_ValidKeywords: []
@@ -43,7 +43,7 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0
     - _TopLine: 0.689
-    - _Transparency: 1
+    - _Transparency: 0
     - _hehe: 1
     - _test: 1.85
     m_Colors:

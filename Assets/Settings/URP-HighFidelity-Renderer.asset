@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f58c1362db80942a285cff89319f9651, type: 3}
   m_Name: SoundWaveFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     renderPassEvent: 550
     material: {fileID: 2100000, guid: bf3211d7d830740aaaeff5c750a60dd7, type: 2}

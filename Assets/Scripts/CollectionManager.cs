@@ -46,7 +46,17 @@ public class CollectionManager : MonoBehaviour
         // TODO: effects of putting gems to the end doors
         for (int i = 0; i < completeGems.Length; i++)
         {
-            
+            var color = gems[i].color;
+            if (color.a > 0.02f)
+            {
+                color.a -= (1f / color.a) * 0.5f * Time.deltaTime;
+                gems[i].color = color;
+            }
+            else
+            {
+                color.a = 0.02f;
+                gems[i].color = color;
+            }
         }
 
     }

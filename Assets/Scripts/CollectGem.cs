@@ -5,14 +5,16 @@ using UnityEngine;
 public class CollectGem : MonoBehaviour
 {
     bool collected;
-    public float fadeoutTime;
     public float fadeoutFactor;
     float timer;
     public Material gemMaterial;
     public GameObject LevelUp;
+    public CollectionManager collectionMgr;
+    public string gemName;
     // Start is called before the first frame update
     void Start()
     {
+        gemMaterial.SetFloat("_Transparency", 1);
         collected = false;
     }
 
@@ -37,12 +39,12 @@ public class CollectGem : MonoBehaviour
     {
         timer += Time.deltaTime;
         float factor = Mathf.Pow(fadeoutFactor, timer);
-        Debug.Log(factor);
-        gameObject.GetComponent<MeshRenderer>().material.SetFloat("_Transparency", factor);
+        gemMaterial.SetFloat("_Transparency", factor);
         if (factor < 0.01)
         {
-            gameObject.GetComponent<MeshRenderer>().material.SetFloat("_Transparency", 0);
+            gemMaterial.SetFloat("_Transparency", 0);
             LevelUp.SetActive(false);
+            collectionMgr.CollectGem(gemName);
         }
     }
 }
