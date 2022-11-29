@@ -1,4 +1,4 @@
-Shader "Hidden/SoundWave"
+Shader "Hidden/OldSoundWave"
 {
     Properties
     {
