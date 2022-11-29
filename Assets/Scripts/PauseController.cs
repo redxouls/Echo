@@ -30,7 +30,7 @@ public class PauseController : MonoBehaviour
     void ChangePauseState()
     {
         GamePaused = !GamePaused;
-        Debug.Log("GamePaused: " + GamePaused);
+        // Debug.Log("GamePaused: " + GamePaused);
         Time.timeScale = GamePaused ? 0f : 1f;
         AudioSource[] audios = FindObjectsOfType<AudioSource>();
         if (GamePaused)

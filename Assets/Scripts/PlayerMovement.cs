@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDead)
         {
-            Debug.Log("You dead.");
+            // Debug.Log("You dead.");
             deathScreen.enabled = isDead;
             timer = 0;
             var color = deathBG.GetComponent<Image>().color;
