@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             HandleFootsteps();
             // Echo();
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             isDead = !isDead;
             Cursor.visible = true;
