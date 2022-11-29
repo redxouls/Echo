@@ -10,7 +10,9 @@ public class Grenade : MonoBehaviour
     // public float flyingTime; // how long can grenade fly without collide with object
     public int numberOfWave; // how many wave will be created after explosion
     // public float explosionInterval; // interval between each explosion wave
-    public int countOfWave;
+    public int countOfWave; // should be private, set to public for debug
+    public float reduceFactor; // (0, 1], reduction rate of AlphaAttenuation each collision
+    public float initAlpha; // initial alphaAttenuation
 
     // grenade wave parameters
     public float waveThickness; 
@@ -22,7 +24,7 @@ public class Grenade : MonoBehaviour
     // private Vector3 targetPos;
 
     // audio
-    public AudioClip clip;
+    public AudioClip[] clips;
     AudioSource audioSource;
     
     // Start is called before the first frame update
@@ -53,8 +55,8 @@ public class Grenade : MonoBehaviour
     {
         if (countOfWave < numberOfWave)
         {
-            countOfWave++;
             CreateWave();
+            countOfWave++;
         }
     }
 
@@ -77,7 +79,8 @@ public class Grenade : MonoBehaviour
 
     void CreateWave()
     {
-        soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, transform.position, WAVE_ATTRIBUTE.GRENADE);
-        audioSource.PlayOneShot(clip, 0.7F);
+        float intensity = initAlpha * Mathf.Pow(reduceFactor, countOfWave);
+        soundWaveManager.AddWave(waveThickness, waveLifeSpan, waveSpeed, intensity, transform.position, WAVE_ATTRIBUTE.GRENADE);
+        audioSource.PlayOneShot(clips[countOfWave % clips.Length], intensity);
     }
 }
