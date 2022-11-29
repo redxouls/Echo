@@ -7,6 +7,7 @@ public class ChangeCanvas : MonoBehaviour
     public Canvas InitialCanvas;
     public Canvas MainCanvas;
     public Canvas SettingCanvas;
+    public Canvas TutorialCanvas;
 
     private static bool created = false;
     void Start(){
@@ -24,16 +25,26 @@ public class ChangeCanvas : MonoBehaviour
             InitialCanvas.enabled = true;
             MainCanvas.enabled = false;
             SettingCanvas.enabled = false;
+            TutorialCanvas.enabled = false;
         }   
         else if (canvasName == "MainCanvas") {
             InitialCanvas.enabled = false;
             MainCanvas.enabled = true;
             SettingCanvas.enabled = false;
+            TutorialCanvas.enabled = false;
         }
         else if (canvasName == "SettingCanvas") {
             InitialCanvas.enabled = false;
             MainCanvas.enabled = false;
             SettingCanvas.enabled = true;
+            TutorialCanvas.enabled = false;
+        }
+        else if (canvasName == "TutorialCanvas")
+        {
+            InitialCanvas.enabled = false;
+            MainCanvas.enabled = false;
+            SettingCanvas.enabled = false;
+            TutorialCanvas.enabled = true;
         }
     }
 
