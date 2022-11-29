@@ -32,10 +32,11 @@ public class PlayerMovement : MonoBehaviour
     public float waveSpeed;
     public float waveLifespan;
 
-    private bool isDead = false;
+    public bool isDead = false;
     public AudioClip woodSteps;
     public AudioClip deathSound;
     public GameObject deathScreen;
+
     // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
     void Start()

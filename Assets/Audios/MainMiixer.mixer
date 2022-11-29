@@ -40,7 +40,7 @@ AudioMixerController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Echo
+  m_Name: MainMiixer
   m_OutputGroup: {fileID: 0}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
@@ -49,7 +49,11 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: cea92a6f04aa74e6eaaaccf0417872fc
+    name: volume
+  - guid: 87d82a0d7020f4f47af20854b7efb9bd
+    name: MainVolume
   m_AudioMixerGroupViews:
   - guids:
     - b365fc6de0e10411faf30e3dfc9d7ea3
@@ -101,10 +105,13 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: f163d7695ec4b49d9a702c5ec79c3124
   m_FloatValues:
+    57914704391724c05a867738fa383237: 0.53
     ea573dc516034418b8269f0328afa5c8: 0.5
-    b018be4826257458b89f4ddf00b7440e: 0.1
-    c71d0f5c7c0714517a1c71c21759eb02: 300
-    102a551dbf358442a84fbb6c481f0484: 2
+    b018be4826257458b89f4ddf00b7440e: 0.13
+    c71d0f5c7c0714517a1c71c21759eb02: 387
+    87d82a0d7020f4f47af20854b7efb9bd: -1.7612991
+    102a551dbf358442a84fbb6c481f0484: 5.5
+    cea92a6f04aa74e6eaaaccf0417872fc: 0.025578488
   m_TransitionOverrides: {}
 --- !u!244 &5648226253190939610
 AudioMixerEffectController:

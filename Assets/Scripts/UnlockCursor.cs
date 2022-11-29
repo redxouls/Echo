@@ -8,7 +8,8 @@ public class UnlockCursor : MonoBehaviour
     void Start()
     {
         Cursor.visible = true;
-        Screen.lockCursor = false;
+        Cursor.lockState = CursorLockMode.None;
+        // Screen.lockCursor = false;
     }
 
     // Update is called once per frame
