@@ -53,7 +53,7 @@ public class CollectionManager : MonoBehaviour
 
     public void CollectGem(string gemName)
     {
-        Debug.Log("collect "+gemName+" gem.");
+        // Debug.Log("collect "+gemName+" gem.");
         if (gemName == "Fire")
         {
             collectionGems[0] = true;
