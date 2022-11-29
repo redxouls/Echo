@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseController : MonoBehaviour
 {
     public static bool GamePaused;
+    public PlayerMovement player;
     private float triggerTime = 1f;
     private float timer;
 
@@ -20,7 +21,7 @@ public class PauseController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !player.isDead)
         {   
             ChangePauseState();        
         }

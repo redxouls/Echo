@@ -9,6 +9,7 @@ public class GrenadeManager : MonoBehaviour
     public GameObject cursor;
     public float shootForce;
     public float timeBetweenShoot;
+    public PlayerMovement player;
     
     private bool aiming;
     private bool readyToShoot;
@@ -33,7 +34,7 @@ public class GrenadeManager : MonoBehaviour
         {
             return;
         }
-        if (Input.GetMouseButton(0) && !PauseController.GamePaused)
+        if (Input.GetMouseButton(0) && !PauseController.GamePaused && !player.isDead)
         {
             cursor.SetActive(true);
             aiming = true;
@@ -42,6 +43,7 @@ public class GrenadeManager : MonoBehaviour
         {   
             cursor.SetActive(false);
             readyToShoot = false;
+            aiming = false;
             Shoot();
             Invoke("Reload", timeBetweenShoot);
         }
