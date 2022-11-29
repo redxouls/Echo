@@ -680,6 +680,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  camera: {fileID: 0}
   minEchoInterval: 1
   soundWaveSetInterval: 0.12
   soundWaveSetCount: 1
@@ -6506,6 +6507,127 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &894636731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 894636735}
+  - component: {fileID: 894636734}
+  - component: {fileID: 894636733}
+  - component: {fileID: 894636732}
+  m_Layer: 0
+  m_Name: Grass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &894636732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894636731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a923b619467d42d8b827c11755318cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grassPainter: {fileID: 894636733}
+  sourceMesh: {fileID: 1269972498}
+  material: {fileID: 2100000, guid: 410ef879155bc4e8d899893873610284, type: 2}
+  computeShader: {fileID: 7200000, guid: f0eae95e458944680b20c14e87799cc6, type: 3}
+  allowedBladesPerVertex: 4
+  allowedSegmentsPerBlade: 5
+  grassRandomHeight: 0.25
+  bladeRadius: 0.2
+  bladeForwardAmount: 0.38
+  bladeCurveAmount: 2
+  bottomWidth: 0.1
+  windSpeed: 10
+  windStrength: 0.05
+  affectStrength: 1
+  minFadeDistance: 40
+  maxFadeDistance: 60
+  FadeInEditor: 0
+  topTint: {r: 1, g: 1, b: 1, a: 1}
+  bottomTint: {r: 0, g: 0, b: 1, a: 1}
+  castShadow: 0
+  m_InstantiatedMaterial: {fileID: 1970331561}
+--- !u!114 &894636733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894636731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b3743276c9548379b4717588589863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 1269972498}
+  grassLimit: 50000
+  toolbarInt: 0
+  toolbarIntEdit: 0
+  positions:
+  - {x: 9.526187, y: 9.68953, z: 25.866112}
+  colors:
+  - {r: 0.49545276, g: 1, b: 0, a: 1}
+  indicies: 00000000
+  normals:
+  - {x: 0.9759946, y: 0.040955883, z: 0.2139091}
+  length:
+  - {x: 1, y: 1}
+  i: 1
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 1
+  paintMask:
+    serializedVersion: 2
+    m_Bits: 1
+  brushSize: 6.07
+  brushFalloffSize: 0
+  Flow: 0
+  density: 1
+  normalLimit: 1
+  sizeWidth: 1
+  sizeLength: 1
+  reprojectOffset: 1
+  rangeR: 0
+  rangeG: 0
+  rangeB: 0
+  AdjustedColor: {r: 0.49545276, g: 1, b: 0, a: 0}
+  hitPosGizmo: {x: -0.30046844, y: 1.6549339, z: 0.2974074}
+  hitNormal: {x: 0.9759946, y: 0.040955883, z: 0.2139091}
+--- !u!33 &894636734
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894636731}
+  m_Mesh: {fileID: 1269972498}
+--- !u!4 &894636735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894636731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.86, y: -7.323148, z: -15.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &923835630
 GameObject:
   m_ObjectHideFlags: 0
@@ -7369,6 +7491,170 @@ MonoBehaviour:
   m_Bindings:
   - {fileID: 1218633006}
   m_VisualEffect: {fileID: 1218633005}
+--- !u!43 &1269972498
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 1
+    topology: 5
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 1
+    localAABB:
+      m_Center: {x: 9.526187, y: 9.68953, z: 25.866112}
+      m_Extent: {x: 0, y: 0, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 0000
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 1
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 40
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 48
+    _typelessdata: 436b184151081b41ccedce41c8da793f5bc1273dfd0a5b3efcabfd3e0000803f000000000000803f0000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 9.526187, y: 9.68953, z: 25.866112}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!4 &1342312150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: e6630d62478f89847ba57d087ab513c5,
@@ -12798,6 +13084,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2046880920}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1970331561
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: adac6c7a4565f4941940cecf8eab0b94, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 0
+    - _BlendFloor: 0
+    - _Fade: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1001 &2046880920
 PrefabInstance:
   m_ObjectHideFlags: 0
