@@ -129,4 +129,9 @@ public class CollectionManager : MonoBehaviour
         }
         return ret;
     }
+
+    public bool Win()
+    {
+        return completeGems[0]&&completeGems[1]&&completeGems[2]&&completeGems[3];
+    }
 }

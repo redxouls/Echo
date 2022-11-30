@@ -17,6 +17,8 @@ public class PauseController : MonoBehaviour
         GamePaused = false;
         timer = triggerTime;
         PauseCanvas.SetActive(GamePaused);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()

@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public CollectionManager collectionManager;
+    public Canvas EndCanvas;
     // Start is called before the first frame update
     
     void Start()
     {
-
+        EndCanvas.enabled = false;
     }
 
     void Update()
@@ -34,5 +35,14 @@ public class PlayerManager : MonoBehaviour
             // Debug.Log("pressed 4");
             collectionManager.CollectGem("Light");
         }
+
+        if (collectionManager.Win())
+        {
+            Debug.Log("WINWIN");
+            EndCanvas.enabled = true;
+
+        }
     }
+
+    
 }
