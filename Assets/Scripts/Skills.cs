@@ -52,8 +52,8 @@ public class Skills : MonoBehaviour
             if (factor < 0.75f)
             {
                 // Debug.Log("Medium Wave");
-                lifeSpan = factor * 15f;
-                thickness = 1f;
+                lifeSpan = factor * 10f;
+                thickness = 2f;
                 speed = 2.5f;
             }
 
@@ -62,7 +62,7 @@ public class Skills : MonoBehaviour
             {
                 // Debug.Log("Large Wave");
                 lifeSpan = factor * 20f;
-                thickness = 1.5f;
+                thickness = 4f;
                 speed = 3f;
             }
 
