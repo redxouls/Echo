@@ -25,7 +25,9 @@ public class SettingMenu : MonoBehaviour
     public void DefaultSetting()
     {
         mouseSensitivity.value = 0.5f;
+        SetMouseSensitivity(mouseSensitivity.value);
         volume.value = 1;
+        SetVolume(volume.value);
     }
 
     void Start() 

@@ -33,10 +33,12 @@ public class PlayerMovement : MonoBehaviour
     public float waveLifespan;
 
     public bool isDead = false;
-    public AudioClip woodSteps;
-    public AudioClip deathSound;
-    public Canvas deathScreen;
     public GameObject deathBG;
+
+    public AudioClip GrassSteps;
+    public AudioClip WaterSteps;
+    public AudioClip deathSound;
+    public GameObject deathScreen;
 
     // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
@@ -49,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         // waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
         // waveLifespan = PlayerPrefs.GetFloat("waveLifespan");
         // minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
-        deathScreen.enabled = isDead;
+        deathScreen.SetActive(isDead);
     }
 
     // Update is called once per frame
@@ -61,21 +63,21 @@ public class PlayerMovement : MonoBehaviour
             JumpAndGravity();
             Move();
             HandleFootsteps();
-            // Echo();
+            Echo();
         }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            isDead = !isDead;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
+        // if (Input.GetKeyDown(KeyCode.P))
+        // {
+        //     isDead = !isDead;
+        //     Cursor.visible = true;
+        //     Cursor.lockState = CursorLockMode.None;
+        // }
     }
     void LateUpdate()
     {
         if (isDead)
         {
             // Debug.Log("You dead.");
-            deathScreen.enabled = isDead;
+            deathScreen.SetActive(isDead);
             timer = 0;
             var color = deathBG.GetComponent<Image>().color;
             if(color.a < 0.8f)
@@ -114,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (timer >= minEchoInterval && moving) 
         {
-            soundWaveManager.AddWave(waveThickness, waveLifespan, waveSpeed, 1, transform.position, WAVE_ATTRIBUTE.PLAYER);
+            // soundWaveManager.AddWave(waveThickness, waveLifespan, waveSpeed, 1, transform.position, WAVE_ATTRIBUTE.PLAYER);
             // soundWaveManager.AddPlayerWave(transform.position);
             // Add a sound source upon moving
             // soundWaveManager.AddWaveSource(transform.position);
@@ -129,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleFootsteps()
     {
+        // Debug.LogFormat("timer :{0} | minEchoInterval :{1} | Time.deltaTime:{2}",timer,minEchoInterval,Time.deltaTime);
+        minEchoInterval = 0.8f;
         if (timer >= minEchoInterval - Time.deltaTime && moving)
         {
             if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
@@ -136,8 +140,11 @@ public class PlayerMovement : MonoBehaviour
                 // Debug.Log(hit.collider.tag);
                 switch (hit.collider.tag)
                 {
-                    case "Footsteps/WOOD":
-                        MyAudioSource.PlayOneShot(woodSteps);
+                    case "Footsteps/WATER":
+                        MyAudioSource.PlayOneShot(WaterSteps);
+                        break;
+                    case "Footsteps/GRASS":
+                        MyAudioSource.PlayOneShot(GrassSteps);
                         break;
                     default:
                         MyAudioSource.Play();
@@ -150,6 +157,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
     // Player Death by hitting trap or evil, stop moving and show deathScreen
     void OnTriggerEnter(Collider collisionInfo)
     {
