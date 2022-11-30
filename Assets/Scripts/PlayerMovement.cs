@@ -65,12 +65,12 @@ public class PlayerMovement : MonoBehaviour
             HandleFootsteps();
             Echo();
         }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            isDead = !isDead;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
+        // if (Input.GetKeyDown(KeyCode.P))
+        // {
+        //     isDead = !isDead;
+        //     Cursor.visible = true;
+        //     Cursor.lockState = CursorLockMode.None;
+        // }
     }
     void LateUpdate()
     {
