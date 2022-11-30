@@ -7,15 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Trap
+  m_Name: OutGreen
   m_Shader: {fileID: -6465566751694194690, guid: 45bf0c4a74d416e4bb98179acd817fc7,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -35,20 +35,21 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BottomLine: 0.764
+    - _BottomLine: 0.847
     - _Frequency: 1
     - _FresnelPower: 0.5
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.5
-    - _TopLine: 0.528
-    - _Transparency: 1
-    - _test: 0
+    - _Smoothness: 0
+    - _TopLine: 0.689
+    - _Transparency: 0
+    - _hehe: 1
+    - _test: 1.85
     m_Colors:
-    - _BaseColor: {r: 1.0039217, g: 0.010255823, b: 0, a: 1}
-    - _BottomColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TopColor: {r: 0.5849056, g: 0.0027589954, b: 0.0027589954, a: 1}
+    - _BaseColor: {r: 0.046901207, g: 0.9433962, b: 0, a: 0.003921569}
+    - _BottomColor: {r: 0.023495909, g: 0.4528302, b: 0.25074163, a: 0}
+    - _TopColor: {r: 0.66193163, g: 2.4592576, b: 0.19720465, a: 0.003921569}
     - _VertexAmount: {r: 0.1, g: 0, b: 0.2, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3201129064204396821

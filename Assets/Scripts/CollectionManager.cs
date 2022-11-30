@@ -38,7 +38,7 @@ public class CollectionManager : MonoBehaviour
                 var color = gems[i].color;
                 if (color.a < 1f)
                 {
-                    color.a += (1f / color.a) * 0.5f * Time.deltaTime;
+                    color.a += (1f / color.a) * 0.005f * Time.deltaTime;
                     gems[i].color = color;
                 }
             }
@@ -46,7 +46,22 @@ public class CollectionManager : MonoBehaviour
         // TODO: effects of putting gems to the end doors
         for (int i = 0; i < completeGems.Length; i++)
         {
-            
+            if (!completeGems[i])
+                continue;
+            var color = gems[i].color;
+            color.a = 0.2f;
+            gems[i].color = color;
+            // if (color.a > 0.02f)
+            // {
+            //     color.a -= (1f / (1.01f - color.a)) * 0.5f * Time.deltaTime;
+            //     gems[i].color = color;
+            // }
+            // else
+            // {
+            //     color.a = 0.02f;
+            //     gems[i].color = color;
+            //     Debug.Log("haha");
+            // }
         }
 
     }
@@ -81,23 +96,37 @@ public class CollectionManager : MonoBehaviour
         Debug.Log("complete "+gemName+" gem.");
         if (gemName == "Fire")
         {
+            collectionGems[0] = false;
             completeGems[0] = true;
         } 
         else if (gemName == "Water")
         {
+            collectionGems[1] = false;
             completeGems[1] = true;
         }
         else if (gemName == "Grass")
         {
+            collectionGems[2] = false;
             completeGems[2] = true;
         }
         else if (gemName == "Light")
         {
+            collectionGems[3] = false;
             completeGems[3] = true;
         }
         else
         {
             Debug.Log("Invalid gemName");
         }
+    }
+    public int GetGemColletion()
+    {
+        int ret = 0;
+        for (int i = 0; i < 4; ++i)
+        {
+            int temp = collectionGems[i] ? 1 : 0;  // because cannot convert bool to int
+            ret += (temp << i);
+        }
+        return ret;
     }
 }

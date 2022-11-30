@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gem1
+  m_Name: OutYellow
   m_Shader: {fileID: -6465566751694194690, guid: 45bf0c4a74d416e4bb98179acd817fc7,
     type: 3}
   m_ValidKeywords: []
@@ -43,10 +43,13 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0
     - _TopLine: 0.689
+    - _Transparency: 0
+    - _hehe: 1
+    - _test: 1.85
     m_Colors:
-    - _BaseColor: {r: 0.3764706, g: 1.1058824, b: 1.4980392, a: 1}
-    - _BottomColor: {r: 0.19841579, g: 0.22771245, b: 0.6698113, a: 1}
-    - _TopColor: {r: 2.2406714, g: 1.443639, b: 2.2704113, a: 1}
+    - _BaseColor: {r: 1.4980392, g: 1.3147454, b: 0.37647054, a: 0.003921569}
+    - _BottomColor: {r: 0.67058825, g: 0.548492, b: 0.2, a: 0}
+    - _TopColor: {r: 2.2704117, g: 1.8796972, b: 1.4502105, a: 0.003921569}
     - _VertexAmount: {r: 0.1, g: 0, b: 0.2, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3201129064204396821

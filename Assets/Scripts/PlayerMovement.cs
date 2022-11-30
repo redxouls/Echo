@@ -161,13 +161,14 @@ public class PlayerMovement : MonoBehaviour
                 isDead = true;
                 break;
             case "Destination":
-                #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-                #endif
-                #if UNITY_STANDALONE
-                Application.Quit();
-                #endif
                 break;
+                // #if UNITY_EDITOR
+                // UnityEditor.EditorApplication.isPlaying = false;
+                // #endif
+                // #if UNITY_STANDALONE
+                // Application.Quit();
+                // #endif
+                // break;
         }
         // Debug.Log(collisionInfo.tag);
     }
