@@ -32,7 +32,7 @@ Shader "Hidden/SoundWave"
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
-                float4 worldPos: TEXCOORD1;                
+                float4 worldPos: TEXCOORD1;
             };
 
             sampler2D _MainTex;
@@ -47,9 +47,6 @@ Shader "Hidden/SoundWave"
             float _Attributes[100]; // DEAD = 0, PLAYER = 1, GRENADE = 2, PASSIVE = 3
             float _AlphaAttenuation[100]; // the age of the wave 0 ~ 1
             float _Weight[] = {0.0, 0.4, 0.3, 0.3}; // weight for each attribute
-
-            uniform float4x4 _InvProjectionMatrix;    //Pass this in via 'camera.projectionMatrix.inverse'
-            uniform float4x4 _ViewToWorld;    //Pass this in via 'camera.cameraToWorldMatrix'
 
             v2f vert (appdata v)
             {
