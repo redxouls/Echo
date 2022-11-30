@@ -16,6 +16,8 @@ public class TriggerDoor : MonoBehaviour
 
     public CollectionManager collectionMgr;
     public float fadeinFactor;
+    AudioSource audioSource;
+    public AudioClip clip;
     
     void Start()
     {
@@ -25,6 +27,7 @@ public class TriggerDoor : MonoBehaviour
         {
             SetTransparency(i, 0);
         }
+        audioSource = GetComponent<AudioSource>();
     }
     void OnTriggerEnter(Collider collisionInfo)
     {
@@ -51,6 +54,7 @@ public class TriggerDoor : MonoBehaviour
                 collectionMgr.CompletetGem(gemName[i]);
                 timer[i] = 0;
                 completed[i] = true;
+                audioSource.PlayOneShot(clip, 0.7f);
             }
         }
     }

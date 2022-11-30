@@ -38,7 +38,7 @@ public class CollectionManager : MonoBehaviour
                 var color = gems[i].color;
                 if (color.a < 1f)
                 {
-                    color.a += (1f / color.a) * 0.5f * Time.deltaTime;
+                    color.a += (1f / color.a) * 0.005f * Time.deltaTime;
                     gems[i].color = color;
                 }
             }

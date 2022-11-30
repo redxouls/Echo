@@ -11,9 +11,14 @@ public class CollectGem : MonoBehaviour
     public GameObject LevelUp; // TODO: add particle effect
     public CollectionManager collectionMgr;
     public string gemName;
+    
+    AudioSource audioSource;
+    public AudioClip clip;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         gemMaterial.SetFloat("_Transparency", 1);
         collected = false;
     }
@@ -33,6 +38,7 @@ public class CollectGem : MonoBehaviour
         {
             collected = true;
             timer = 0;
+            audioSource.PlayOneShot(clip, 0.7f);
         }
     }
     void BeingCollected()
