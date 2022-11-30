@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Trap
-  m_Shader: {fileID: -6465566751694194690, guid: 5471920b2f78e469eb03bfc1eaa1470e,
+  m_Name: Gem1
+  m_Shader: {fileID: -6465566751694194690, guid: 45bf0c4a74d416e4bb98179acd817fc7,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -35,20 +35,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BottomLine: 0.764
+    - _BottomLine: 0.847
     - _Frequency: 1
     - _FresnelPower: 0.5
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.5
-    - _TopLine: 0.528
-    - _Transparency: 1
-    - _test: 0
+    - _Smoothness: 0
+    - _TopLine: 0.689
     m_Colors:
-    - _BaseColor: {r: 1.0039217, g: 0.010255823, b: 0, a: 1}
-    - _BottomColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TopColor: {r: 0.5849056, g: 0.0027589954, b: 0.0027589954, a: 1}
+    - _BaseColor: {r: 0.3764706, g: 1.1058824, b: 1.4980392, a: 1}
+    - _BottomColor: {r: 0.19841579, g: 0.22771245, b: 0.6698113, a: 1}
+    - _TopColor: {r: 2.2406714, g: 1.443639, b: 2.2704113, a: 1}
     - _VertexAmount: {r: 0.1, g: 0, b: 0.2, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3201129064204396821
