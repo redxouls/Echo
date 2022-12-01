@@ -8,6 +8,7 @@ TagManager:
   - Footsteps/GRASS
   - Trap
   - Destination
+  - Footsteps/WATER
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Grenade
   - SoundWave
   - Glowing
-  - 
+  - Door
   - 
   - 
   - 
