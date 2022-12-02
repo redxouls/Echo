@@ -25,14 +25,14 @@ Shader "Hidden/SoundWave"
             struct appdata
             {
                 float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
+                // float2 uv : TEXCOORD0;
             };
 
             struct v2f
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
-                float4 worldPos: TEXCOORD1;
+                float3 worldPos: TEXCOORD1;
             };
 
             sampler2D _MainTex;
@@ -52,8 +52,8 @@ Shader "Hidden/SoundWave"
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);                
-                o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+                // o.uv = TRANSFORM_TEX(v.uv, _MainTex);                
+                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
                 return o;
             }
 
@@ -96,8 +96,8 @@ Shader "Hidden/SoundWave"
             {
                 float3 worldPos = i.worldPos;
                 
-                // Sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
+                // // Sample the texture
+                // fixed4 col = tex2D(_MainTex, i.uv);
                                 
                 // Calculate alpha of this pixel
                 float waveWeight = 0.7;
@@ -105,7 +105,7 @@ Shader "Hidden/SoundWave"
                 float alpha = waveWeight * waveAlpha;
 
                 // Scale the color with alpha
-                col = fixed4(0,0,0, 1 - clamp(alpha, 0, 1));
+                fixed4 col = fixed4(0,0,0, 1 - clamp(alpha, 0, 1));
                 return col;
             }
             ENDCG
