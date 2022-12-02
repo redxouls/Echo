@@ -32,13 +32,13 @@ RenderSettings:
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
+  m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17678969, g: 0.2212963, b: 0.30358878, a: 1}
+  m_IndirectSpecularColor: {r: 0.17678982, g: 0.22129656, b: 0.30358928, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 27242281}
   - component: {fileID: 27242283}
   - component: {fileID: 27242282}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PillarR.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,6 +249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lamp_02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
@@ -376,7 +381,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31329457}
-  m_LocalRotation: {x: -0.000000004698182, y: 0.99513334, z: -0.098537624, w: -0.00000004744703}
+  m_LocalRotation: {x: -0.0000000038342733, y: 0.99513334, z: -0.09853762, w: -0.000000038722398}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -471,6 +476,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202732821079448320, guid: cebfacc247a640945a2c30b442202fca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cebfacc247a640945a2c30b442202fca, type: 3}
@@ -939,7 +949,7 @@ GameObject:
   - component: {fileID: 60212332}
   - component: {fileID: 60212331}
   - component: {fileID: 60212330}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,17 +994,17 @@ MonoBehaviour:
   bladeForwardAmount: 0.8
   bladeCurveAmount: 3.5
   bottomWidth: 0.134
-  windSpeed: 10
+  windSpeed: 12
   windStrength: 0.05
   affectStrength: 1
   minFadeDistance: 40
   maxFadeDistance: 60
   FadeInEditor: 0
-  topTint: {r: 1, g: 1, b: 1, a: 1}
-  bottomTint: {r: 0, g: 0, b: 1, a: 1}
+  topTint: {r: 0.2830189, g: 0.2816839, b: 0.2816839, a: 1}
+  bottomTint: {r: 0, g: 0, b: 0, a: 1}
   castShadow: 0
   interactors: []
-  m_InstantiatedMaterial: {fileID: 1521807312}
+  m_InstantiatedMaterial: {fileID: 1448396346}
 --- !u!114 &60212331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1638,9 +1648,9 @@ MonoBehaviour:
   rangeR: 0
   rangeG: 0
   rangeB: 0
-  AdjustedColor: {r: 0.61154795, g: 1, b: 0, a: 1}
-  hitPosGizmo: {x: -10.553469, y: 4.546676, z: -27.948366}
-  hitNormal: {x: 0.102814406, y: 0.99281216, z: -0.06126367}
+  AdjustedColor: {r: 0.76818, g: 1, b: 0, a: 1}
+  hitPosGizmo: {x: 4.851682, y: 6.8203726, z: -42.366184}
+  hitNormal: {x: 0.4645956, y: 0.07990616, z: 0.8819103}
 --- !u!33 &60212332
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1660,7 +1670,7 @@ GameObject:
   - component: {fileID: 65446485}
   - component: {fileID: 65446484}
   - component: {fileID: 65446483}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: gem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1741,7 +1751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 74155425}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collapse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1933,6 +1943,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2222111361404534124, guid: 88f2fd29f58b9734683512546acec310,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2222111361405018444, guid: 88f2fd29f58b9734683512546acec310,
         type: 3}
       propertyPath: m_RootOrder
@@ -2020,6 +2035,10 @@ PrefabInstance:
     - target: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717, type: 3}
       propertyPath: m_Name
       value: Rock Type2 01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2169,7 +2188,7 @@ GameObject:
   - component: {fileID: 119212018}
   - component: {fileID: 119212020}
   - component: {fileID: 119212019}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2369,7 +2388,7 @@ RectTransform:
   - {fileID: 1120141155}
   - {fileID: 166601446}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2390,7 +2409,7 @@ GameObject:
   - component: {fileID: 122892202}
   - component: {fileID: 122892201}
   - component: {fileID: 122892200}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2597,7 +2616,7 @@ GameObject:
   - component: {fileID: 125829145}
   - component: {fileID: 125829147}
   - component: {fileID: 125829146}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: slant6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2680,7 +2699,7 @@ GameObject:
   - component: {fileID: 134132918}
   - component: {fileID: 134132920}
   - component: {fileID: 134132919}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2735,7 +2754,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.8713687, g: 0.4397369, b: 0.032534674, a: 1}
   m_Intensity: 10
-  m_Range: 10
+  m_Range: 1
   m_SpotAngle: 45
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2795,7 +2814,7 @@ GameObject:
   - component: {fileID: 157529351}
   - component: {fileID: 157529353}
   - component: {fileID: 157529352}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2850,7 +2869,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 30
-  m_Range: 15
+  m_Range: 8
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3281,7 +3300,7 @@ GameObject:
   - component: {fileID: 184019366}
   - component: {fileID: 184019365}
   - component: {fileID: 184019367}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: slant3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3464,7 +3483,7 @@ RectTransform:
   - {fileID: 159867660}
   - {fileID: 1557913776}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3482,7 +3501,7 @@ GameObject:
   - component: {fileID: 188510115}
   - component: {fileID: 188510117}
   - component: {fileID: 188510116}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3575,7 +3594,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -3597,7 +3616,7 @@ GameObject:
   - component: {fileID: 200805147}
   - component: {fileID: 200805149}
   - component: {fileID: 200805148}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PillarY.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3680,7 +3699,7 @@ GameObject:
   - component: {fileID: 211485919}
   - component: {fileID: 211485921}
   - component: {fileID: 211485920}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3898,7 +3917,7 @@ GameObject:
   - component: {fileID: 215986756}
   - component: {fileID: 215986755}
   - component: {fileID: 215986757}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: step4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3996,6 +4015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp_02
       objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
       propertyPath: m_RootOrder
@@ -4064,7 +4088,7 @@ GameObject:
   - component: {fileID: 222232036}
   - component: {fileID: 222232038}
   - component: {fileID: 222232037}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Vine.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4148,6 +4172,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
       propertyPath: m_RootOrder
@@ -4216,7 +4245,7 @@ GameObject:
   - component: {fileID: 243586947}
   - component: {fileID: 243586949}
   - component: {fileID: 243586948}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4299,7 +4328,7 @@ GameObject:
   - component: {fileID: 250947761}
   - component: {fileID: 250947763}
   - component: {fileID: 250947762}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spot Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4414,7 +4443,7 @@ GameObject:
   - component: {fileID: 254731014}
   - component: {fileID: 254731016}
   - component: {fileID: 254731015}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4469,7 +4498,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.5372229, g: 0.103366874, b: 0.07150356, a: 1}
   m_Intensity: 10
-  m_Range: 10
+  m_Range: 1
   m_SpotAngle: 45
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4555,7 +4584,7 @@ GameObject:
   - component: {fileID: 281348882}
   - component: {fileID: 281348884}
   - component: {fileID: 281348883}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4669,6 +4698,10 @@ PrefabInstance:
     - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
       propertyPath: m_Name
       value: Rock Type2 04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5088,7 +5121,7 @@ GameObject:
   - component: {fileID: 287879188}
   - component: {fileID: 287879190}
   - component: {fileID: 287879189}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PillarB.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5169,7 +5202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 306150739}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Greens
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5220,6 +5253,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lamp_02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
@@ -5289,7 +5327,7 @@ GameObject:
   - component: {fileID: 323912501}
   - component: {fileID: 323912503}
   - component: {fileID: 323912502}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Vine.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5379,6 +5417,10 @@ PrefabInstance:
       value: Rock Type2 04 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -5444,52 +5486,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
---- !u!1 &331891583
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 331891585}
-  - component: {fileID: 331891584}
-  m_Layer: 0
-  m_Name: EnvLight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &331891584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331891583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f70d56eb7cb45719b5b2642cacc612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  postProcessingMaterial: {fileID: 2100000, guid: bf3211d7d830740aaaeff5c750a60dd7,
-    type: 2}
---- !u!4 &331891585
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331891583}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351559553 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717,
@@ -5616,7 +5612,7 @@ RectTransform:
   m_Children:
   - {fileID: 2119742784}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5634,7 +5630,7 @@ GameObject:
   - component: {fileID: 379652596}
   - component: {fileID: 379652595}
   - component: {fileID: 379652594}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: gem.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5925,6 +5921,10 @@ PrefabInstance:
       value: Rock Type2 04 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -6001,7 +6001,7 @@ GameObject:
   - component: {fileID: 404885313}
   - component: {fileID: 404885315}
   - component: {fileID: 404885314}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6016,7 +6016,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 404885312}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.98858, y: -2.912868, z: 5.2674665}
+  m_LocalPosition: {x: 3.98858, y: -2.38, z: 5.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6055,8 +6055,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.6730783, g: 0.056331195, b: 0.02527651, a: 1}
-  m_Intensity: 10
-  m_Range: 10
+  m_Intensity: 0.5
+  m_Range: 4
   m_SpotAngle: 45
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6116,6 +6116,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flowers_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3899520030806763256, guid: 299e7a1cb6456cf4fa6079cf5978df9b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3899520030807063256, guid: 299e7a1cb6456cf4fa6079cf5978df9b,
         type: 3}
@@ -6258,7 +6263,7 @@ GameObject:
   - component: {fileID: 454284975}
   - component: {fileID: 454284974}
   - component: {fileID: 454284976}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: slant4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6355,7 +6360,7 @@ GameObject:
   - component: {fileID: 466442640}
   - component: {fileID: 466442642}
   - component: {fileID: 466442641}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6549,7 +6554,7 @@ PrefabInstance:
     - target: {fileID: 4375382654496483180, guid: 10e3f8414d87676468f2743f674aa8d1,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4375382654496483180, guid: 10e3f8414d87676468f2743f674aa8d1,
         type: 3}
@@ -6579,7 +6584,7 @@ PrefabInstance:
     - target: {fileID: 7168592193585430492, guid: 10e3f8414d87676468f2743f674aa8d1,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7168592193585430492, guid: 10e3f8414d87676468f2743f674aa8d1,
         type: 3}
@@ -6625,7 +6630,7 @@ GameObject:
   - component: {fileID: 508955651}
   - component: {fileID: 508955653}
   - component: {fileID: 508955652}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6740,7 +6745,7 @@ GameObject:
   - component: {fileID: 517103059}
   - component: {fileID: 517103061}
   - component: {fileID: 517103060}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6856,7 +6861,7 @@ GameObject:
   - component: {fileID: 523415340}
   - component: {fileID: 523415339}
   - component: {fileID: 523415341}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Vine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7081,7 +7086,7 @@ Transform:
   - {fileID: 2106183189}
   - {fileID: 536583028}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &525231846
 MonoBehaviour:
@@ -7333,7 +7338,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536583026}
-  m_LocalRotation: {x: -6.641115e-10, y: 0.99987894, z: -0.015561831, w: -0.0000000426705}
+  m_LocalRotation: {x: -5.803008e-10, y: 0.99987894, z: -0.015561831, w: -0.000000037285492}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7683,7 +7688,7 @@ GameObject:
   - component: {fileID: 545623723}
   - component: {fileID: 545623725}
   - component: {fileID: 545623724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Vine.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8229,6 +8234,10 @@ PrefabInstance:
       value: crystal_trap
       objectReference: {fileID: 0}
     - target: {fileID: 1000012006197310, guid: 465c505844950da499dcf096a6da4409, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012006197310, guid: 465c505844950da499dcf096a6da4409, type: 3}
       propertyPath: m_TagString
       value: Trap
       objectReference: {fileID: 0}
@@ -8314,6 +8323,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lamp_02 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
@@ -8459,6 +8473,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stump_01
       objectReference: {fileID: 0}
+    - target: {fileID: 108507113624723981, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
 --- !u!4 &635764248 stripped
@@ -8484,7 +8503,7 @@ GameObject:
   - component: {fileID: 658460410}
   - component: {fileID: 658460412}
   - component: {fileID: 658460411}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8600,7 +8619,7 @@ GameObject:
   - component: {fileID: 672955188}
   - component: {fileID: 672955187}
   - component: {fileID: 672955186}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Octopus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8697,6 +8716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Branch_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493958779012120596, guid: b9de24523a11d714db3851b5f0f9d527,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527,
         type: 3}
@@ -13599,7 +13623,7 @@ GameObject:
   - component: {fileID: 697253985}
   - component: {fileID: 697253984}
   - component: {fileID: 697253986}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PillarR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13697,7 +13721,7 @@ GameObject:
   - component: {fileID: 700603419}
   - component: {fileID: 700603418}
   - component: {fileID: 700603420}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13794,7 +13818,7 @@ GameObject:
   - component: {fileID: 700863637}
   - component: {fileID: 700863636}
   - component: {fileID: 700863635}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: gem.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13935,6 +13959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1576488453971893466, guid: a778b631c6253a04899cb31bad047c81,
         type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576488453971893466, guid: a778b631c6253a04899cb31bad047c81,
+        type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -13951,6 +13980,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lamp_02 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
@@ -14021,7 +14055,7 @@ GameObject:
   - component: {fileID: 716007650}
   - component: {fileID: 716007649}
   - component: {fileID: 716007648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Footsteps/GRASS
   m_Icon: {fileID: 0}
@@ -14117,7 +14151,7 @@ GameObject:
   - component: {fileID: 721139254}
   - component: {fileID: 721139256}
   - component: {fileID: 721139255}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14332,6 +14366,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp_02 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
       propertyPath: m_RootOrder
@@ -14406,7 +14445,7 @@ GameObject:
   - component: {fileID: 776208377}
   - component: {fileID: 776208379}
   - component: {fileID: 776208378}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14803,6 +14842,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush_03
       objectReference: {fileID: 0}
+    - target: {fileID: 38335279662140195, guid: 34d3f526198dae440bb2ce6005d86055,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 38335279662569219, guid: 34d3f526198dae440bb2ce6005d86055,
         type: 3}
       propertyPath: m_RootOrder
@@ -14954,7 +14998,7 @@ RectTransform:
   m_Children:
   - {fileID: 2077498876}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -14970,7 +15014,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 931500437}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19865,7 +19909,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 956457234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19929,7 +19973,7 @@ Transform:
   - {fileID: 545623723}
   - {fileID: 1335580983}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957766348
 GameObject:
@@ -20065,7 +20109,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &959139018
 MonoBehaviour:
@@ -20254,6 +20298,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp_02 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
       propertyPath: m_RootOrder
@@ -20322,7 +20371,7 @@ GameObject:
   - component: {fileID: 997997805}
   - component: {fileID: 997997807}
   - component: {fileID: 997997806}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Vine.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20464,7 +20513,7 @@ GameObject:
   - component: {fileID: 1019425327}
   - component: {fileID: 1019425326}
   - component: {fileID: 1019425325}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane_50_Poly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20561,7 +20610,7 @@ GameObject:
   - component: {fileID: 1033240956}
   - component: {fileID: 1033240958}
   - component: {fileID: 1033240957}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20675,6 +20724,10 @@ PrefabInstance:
     - target: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717, type: 3}
       propertyPath: m_Name
       value: Rock Type2 01
+      objectReference: {fileID: 0}
+    - target: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20805,6 +20858,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_03
       objectReference: {fileID: 0}
+    - target: {fileID: 6941765000743290380, guid: c60edd51c065ceb46b345849a03bc106,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c60edd51c065ceb46b345849a03bc106, type: 3}
 --- !u!1001 &1042584427
@@ -20817,6 +20875,10 @@ PrefabInstance:
     - target: {fileID: 174596, guid: 41dcf1459594f434a8a9bae6ae03eab0, type: 3}
       propertyPath: m_Name
       value: Rock Type2 02
+      objectReference: {fileID: 0}
+    - target: {fileID: 174596, guid: 41dcf1459594f434a8a9bae6ae03eab0, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 477016, guid: 41dcf1459594f434a8a9bae6ae03eab0, type: 3}
       propertyPath: m_RootOrder
@@ -20875,6 +20937,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Branch_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493958779012120596, guid: b9de24523a11d714db3851b5f0f9d527,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1493958779012619316, guid: b9de24523a11d714db3851b5f0f9d527,
         type: 3}
@@ -21205,7 +21272,7 @@ GameObject:
   - component: {fileID: 1055689644}
   - component: {fileID: 1055689643}
   - component: {fileID: 1055689645}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: doorstep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21303,7 +21370,7 @@ GameObject:
   - component: {fileID: 1071138778}
   - component: {fileID: 1071138777}
   - component: {fileID: 1071138779}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: stone2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21476,7 +21543,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3959
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -21502,7 +21569,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 62.992, y: -30, z: 0}
 --- !u!1 &1080795296
 GameObject:
@@ -21609,7 +21676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2929857ca9254f91855488ccf26049b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  postProcessingMaterial: {fileID: 2100000, guid: bf3211d7d830740aaaeff5c750a60dd7,
+  postProcessingMaterial: {fileID: 2100000, guid: 88af89102d1ea494daa77e7286ed2a06,
     type: 2}
   maxNumOfWave: 100
   _Points: []
@@ -21766,7 +21833,7 @@ GameObject:
   - component: {fileID: 1113091693}
   - component: {fileID: 1113091695}
   - component: {fileID: 1113091694}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21781,7 +21848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113091692}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.5620747, y: 1.3371315, z: 2.2041237}
+  m_LocalPosition: {x: 2.69, y: 1.04, z: 2.2041237}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21821,7 +21888,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.21225572, g: 0.4121175, b: 1, a: 1}
   m_Intensity: 10
-  m_Range: 10
+  m_Range: 1
   m_SpotAngle: 45
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -22015,7 +22082,7 @@ GameObject:
   - component: {fileID: 1125870825}
   - component: {fileID: 1125870827}
   - component: {fileID: 1125870826}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22230,7 +22297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1134224409}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Blocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22271,7 +22338,7 @@ GameObject:
   - component: {fileID: 1137155030}
   - component: {fileID: 1137155032}
   - component: {fileID: 1137155031}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22387,7 +22454,7 @@ GameObject:
   - component: {fileID: 1165196162}
   - component: {fileID: 1165196161}
   - component: {fileID: 1165196163}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: stone3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22586,6 +22653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lamp_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
@@ -23034,7 +23106,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216600054}
-  m_LocalRotation: {x: -0.000000004497646, y: 0.998385, z: -0.056810234, w: -0.00000007904177}
+  m_LocalRotation: {x: -0.0000000014548148, y: 0.998385, z: -0.05681023, w: -0.000000025566957}
   m_LocalPosition: {x: 0.080000214, y: 2.28, z: 0.13000011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23497,7 +23569,7 @@ GameObject:
   - component: {fileID: 1303749922}
   - component: {fileID: 1303749924}
   - component: {fileID: 1303749923}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23688,6 +23760,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_02
       objectReference: {fileID: 0}
+    - target: {fileID: 5202732821079448320, guid: cebfacc247a640945a2c30b442202fca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cebfacc247a640945a2c30b442202fca, type: 3}
 --- !u!4 &1324890461 stripped
@@ -23708,7 +23785,7 @@ GameObject:
   - component: {fileID: 1335580986}
   - component: {fileID: 1335580985}
   - component: {fileID: 1335580984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TriggerCollection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23879,8 +23956,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1343557097}
-  m_Layer: 0
-  m_Name: map
+  m_Layer: 10
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23990,7 +24067,7 @@ GameObject:
   - component: {fileID: 1364658147}
   - component: {fileID: 1364658149}
   - component: {fileID: 1364658148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Area.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24083,7 +24160,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -24106,7 +24183,7 @@ GameObject:
   - component: {fileID: 1386845163}
   - component: {fileID: 1386845162}
   - component: {fileID: 1386845164}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: step5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29198,6 +29275,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4385080170328260021, guid: ff62b58c5a9ea164fa8ddf8038e10cd1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff62b58c5a9ea164fa8ddf8038e10cd1, type: 3}
 --- !u!1 &1405565232
@@ -29211,7 +29293,7 @@ GameObject:
   - component: {fileID: 1405565233}
   - component: {fileID: 1405565235}
   - component: {fileID: 1405565234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: slant5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29295,6 +29377,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_01
       objectReference: {fileID: 0}
+    - target: {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7405846476849834440, guid: c6308cb7062fac34e8e50600086b12a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -29376,6 +29463,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp_02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
       propertyPath: m_RootOrder
@@ -29433,6 +29525,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7970c12d6b19a504fbc82353b8a43abe, type: 3}
+--- !u!21 &1448396346
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: adac6c7a4565f4941940cecf8eab0b94, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 0
+    - _BlendFloor: 0
+    - _Fade: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &1463913255
 GameObject:
   m_ObjectHideFlags: 0
@@ -29466,7 +29585,7 @@ Transform:
   - {fileID: 1184737820}
   - {fileID: 1702690795}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1464317926
 GameObject:
@@ -29479,7 +29598,7 @@ GameObject:
   - component: {fileID: 1464317927}
   - component: {fileID: 1464317929}
   - component: {fileID: 1464317928}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29595,6 +29714,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom_02
       objectReference: {fileID: 0}
+    - target: {fileID: 5440707293445505367, guid: 494f6d43e170e9145bc7865d243ee00b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5440707293445741943, guid: 494f6d43e170e9145bc7865d243ee00b,
         type: 3}
       propertyPath: m_RootOrder
@@ -29689,7 +29813,7 @@ GameObject:
   - component: {fileID: 1471694335}
   - component: {fileID: 1471694337}
   - component: {fileID: 1471694336}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29704,7 +29828,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471694334}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.4830875, y: -2.9859939, z: 5.235353}
+  m_LocalPosition: {x: -3.4830875, y: -2.82, z: 5.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29742,9 +29866,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.37594014, b: 0.06756366, a: 1}
-  m_Intensity: 10
-  m_Range: 10
+  m_Color: {r: 0.9811321, g: 0.5359125, b: 0, a: 1}
+  m_Intensity: 0.5
+  m_Range: 4
   m_SpotAngle: 45
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -29804,7 +29928,7 @@ GameObject:
   - component: {fileID: 1473922157}
   - component: {fileID: 1473922159}
   - component: {fileID: 1473922158}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29859,7 +29983,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.092112, g: 0.6165874, b: 0.020769143, a: 1}
   m_Intensity: 10
-  m_Range: 10
+  m_Range: 1
   m_SpotAngle: 45
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -29971,7 +30095,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1482191964
 GameObject:
@@ -30067,7 +30191,7 @@ RectTransform:
   m_Children:
   - {fileID: 108128007}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -30098,7 +30222,7 @@ GameObject:
   - component: {fileID: 1491612734}
   - component: {fileID: 1491612733}
   - component: {fileID: 1491612735}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: stone1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30201,7 +30325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1495139898
 Transform:
   m_ObjectHideFlags: 0
@@ -30310,6 +30434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flowers_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186735023776687486, guid: ac8efb728f1fb9b4092c4df591c827ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5186735023777053022, guid: ac8efb728f1fb9b4092c4df591c827ca,
         type: 3}
@@ -30472,35 +30601,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1521807312
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: adac6c7a4565f4941940cecf8eab0b94, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 0
-    - _BlendFloor: 0
-    - _Fade: 0
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &1533631699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30511,6 +30613,10 @@ PrefabInstance:
     - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
       propertyPath: m_Name
       value: Rock Type2 04
+      objectReference: {fileID: 0}
+    - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 119512, guid: 5578b82f17c954843901e8b68ca21dcc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -30729,7 +30835,7 @@ GameObject:
   - component: {fileID: 1593962157}
   - component: {fileID: 1593962159}
   - component: {fileID: 1593962158}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30744,7 +30850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593962156}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.3308816, y: -0.8493104, z: 2.3769753}
+  m_LocalPosition: {x: 2.4, y: -0.75, z: 2.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30783,8 +30889,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.17854539, g: 0.3369625, b: 0.6730783, a: 1}
-  m_Intensity: 10
-  m_Range: 10
+  m_Intensity: 0.5
+  m_Range: 4
   m_SpotAngle: 45
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -30850,7 +30956,7 @@ GameObject:
   - component: {fileID: 1613416203}
   - component: {fileID: 1613416202}
   - component: {fileID: 1613416201}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: gem.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30967,6 +31073,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1,
         type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -31059,6 +31170,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp_02 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}
       propertyPath: m_RootOrder
@@ -31127,7 +31243,7 @@ GameObject:
   - component: {fileID: 1650732719}
   - component: {fileID: 1650732721}
   - component: {fileID: 1650732720}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PillarG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31210,7 +31326,7 @@ GameObject:
   - component: {fileID: 1656161019}
   - component: {fileID: 1656161021}
   - component: {fileID: 1656161020}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31225,7 +31341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656161018}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.4096313, y: -0.6340424, z: 2.7745912}
+  m_LocalPosition: {x: -3.15, y: -0.49, z: 3.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31264,8 +31380,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.22392105, g: 0.6258091, b: 0.033082306, a: 1}
-  m_Intensity: 10
-  m_Range: 10
+  m_Intensity: 0.5
+  m_Range: 4
   m_SpotAngle: 45
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -31330,6 +31446,10 @@ PrefabInstance:
     - target: {fileID: 1000012006197310, guid: 465c505844950da499dcf096a6da4409, type: 3}
       propertyPath: m_Name
       value: crystal_trap (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012006197310, guid: 465c505844950da499dcf096a6da4409, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1000012006197310, guid: 465c505844950da499dcf096a6da4409, type: 3}
       propertyPath: m_TagString
@@ -31632,7 +31752,7 @@ GameObject:
   - component: {fileID: 1729371653}
   - component: {fileID: 1729371652}
   - component: {fileID: 1729371654}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: slant1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31733,7 +31853,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1749018628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Traps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31770,7 +31890,7 @@ GameObject:
   - component: {fileID: 1754534176}
   - component: {fileID: 1754534175}
   - component: {fileID: 1754534177}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: step2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32039,7 +32159,7 @@ Transform:
   m_Children:
   - {fileID: 53724153}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808910345
 GameObject:
@@ -32052,7 +32172,7 @@ GameObject:
   - component: {fileID: 1808910346}
   - component: {fileID: 1808910348}
   - component: {fileID: 1808910347}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32174,6 +32294,10 @@ PrefabInstance:
       value: Rock Type2 02
       objectReference: {fileID: 0}
     - target: {fileID: 174596, guid: 41dcf1459594f434a8a9bae6ae03eab0, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 174596, guid: 41dcf1459594f434a8a9bae6ae03eab0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -32246,7 +32370,7 @@ GameObject:
   - component: {fileID: 1830099228}
   - component: {fileID: 1830099230}
   - component: {fileID: 1830099229}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32362,7 +32486,7 @@ GameObject:
   - component: {fileID: 1840430068}
   - component: {fileID: 1840430067}
   - component: {fileID: 1840430069}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PillarB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32460,6 +32584,10 @@ PrefabInstance:
       value: Rock Type2 02 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 174596, guid: 41dcf1459594f434a8a9bae6ae03eab0, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 174596, guid: 41dcf1459594f434a8a9bae6ae03eab0, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -32536,7 +32664,7 @@ GameObject:
   - component: {fileID: 1887681846}
   - component: {fileID: 1887681848}
   - component: {fileID: 1887681847}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32652,7 +32780,7 @@ GameObject:
   - component: {fileID: 1908718325}
   - component: {fileID: 1908718324}
   - component: {fileID: 1908718326}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: step3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37601,7 +37729,7 @@ GameObject:
   - component: {fileID: 1921075046}
   - component: {fileID: 1921075048}
   - component: {fileID: 1921075047}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37716,7 +37844,7 @@ GameObject:
   - component: {fileID: 1928790422}
   - component: {fileID: 1928790424}
   - component: {fileID: 1928790423}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37835,7 +37963,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1938400211}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37862,7 +37990,7 @@ Transform:
   - {fileID: 74155425}
   - {fileID: 931500437}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1945976747
 GameObject:
@@ -37875,7 +38003,7 @@ GameObject:
   - component: {fileID: 1945976748}
   - component: {fileID: 1945976750}
   - component: {fileID: 1945976749}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38138,7 +38266,7 @@ GameObject:
   - component: {fileID: 1992096055}
   - component: {fileID: 1992096054}
   - component: {fileID: 1992096056}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: step1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38239,8 +38367,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2004841471}
-  m_Layer: 0
-  m_Name: rocks
+  m_Layer: 10
+  m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38282,7 +38410,7 @@ GameObject:
   - component: {fileID: 2035375567}
   - component: {fileID: 2035375566}
   - component: {fileID: 2035375568}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PillarY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38379,7 +38507,7 @@ GameObject:
   - component: {fileID: 2036596573}
   - component: {fileID: 2036596575}
   - component: {fileID: 2036596574}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38495,6 +38623,10 @@ PrefabInstance:
       value: crystal_trap (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1000012006197310, guid: 465c505844950da499dcf096a6da4409, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012006197310, guid: 465c505844950da499dcf096a6da4409, type: 3}
       propertyPath: m_TagString
       value: Trap
       objectReference: {fileID: 0}
@@ -38580,6 +38712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bush_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 38335279662140195, guid: 34d3f526198dae440bb2ce6005d86055,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 38335279662569219, guid: 34d3f526198dae440bb2ce6005d86055,
         type: 3}
@@ -43461,7 +43598,7 @@ GameObject:
   - component: {fileID: 2074496898}
   - component: {fileID: 2074496900}
   - component: {fileID: 2074496899}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43649,7 +43786,7 @@ GameObject:
   - component: {fileID: 2101269381}
   - component: {fileID: 2101269383}
   - component: {fileID: 2101269382}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: door_offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43790,7 +43927,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106183187}
-  m_LocalRotation: {x: -0.0000000035977856, y: 0.998385, z: -0.056810223, w: -0.00000006322762}
+  m_LocalRotation: {x: -0.0000000014774622, y: 0.998385, z: -0.056810223, w: -0.000000025964978}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -43886,7 +44023,7 @@ GameObject:
   - component: {fileID: 2128366104}
   - component: {fileID: 2128366106}
   - component: {fileID: 2128366105}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44001,7 +44138,7 @@ GameObject:
   - component: {fileID: 2135616408}
   - component: {fileID: 2135616410}
   - component: {fileID: 2135616409}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44116,7 +44253,7 @@ GameObject:
   - component: {fileID: 2135806156}
   - component: {fileID: 2135806158}
   - component: {fileID: 2135806157}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44231,6 +44368,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lamp_02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8060405944448375545, guid: 7970c12d6b19a504fbc82353b8a43abe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8717893220990095113, guid: 7970c12d6b19a504fbc82353b8a43abe,
         type: 3}

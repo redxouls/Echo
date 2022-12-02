@@ -8,17 +8,15 @@ Shader "Hidden/SoundWave"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
-        // Tags { "RenderType"="Transparent" "Queue"="Transparent" }
-        // Blend srcAlpha oneMinusSrcAlpha
+        // Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" "Queue"="Transparent" }
+        Blend srcAlpha oneMinusSrcAlpha
 
         LOD 100
 
         Pass
         {
             CGPROGRAM
-// Upgrade NOTE: excluded shader from DX11, OpenGL ES 2.0 because it uses unsized arrays
-// #pragma exclude_renderers d3d11 gles
             #pragma vertex vert
             #pragma fragment frag
             
@@ -27,21 +25,17 @@ Shader "Hidden/SoundWave"
             struct appdata
             {
                 float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-                // float3 normal : NORMAL;
+                // float2 uv : TEXCOORD0;
             };
 
             struct v2f
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
-                float4 screenPos: TEXCOORD1;
-                float4 viewDir : TEXCOORD2;
-                // float3 normal : TEXCOORD3;
+                float3 worldPos: TEXCOORD1;
             };
 
             sampler2D _MainTex;
-            sampler2D _CameraDepthTexture; // automatically set up by Unity. Contains the scene's depth buffer
 
             float4 _MainTex_ST;
             float _Distance;
@@ -54,22 +48,12 @@ Shader "Hidden/SoundWave"
             float _AlphaAttenuation[100]; // the age of the wave 0 ~ 1
             float _Weight[] = {0.0, 0.4, 0.3, 0.3}; // weight for each attribute
 
-            // envLights
-            float4 _EnvLightPoints[100];
-            int _EnvLightNum;
-            float _EnvLightRadius[100];
-
-            uniform float4x4 _InvProjectionMatrix;    //Pass this in via 'camera.projectionMatrix.inverse'
-            uniform float4x4 _ViewToWorld;    //Pass this in via 'camera.cameraToWorldMatrix'
-
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                o.screenPos = ComputeScreenPos(o.vertex);
-                o.viewDir = mul(_InvProjectionMatrix, float4 (o.uv * 2.0 - 1.0, 1.0, 1.0));
-                // o.normal = UnityObjectToWorldNormal(v.normal);
+                // o.uv = TRANSFORM_TEX(v.uv, _MainTex);                
+                o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
                 return o;
             }
 
@@ -107,46 +91,21 @@ Shader "Hidden/SoundWave"
                 return clamp(alpha, 0, 1);
             }
 
-            float envLight(float3 worldPos)
-            {
-                float alpha = 0.0;
-                for (uint i = 0; i < _EnvLightNum; ++i)
-                {
-                    float r = distance(worldPos.xyz, _EnvLightPoints[i].xyz);
-                    float delta = _EnvLightRadius[i] - r;
-                    if (delta > 0)
-                    {
-                        alpha += delta * delta; 
-                    }
-                }
-                return clamp(alpha, 0, 1);
-            }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                // Sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
-                // Compute screen UV
-                float2 screenPosUV = i.screenPos.xy / i.screenPos.w;
-                // float depth = Linear01Depth(tex2D(_CameraDepthTexture, i.uv).r);
-                float depth = Linear01Depth((SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture,screenPosUV)));
-                // Perspective divide and scale by depth to get view-space position
-                float3 viewPos = (i.viewDir.xyz / i.viewDir.w) * depth;
-                // Transform to world space
-                float3 worldPos = mul(_ViewToWorld, float4 (viewPos, 1));
+                float3 worldPos = i.worldPos;
                 
-                // For debugging only
-                // float factor = length(worldPos.xyz) - _Distance;
-                
+                // // Sample the texture
+                // fixed4 col = tex2D(_MainTex, i.uv);
+                                
                 // Calculate alpha of this pixel
                 float waveWeight = 0.7;
-                float lightWeight = 0.3;
-                float envLightAlpha = envLight(worldPos.xyz);
                 float waveAlpha = intersectWithWave(worldPos.xyz);
-                float alpha = waveWeight * waveAlpha + lightWeight * envLightAlpha;
+                float alpha = waveWeight * waveAlpha;
 
                 // Scale the color with alpha
-                col *= clamp(alpha, 0, 1);
+                fixed4 col = fixed4(0,0,0, 1 - clamp(alpha, 0, 1));
                 return col;
             }
             ENDCG
