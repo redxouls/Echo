@@ -34,14 +34,4 @@ public class ChangeScene : MonoBehaviour
     void Update() {
         
     }
-
-    // GameObject FindInactiveObjectsByName(string objectName) {
-    //     GameObject[] objects = GameObject.FindObjectsOfType<GameObject>(true);
-    //     for(int i = 0; i < objects.Length; i++) {
-    //         if (objects[i].name == objectName) {
-    //             return objects[i];
-    //         }
-    //     }
-    //     return null;
-    // }
 }
