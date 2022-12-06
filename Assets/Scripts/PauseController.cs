@@ -11,12 +11,14 @@ public class PauseController : MonoBehaviour
     private float timer;
 
     public GameObject PauseCanvas;
+    public GameObject TutorialCanvas;
 
     void Start()
     {
         GamePaused = false;
         timer = triggerTime;
         PauseCanvas.SetActive(GamePaused);
+        TutorialCanvas.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -50,7 +52,7 @@ public class PauseController : MonoBehaviour
         {
             foreach (AudioSource audio in audios)
             {
-                audio.Play();
+                audio.UnPause();
             }
             PauseCanvas.SetActive(GamePaused);
             Cursor.visible = false;
@@ -74,5 +76,15 @@ public class PauseController : MonoBehaviour
     {
         SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
         ChangePauseState();
+    }
+
+    public void ActivateTutorialCanvas()
+    {
+        TutorialCanvas.SetActive(true);
+    }
+
+    public void InactivateTutorialCanvas()
+    {
+        TutorialCanvas.SetActive(false);
     }
 }

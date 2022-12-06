@@ -3,13 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class SettingMenu : MonoBehaviour
 {
     public Slider mouseSensitivity;
     public Slider volume;
     [SerializeField] private AudioMixer audioMixer;
-    // bool created = false;
+
+    public TMP_Dropdown resDropdown;
+    public ThirdPersonCameraManager thirdPersonCameraManager;
+    private Resolution[] resolutions;
+    private bool created = false;
+    private int initialResIdx;
+
+    void Start() 
+    {
+        resolutions = Screen.resolutions;
+        resDropdown.ClearOptions();
+        List<string> options = new List<string>();
+
+        int curResIdx = 0;
+
+        for(int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + "x" + resolutions[i].height;
+            options.Add(option);
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            {
+                curResIdx = i;
+            }
+        }
+        resDropdown.AddOptions(options);
+        resDropdown.value = curResIdx;
+        resDropdown.RefreshShownValue();
+        LoadSetting();
+        PlayerPrefs.SetInt("Created", 1);
+    }
 
     public void SetVolume(float volume)
     {
@@ -20,19 +50,27 @@ public class SettingMenu : MonoBehaviour
     public void SetMouseSensitivity(float mouseSensitivity)
     {
         PlayerPrefs.SetFloat("MouseSensitivity", mouseSensitivity);
+        thirdPersonCameraManager.UpdateMouseSensitivity(mouseSensitivity);
     }
 
-    public void DefaultSetting()
+    public void SetResolution(int curResIdx)
     {
-        mouseSensitivity.value = 0.5f;
+        Resolution resolution = resolutions[curResIdx];
+        Screen.SetResolution(resolution.width, resolution.height, true);
+    }
+
+    public void LoadSetting()
+    {
+        Debug.Log(mouseSensitivity.value);
         SetMouseSensitivity(mouseSensitivity.value);
-        volume.value = 1;
         SetVolume(volume.value);
     }
 
-    void Start() 
+    public void ResetSetting()
     {
-       DefaultSetting(); 
+        mouseSensitivity.value = 0.5f;
+        volume.value = 1;
+        SetMouseSensitivity(mouseSensitivity.value);
+        SetVolume(volume.value);
     }
-
 }
