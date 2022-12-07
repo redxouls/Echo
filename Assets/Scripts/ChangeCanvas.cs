@@ -11,12 +11,15 @@ public class ChangeCanvas : MonoBehaviour
 
     private static bool created = false;
     void Start(){
-        if (!created) {
-            SetCanvasActive("InitialCanvas");
-            created = true;
-        }
-        else {
-            SetCanvasActive("MainCanvas");
+        if (InitialCanvas)
+        {
+            if (!created) {
+                SetCanvasActive("InitialCanvas");
+                created = true;
+            }
+            else {
+                SetCanvasActive("MainCanvas");
+            }
         }
     }
 

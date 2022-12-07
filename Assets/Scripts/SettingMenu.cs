@@ -50,7 +50,7 @@ public class SettingMenu : MonoBehaviour
     public void SetMouseSensitivity(float mouseSensitivity)
     {
         PlayerPrefs.SetFloat("MouseSensitivity", mouseSensitivity);
-        thirdPersonCameraManager.UpdateMouseSensitivity(mouseSensitivity);
+        // thirdPersonCameraManager.UpdateMouseSensitivity(mouseSensitivity);
     }
 
     public void SetResolution(int curResIdx)
@@ -61,7 +61,7 @@ public class SettingMenu : MonoBehaviour
 
     public void LoadSetting()
     {
-        Debug.Log(mouseSensitivity.value);
+        // Debug.Log(mouseSensitivity.value);
         SetMouseSensitivity(mouseSensitivity.value);
         SetVolume(volume.value);
     }
