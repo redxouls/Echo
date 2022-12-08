@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gem1
+  m_Name: Gem
   m_Shader: {fileID: -6465566751694194690, guid: 45bf0c4a74d416e4bb98179acd817fc7,
     type: 3}
   m_ValidKeywords: []
@@ -37,12 +37,13 @@ Material:
     m_Floats:
     - _BottomLine: 0.847
     - _Frequency: 1
-    - _FresnelPower: 0.5
+    - _FresnelPower: 0.2
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0
     - _TopLine: 0.689
+    - _Transparency: 1
     m_Colors:
     - _BaseColor: {r: 0.3764706, g: 1.1058824, b: 1.4980392, a: 1}
     - _BottomColor: {r: 0.19841579, g: 0.22771245, b: 0.6698113, a: 1}

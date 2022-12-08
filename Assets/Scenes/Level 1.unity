@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17678969, g: 0.2212963, b: 0.30358878, a: 1}
+  m_IndirectSpecularColor: {r: 0.17679028, g: 0.22129723, b: 0.30359077, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -381,7 +381,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31329457}
-  m_LocalRotation: {x: -0.0000000049923043, y: 0.99513334, z: -0.09853762, w: -0.00000005041738}
+  m_LocalRotation: {x: -4.238689e-10, y: 0.99513334, z: -0.098537624, w: -0.0000000042806607}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   bottomTint: {r: 0, g: 0, b: 0, a: 1}
   castShadow: 0
   interactors: []
-  m_InstantiatedMaterial: {fileID: 1570825356}
+  m_InstantiatedMaterial: {fileID: 174170603}
 --- !u!114 &60212331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1784,7 +1784,7 @@ GameObject:
   - component: {fileID: 65446484}
   - component: {fileID: 65446483}
   m_Layer: 10
-  m_Name: gem
+  m_Name: gem_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3450,6 +3450,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171625802}
   m_CullTransparentMesh: 1
+--- !u!21 &174170603
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: adac6c7a4565f4941940cecf8eab0b94, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 0
+    - _BlendFloor: 0
+    - _Fade: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &179947155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 108756, guid: 2d521608fcf07c346b5e2ed4049aa717,
@@ -5221,7 +5248,7 @@ GameObject:
   - component: {fileID: 286267575}
   - component: {fileID: 286267576}
   m_Layer: 0
-  m_Name: GemFire
+  m_Name: Gem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5239,8 +5266,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1463913256}
-  m_RootOrder: 1
+  m_Father: {fileID: 1135100042}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 20.039}
 --- !u!23 &286267572
 MeshRenderer:
@@ -5319,7 +5346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeoutFactor: 0.001
   gemMaterial: {fileID: 2100000, guid: 01bb3185179764e169e8ec67a7e8fff1, type: 2}
-  LevelUp: {fileID: 0}
+  Collect: {fileID: 0}
   collectionMgr: {fileID: 108128008}
   gemName: Fire
   clip: {fileID: 8300000, guid: 69bbfdc0d64744ade91d9abb70c9364c, type: 3}
@@ -6188,7 +6215,7 @@ GameObject:
   - component: {fileID: 379652595}
   - component: {fileID: 379652594}
   m_Layer: 10
-  m_Name: gem.001
+  m_Name: gem_red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6438,7 +6465,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398240051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 1.78, z: -2.37}
+  m_LocalPosition: {x: 22.76, y: 1.78, z: -41.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6450,7 +6477,7 @@ Transform:
   - {fileID: 448006848}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &398240056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7711,7 +7738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525231843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.080000214, y: 2.28, z: 0.13000011}
+  m_LocalPosition: {x: 22.76, y: 2.28, z: -39.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7971,7 +7998,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536583026}
-  m_LocalRotation: {x: -6.808466e-10, y: 0.99987894, z: -0.015561831, w: -0.000000043745768}
+  m_LocalRotation: {x: -9.739714e-12, y: 0.99987894, z: -0.015561823, w: -6.257962e-10}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14370,7 +14397,7 @@ GameObject:
   - component: {fileID: 700863636}
   - component: {fileID: 700863635}
   m_Layer: 10
-  m_Name: gem.003
+  m_Name: gem._green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24043,6 +24070,38 @@ Transform:
   m_Father: {fileID: 74155425}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1135100041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1135100042}
+  m_Layer: 0
+  m_Name: GemFire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1135100042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135100041}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 286267571}
+  m_Father: {fileID: 1463913256}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1137155029
 GameObject:
   m_ObjectHideFlags: 0
@@ -24545,7 +24604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeoutFactor: 0.001
   gemMaterial: {fileID: 2100000, guid: f5326afb675fa4e5b9d7ad15ae2971b4, type: 2}
-  LevelUp: {fileID: 0}
+  Collect: {fileID: 0}
   collectionMgr: {fileID: 108128008}
   gemName: Light
   clip: {fileID: 8300000, guid: 69bbfdc0d64744ade91d9abb70c9364c, type: 3}
@@ -24763,8 +24822,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216600054}
-  m_LocalRotation: {x: -4.1227718e-10, y: 0.998385, z: -0.056810234, w: -0.000000007245362}
-  m_LocalPosition: {x: 0.080000214, y: 2.28, z: 0.13000011}
+  m_LocalRotation: {x: 0.0000000010001461, y: 0.998385, z: -0.05681023, w: 0.000000017576603}
+  m_LocalPosition: {x: 22.76, y: 2.28, z: -39.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25001,220 +25060,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1255383300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1255383301}
-  - component: {fileID: 1255383303}
-  - component: {fileID: 1255383302}
-  - component: {fileID: 1255383305}
-  - component: {fileID: 1255383304}
-  - component: {fileID: 1255383306}
-  m_Layer: 0
-  m_Name: GemWater
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1255383301
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255383300}
-  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 29.014, y: 1.5, z: -47.464}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1463913256}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
---- !u!23 &1255383302
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255383300}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a4dab0c8b7e324e9c9ff96424cc335f3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1255383303
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255383300}
-  m_Mesh: {fileID: -689630140288762055, guid: d3040e7a40e6c465e8e4d20dff7969ce, type: 3}
---- !u!114 &1255383304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255383300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b7e741aeacb8412b8a254207acba177, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeoutFactor: 0.001
-  gemMaterial: {fileID: 2100000, guid: a4dab0c8b7e324e9c9ff96424cc335f3, type: 2}
-  LevelUp: {fileID: 0}
-  collectionMgr: {fileID: 108128008}
-  gemName: Water
-  clip: {fileID: 8300000, guid: 69bbfdc0d64744ade91d9abb70c9364c, type: 3}
---- !u!135 &1255383305
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255383300}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &1255383306
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255383300}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: a32df505b29174c5b94d26bc4ea886b4,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4987c1b348d1943bdae9e12a37b04f48, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1278034932
 GameObject:
   m_ObjectHideFlags: 0
@@ -31495,8 +31340,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1255383301}
-  - {fileID: 286267571}
+  - {fileID: 8354605364714581108}
+  - {fileID: 1135100042}
   - {fileID: 1184737820}
   - {fileID: 1702690795}
   m_Father: {fileID: 0}
@@ -32943,33 +32788,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557913775}
   m_CullTransparentMesh: 1
---- !u!21 &1570825356
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: adac6c7a4565f4941940cecf8eab0b94, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 0
-    - _BlendFloor: 0
-    - _Fade: 0
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!4 &1572198132 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 880970725214738984, guid: c60edd51c065ceb46b345849a03bc106,
@@ -33109,7 +32927,7 @@ GameObject:
   - component: {fileID: 1613416202}
   - component: {fileID: 1613416201}
   m_Layer: 10
-  m_Name: gem.002
+  m_Name: gem_yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34031,7 +33849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeoutFactor: 0.001
   gemMaterial: {fileID: 2100000, guid: 68800bec240794d6b8ff79dd9833a8a3, type: 2}
-  LevelUp: {fileID: 0}
+  Collect: {fileID: 0}
   collectionMgr: {fileID: 108128008}
   gemName: Grass
   clip: {fileID: 8300000, guid: 69bbfdc0d64744ade91d9abb70c9364c, type: 3}
@@ -46771,7 +46589,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106183187}
-  m_LocalRotation: {x: -0.0000000013121363, y: 0.998385, z: -0.056810223, w: -0.00000002305952}
+  m_LocalRotation: {x: 9.774982e-10, y: 0.998385, z: -0.056810223, w: 0.000000017178591}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47363,3 +47181,93 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7970c12d6b19a504fbc82353b8a43abe, type: 3}
+--- !u!1001 &8354605364714581107
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1463913256}
+    m_Modifications:
+    - target: {fileID: 5619783664531704368, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: collectionMgr
+      value: 
+      objectReference: {fileID: 108128008}
+    - target: {fileID: 5619783664531704368, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: fadeoutFactor
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 29.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5462
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -47.957
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867908059459398431, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_Name
+      value: GemWater
+      objectReference: {fileID: 0}
+    - target: {fileID: 8740498322729818337, guid: cbc6e172983f924439af315cc7490500,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cbc6e172983f924439af315cc7490500, type: 3}
+--- !u!4 &8354605364714581108 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6368100032502601167, guid: cbc6e172983f924439af315cc7490500,
+    type: 3}
+  m_PrefabInstance: {fileID: 8354605364714581107}
+  m_PrefabAsset: {fileID: 0}

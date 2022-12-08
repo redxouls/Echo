@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class CollectGem : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class CollectGem : MonoBehaviour
     public float fadeoutFactor;
     float timer;
     public Material gemMaterial;
-    public GameObject LevelUp; // TODO: add particle effect
+    public GameObject Collect; // TODO: add particle effect
     public CollectionManager collectionMgr;
     public string gemName;
     
@@ -20,6 +21,7 @@ public class CollectGem : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         gemMaterial.SetFloat("_Transparency", 1);
+        // gemMaterial.SetFloat("_FresnelPower", 0.2f);
         collected = false;
     }
 
@@ -29,6 +31,8 @@ public class CollectGem : MonoBehaviour
         // gemMaterial.SetFloat("_Transparency", 0);
         if (collected)
         {
+            // Collect.Play();
+            Collect.SetActive(true);
             BeingCollected();
         }
     }
@@ -45,11 +49,12 @@ public class CollectGem : MonoBehaviour
     {
         timer += Time.deltaTime;
         float factor = Mathf.Pow(fadeoutFactor, timer);
+        float factorFresnel = 0.2f + timer*0.1f;
+        // gemMaterial.SetFloat("_FresnelPower", factorFresnel);
         gemMaterial.SetFloat("_Transparency", factor);
-        if (factor < 0.01)
+        if (factor < 0.001)
         {
             gemMaterial.SetFloat("_Transparency", 0);
-            // LevelUp.SetActive(false);
             collectionMgr.CollectGem(gemName);
         }
     }

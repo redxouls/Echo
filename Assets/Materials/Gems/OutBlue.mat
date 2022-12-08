@@ -35,20 +35,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BottomLine: 0.847
+    - _BottomLine: 0.861
     - _Frequency: 1
-    - _FresnelPower: 0.5
+    - _FresnelPower: 0.2
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0
-    - _TopLine: 0.689
+    - _TopLine: 0.639
     - _Transparency: 0
     - _hehe: 1
     - _test: 1.85
     m_Colors:
     - _BaseColor: {r: 0.3764706, g: 1.1058824, b: 1.4980392, a: 0.003921569}
-    - _BottomColor: {r: 0.19841579, g: 0.22771245, b: 0.6698113, a: 0}
+    - _BottomColor: {r: 0.30408204, g: 0.33146974, b: 0.7735849, a: 0}
     - _TopColor: {r: 2.2406714, g: 1.443639, b: 2.2704113, a: 0.003921569}
     - _VertexAmount: {r: 0.1, g: 0, b: 0.2, a: 0}
   m_BuildTextureStacks: []

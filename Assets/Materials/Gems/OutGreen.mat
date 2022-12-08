@@ -37,13 +37,13 @@ Material:
     m_Floats:
     - _BottomLine: 0.847
     - _Frequency: 1
-    - _FresnelPower: 0.5
+    - _FresnelPower: 0.2
     - _Metallic: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0
     - _TopLine: 0.689
-    - _Transparency: 0
+    - _Transparency: 1
     - _hehe: 1
     - _test: 1.85
     m_Colors:
