@@ -44,8 +44,6 @@ QualitySettings:
       type: 2}
     excludedTargetPlatforms:
     - Standalone
-    - Server
-    - WebGL
   - serializedVersion: 2
     name: Balanced
     pixelLightCount: 1
@@ -84,8 +82,6 @@ QualitySettings:
       type: 2}
     excludedTargetPlatforms:
     - Standalone
-    - Server
-    - WebGL
   - serializedVersion: 2
     name: High Fidelity
     pixelLightCount: 2

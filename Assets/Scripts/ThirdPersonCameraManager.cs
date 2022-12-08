@@ -16,9 +16,9 @@ public class ThirdPersonCameraManager : MonoBehaviour
     {
         // Cursor.lockState = CursorLockMode.Locked;
         // Cursor.lockState = CursorLockMode.Locked;
-        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
+        // mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
         Cursor.visible = false;
-        Screen.lockCursor = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -26,5 +26,10 @@ public class ThirdPersonCameraManager : MonoBehaviour
     {
         freelookCamera.m_XAxis.m_MaxSpeed = baseXAxisSpeed * mouseSensitivity;
         freelookCamera.m_YAxis.m_MaxSpeed = baseYAxisSpeed * mouseSensitivity;
+    }
+
+    public void UpdateMouseSensitivity(float mouseSensitivity)
+    {
+        this.mouseSensitivity = mouseSensitivity;
     }
 }

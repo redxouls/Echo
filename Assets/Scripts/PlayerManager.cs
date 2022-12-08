@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     public Canvas TransitionCanvas;
     public GameObject TransitionMask;
     private bool fadeActive;
+    private bool win;
     int dir;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class PlayerManager : MonoBehaviour
         EndCanvas.SetActive(false);
         TransitionCanvas.enabled = false;
         fadeActive = false;
+        win = false;
         dir = 1;
     }
 
@@ -49,14 +51,15 @@ public class PlayerManager : MonoBehaviour
         //     // Debug.Log("pressed 4");
         //     collectionManager.CollectGem("Light");
         // }
-        if (collectionManager.Win())
+        if (!win && collectionManager.Win())
         {
             TransitionCanvas.enabled = true;
             Debug.Log("WINWIN");
             PlayerStatusCanvas.SetActive(false);
             video.Play();
             Invoke("winwin", 1.3f);  
-            fadeActive = true;    
+            fadeActive = true;
+            win = true;    
         }
     }
 

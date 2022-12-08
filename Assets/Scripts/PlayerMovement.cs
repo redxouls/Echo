@@ -78,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
         {
             // Debug.Log("You dead.");
             deathScreen.SetActive(isDead);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             timer = 0;
             var color = deathBG.GetComponent<Image>().color;
             if(color.a < 0.8f)
