@@ -91,7 +91,7 @@ public class CollectionManager : MonoBehaviour
         }
     }
 
-    public void CompletetGem(string gemName)
+    public void CompleteGem(string gemName)
     {
         Debug.Log("complete "+gemName+" gem.");
         if (gemName == "Fire")
@@ -119,7 +119,7 @@ public class CollectionManager : MonoBehaviour
             Debug.Log("Invalid gemName");
         }
     }
-    public int GetGemColletion()
+    public int GetGemCollection()
     {
         int ret = 0;
         for (int i = 0; i < 4; ++i)
