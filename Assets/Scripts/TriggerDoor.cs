@@ -4,79 +4,47 @@ using UnityEngine;
 
 public class TriggerDoor : MonoBehaviour
 {
-    public GameObject RedGem;
-    public GameObject BlueGem;
-    public GameObject GreenGem;
-    public GameObject YellowGem;
+    public ActivateGem RedGem;
+    public ActivateGem BlueGem;
+    public ActivateGem GreenGem;
+    public ActivateGem YellowGem;
+    public ActivateGem[] Gems;
 
-    public Material[] RBGY_mat; // length = 4, order should be R, B, G, Y
-
-    float[] timer;
-    bool[] completed;
+    public Material[] RBGY_mat; // length = 4, order should be R, B, G, Y   
 
     public CollectionManager collectionMgr;
-    public float fadeinFactor;
-    AudioSource audioSource;
-    public AudioClip clip;
     
     void Start()
     {
-        timer = new float[4]{0, 0, 0, 0};
-        completed = new bool[4]{false, false, false, false};
-        for (int i = 0; i < 4; ++i)
-        {
-            SetTransparency(i, 0);
-        }
-        audioSource = GetComponent<AudioSource>();
+        Gems = new ActivateGem[4];
+        Gems[0] =  RedGem;
+        Gems[1] =  BlueGem;
+        Gems[2] =  GreenGem;
+        Gems[3] =  YellowGem;
     }
     void OnTriggerEnter(Collider collisionInfo)
     {
         if (collisionInfo.tag == "Player")
         {
-            CompletetGem();
+            Debug.Log("EnterTriggerPlane");
+            CompleteGem();
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        ShowGem();
-    }
-
-    void CompletetGem()
+    void CompleteGem()
     {
         string[] gemName = new string[4]{"Fire", "Water", "Grass", "Light"};
-        int gemCollection = collectionMgr.GetGemColletion();
+        int gemCollection = collectionMgr.GetGemCollection();
+        Debug.Log(gemCollection);
         for (int i = 0; i < 4; ++i)
         {
             if ((gemCollection & (1 << i)) > 0)
             {
-                collectionMgr.CompletetGem(gemName[i]);
-                timer[i] = 0;
-                completed[i] = true;
-                audioSource.PlayOneShot(clip, 0.7f);
+                collectionMgr.CompleteGem(gemName[i]);
+                Gems[i].timer = 0;
+                Gems[i].triggered = true;
             }
         }
     }
 
-    void ShowGem()
-    {
-        for (int i = 0; i < 4; ++i)
-        {
-            if (completed[i])
-            {
-                timer[i] += Time.deltaTime * 0.01f;
-                float factor = 1f - Mathf.Pow(fadeinFactor, timer[i]);
-                SetTransparency(i, factor);
-                // RBGY_mat[i].SetFloat("_Transparency", factor);
-            }
-        }
-    }
-
-    void SetTransparency(int index, float value)
-    {
-        Color color = RBGY_mat[index].color;
-        color.a = value;
-        RBGY_mat[index].color = color;
-    }
 }
