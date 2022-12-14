@@ -54,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
         // waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
         // waveLifespan = PlayerPrefs.GetFloat("waveLifespan");
         // minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
-        deathScreen.SetActive(isDead);
+        if (deathScreen)
+            deathScreen.SetActive(isDead);
     }
 
     // Update is called once per frame
