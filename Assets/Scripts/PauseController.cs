@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseController : MonoBehaviour
 {
     public static bool GamePaused;
+    public static bool inTutorPage;
     public PlayerMovement player;
     private float triggerTime = 1f;
     private float timer;
@@ -16,6 +17,7 @@ public class PauseController : MonoBehaviour
     void Start()
     {
         GamePaused = false;
+        inTutorPage = false;
         timer = triggerTime;
         PauseCanvas.SetActive(GamePaused);
         TutorialCanvas.SetActive(false);
@@ -25,7 +27,7 @@ public class PauseController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && !player.isDead)
+        if (Input.GetKeyDown(KeyCode.Q) && !player.isDead && !inTutorPage)
         {   
             ChangePauseState();        
         }
@@ -66,25 +68,35 @@ public class PauseController : MonoBehaviour
         ChangePauseState();
     }
 
-    public void MainMenuButton()
+    public void MainMenuButtonDelay()
     {
-        SceneManager.LoadScene("UI", LoadSceneMode.Single);
-        ChangePauseState();
+        // Invoke("MainMenuButton", 1.0f);
+        ChangeScene.Instance.HandleMoveToUI();
+        if (!player.isDead)
+        {
+            ChangePauseState();
+        }
     }
 
-    public void RestartButton()
+    public void RestartButtonDelay()
     {
-        SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
-        ChangePauseState();
+        // Invoke("RestartButton", 1.0f);
+        ChangeScene.Instance.HandleMoveToLevel1();
+        if (!player.isDead)
+        {
+            ChangePauseState();
+        }
     }
 
     public void ActivateTutorialCanvas()
     {
         TutorialCanvas.SetActive(true);
+        inTutorPage = true;
     }
 
     public void InactivateTutorialCanvas()
     {
         TutorialCanvas.SetActive(false);
+        inTutorPage = false;
     }
 }

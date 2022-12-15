@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class DeathManager : MonoBehaviour
 {
-    public void MainMenuButton()
-    {
-        SceneManager.LoadScene("UI", LoadSceneMode.Single);
-    }
+    // public void MainMenuButton()
+    // {
+    //     SceneManager.LoadScene("UI", LoadSceneMode.Single);
+    // }
 
-    public void RestartButton()
-    {
-        SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
-    }
+    // public void RestartButton()
+    // {
+    //     SceneManager.LoadScene("Level 1", LoadSceneMode.Single);
+    // }
 }

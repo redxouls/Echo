@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
     public CollectionManager collectionManager;
     public GameObject EndCanvas;
     public GameObject PlayerStatusCanvas;
-    public VideoPlayer video;
+    public VideoPlayer videoPlayer;
     public Canvas TransitionCanvas;
     public GameObject TransitionMask;
     private bool fadeActive;
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
         fadeActive = false;
         win = false;
         dir = 1;
+        videoPlayer.loopPointReached += ReachedLoop;
     }
 
     void Update()
@@ -31,32 +33,32 @@ public class PlayerManager : MonoBehaviour
         {
             HandleFade();
         }
-        // if (Input.GetKeyDown(KeyCode.Alpha1))
-        // {
-        //     // Debug.Log("pressed 1");
-        //     collectionManager.CollectGem("Fire");
-        // }
-        // if (Input.GetKeyDown(KeyCode.Alpha2))
-        // {
-        //     // Debug.Log("pressed 2");
-        //     collectionManager.CollectGem("Water");
-        // }
-        // if (Input.GetKeyDown(KeyCode.Alpha3))
-        // {
-        //     // Debug.Log("pressed 3");
-        //     collectionManager.CollectGem("Grass");
-        // }
-        // if (Input.GetKeyDown(KeyCode.Alpha4))
-        // {
-        //     // Debug.Log("pressed 4");
-        //     collectionManager.CollectGem("Light");
-        // }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            // Debug.Log("pressed 1");
+            collectionManager.CollectGem("Fire");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            // Debug.Log("pressed 2");
+            collectionManager.CollectGem("Water");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            // Debug.Log("pressed 3");
+            collectionManager.CollectGem("Grass");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            // Debug.Log("pressed 4");
+            collectionManager.CollectGem("Light");
+        }
         if (!win && collectionManager.Win())
         {
             TransitionCanvas.enabled = true;
             Debug.Log("WINWIN");
             PlayerStatusCanvas.SetActive(false);
-            video.Play();
+            videoPlayer.Play();
             Invoke("winwin", 1.3f);  
             fadeActive = true;
             win = true;    
@@ -83,5 +85,11 @@ public class PlayerManager : MonoBehaviour
     {
         EndCanvas.SetActive(true);
         
+    }
+
+    void ReachedLoop(VideoPlayer videoplayer)
+    {
+        SceneManager.LoadScene("UI", LoadSceneMode.Single);
+        // PlayerPrefs.SetString("sceneStatus", "Main");
     }
 }
