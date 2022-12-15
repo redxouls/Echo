@@ -15,12 +15,12 @@ MonoBehaviour:
   m_Active: 0
   settings:
     passTag: SoundWave
-    Event: 300
+    Event: 550
     filterSettings:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 1024
+        m_Bits: 1088
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 88af89102d1ea494daa77e7286ed2a06, type: 2}
     overrideMaterialPassIndex: 0
