@@ -2,24 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Firefly : MonoBehaviour
+public class FireflyLight : MonoBehaviour
 {   
     public float radius;
     public float deltaHeight;
     public float intensityMin = 0;
     public float intensityMax = 4;
     public float period = 1;
-    private Vector3 origin;
 
     private Light light;
-    private float timer;
+    private Vector3 origin;
     private int direction;
     // Start is called before the first frame update
     void Start()
     {
         light = GetComponent<Light>();
         origin = transform.position;
-        timer = 0;
     }
 
     // Update is called once per frame
@@ -55,5 +53,15 @@ public class Firefly : MonoBehaviour
         } else {
             return n1 * (x -= 2.625f / d1) * x + 0.984375f;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log(other);
     }
 }
