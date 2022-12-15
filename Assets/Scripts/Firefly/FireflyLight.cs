@@ -23,9 +23,14 @@ public class FireflyLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float time = Time.time;
-        light.intensity	= Mathf.Lerp(intensityMin, intensityMax, easeInOutBounce(0.5f + 0.5f * Mathf.Sin(time)));
-        transform.position = origin + new Vector3(radius * Mathf.Cos(time) * 0f, Mathf.Sin(time), radius * Mathf.Sin(time) * 0f);
+        damping();
+    }
+
+    void damping()
+    {
+        // float time = Time.time;
+        // light.intensity	= Mathf.Lerp(intensityMin, intensityMax, easeInOutBounce(0.5f + 0.5f * Mathf.Sin(time)));
+        // transform.position = origin + new Vector3(radius * Mathf.Cos(time) * 0f, Mathf.Sin(time), radius * Mathf.Sin(time) * 0f);
     }
 
     float easeInOutBounce(float x)
@@ -58,6 +63,7 @@ public class FireflyLight : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other);
+        transform.position = transform.position + new Vector3(2.0f, 0.0f, 2.0f);
     }
 
     private void OnTriggerExit(Collider other)

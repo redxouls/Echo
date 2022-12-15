@@ -192,7 +192,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31329457}
-  m_LocalRotation: {x: -0.000000006847172, y: 0.973249, z: -0.22975294, w: -0.000000029005085}
+  m_LocalRotation: {x: 1e-45, y: 0.96371496, z: -0.2669336, w: 3e-45}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -268,7 +268,7 @@ MonoBehaviour:
   bottomTint: {r: 0, g: 0, b: 0, a: 1}
   castShadow: 0
   interactors: []
-  m_InstantiatedMaterial: {fileID: 447383471}
+  m_InstantiatedMaterial: {fileID: 2051141657}
 --- !u!114 &60212331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7078,7 +7078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.25, z: -2.5}
+  m_FollowOffset: {x: 0, y: 1.5, z: -2.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -7144,7 +7144,7 @@ GameObject:
   - component: {fileID: 290373158}
   - component: {fileID: 290373160}
   m_Layer: 10
-  m_Name: Firefly
+  m_Name: FireflyParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7158,13 +7158,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290373156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.41, y: 3.04, z: -13.97}
+  m_LocalPosition: {x: 0, y: 0.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 306150739}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_Father: {fileID: 804672270}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &290373158
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -7869,7 +7869,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.5
+    radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -8177,7 +8177,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -11983,6 +11983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6295a4b6e40414379a72c27a93efd85d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
 --- !u!1 &306150738
 GameObject:
   m_ObjectHideFlags: 0
@@ -12026,9 +12027,8 @@ Transform:
   - {fileID: 1768892572}
   - {fileID: 1324890461}
   - {fileID: 1994209558}
+  - {fileID: 804672270}
   - {fileID: 1985290982}
-  - {fileID: 1153759404}
-  - {fileID: 290373157}
   m_Father: {fileID: 1938400211}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12223,7 +12223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398240051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.37, y: 2.26, z: -23.39}
+  m_LocalPosition: {x: 39.37, y: 2.26, z: -22.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12348,33 +12348,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 299e7a1cb6456cf4fa6079cf5978df9b, type: 3}
---- !u!21 &447383471
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: adac6c7a4565f4941940cecf8eab0b94, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 0
-    - _BlendFloor: 0
-    - _Fade: 0
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &448006847
 GameObject:
   m_ObjectHideFlags: 0
@@ -12541,9 +12514,9 @@ MonoBehaviour:
   m_Orbits:
   - m_Height: 1.5
     m_Radius: 2.5
-  - m_Height: 1.25
+  - m_Height: 1.5
     m_Radius: 2.5
-  - m_Height: 1
+  - m_Height: 1.5
     m_Radius: 2.5
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
@@ -12558,7 +12531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525231843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.37, y: 3.51, z: -20.89}
+  m_LocalPosition: {x: 39.37, y: 3.76, z: -20.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12683,7 +12656,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536583026}
-  m_LocalRotation: {x: 0.000000002267424, y: 0.9889662, z: -0.14814122, w: 0.000000015136948}
+  m_LocalRotation: {x: -0, y: 0.9825526, z: -0.18598516, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18222,6 +18195,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731502408}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &804672269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 804672270}
+  - component: {fileID: 804672271}
+  - component: {fileID: 804672272}
+  m_Layer: 13
+  m_Name: Firefly
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &804672270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804672269}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 41.8, y: 0, z: -18.23}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1153759404}
+  - {fileID: 290373157}
+  m_Father: {fileID: 306150739}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &804672271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804672269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a7c8f74ee4f4ebeb9238ada59a6593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &804672272
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804672269}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &916530504
 GameObject:
   m_ObjectHideFlags: 3
@@ -18296,7 +18329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.25, z: -2.5}
+  m_FollowOffset: {x: 0, y: 1.5, z: -2.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -19211,7 +19244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.25, z: -2.5}
+  m_FollowOffset: {x: 0, y: 1.5, z: -2.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -19276,7 +19309,6 @@ GameObject:
   - component: {fileID: 1153759406}
   - component: {fileID: 1153759405}
   - component: {fileID: 1153759407}
-  - component: {fileID: 1153759408}
   m_Layer: 10
   m_Name: FireflyLight
   m_TagString: Untagged
@@ -19292,12 +19324,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153759403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.99, y: 0.5, z: -16.26}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 306150739}
-  m_RootOrder: 16
+  m_Father: {fileID: 804672270}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1153759405
 MonoBehaviour:
@@ -19331,8 +19363,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.76346385, g: 0.7924528, b: 0.41491634, a: 1}
-  m_Intensity: 1
-  m_Range: 6
+  m_Intensity: 3
+  m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -19398,19 +19430,6 @@ MonoBehaviour:
   intensityMin: 1
   intensityMax: 3
   period: 2
---- !u!135 &1153759408
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1153759403}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1206397418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5186735023777053022, guid: ac8efb728f1fb9b4092c4df591c827ca,
@@ -19452,8 +19471,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216600054}
-  m_LocalRotation: {x: 0.0000000072650255, y: 0.98201054, z: -0.18882638, w: 0.000000037782495}
-  m_LocalPosition: {x: 39.37, y: 3.51, z: -20.89}
+  m_LocalRotation: {x: 0, y: 0.9740406, z: -0.2263734, w: 0}
+  m_LocalPosition: {x: 39.37, y: 3.76, z: -20.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20547,7 +20566,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 306150739}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1985290983
 MeshCollider:
@@ -20619,6 +20638,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 679286107}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &2051141657
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: adac6c7a4565f4941940cecf8eab0b94, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 0
+    - _BlendFloor: 0
+    - _Fade: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1001 &2053165887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25579,7 +25625,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106183187}
-  m_LocalRotation: {x: 0.0000000036325123, y: 0.98201054, z: -0.18882634, w: 0.000000018891248}
+  m_LocalRotation: {x: -0, y: 0.9740406, z: -0.22637339, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
