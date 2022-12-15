@@ -10,9 +10,7 @@ public class SettingMenu : MonoBehaviour
     public Slider mouseSensitivity;
     public Slider volume;
     [SerializeField] private AudioMixer audioMixer;
-
     public TMP_Dropdown resDropdown;
-    public ThirdPersonCameraManager thirdPersonCameraManager;
     private Resolution[] resolutions;
     private bool created = false;
     private int initialResIdx;
@@ -37,8 +35,16 @@ public class SettingMenu : MonoBehaviour
         resDropdown.AddOptions(options);
         resDropdown.value = curResIdx;
         resDropdown.RefreshShownValue();
-        LoadSetting();
-        PlayerPrefs.SetInt("Created", 1);
+        if (PlayerPrefs.GetInt("Created") != 1)
+        {
+            ResetSetting();
+            PlayerPrefs.SetInt("Created", 1);
+            Debug.Log("first time setting.");
+        }
+        else
+        {
+            LoadSetting();
+        }
     }
 
     public void SetVolume(float volume)
@@ -50,7 +56,10 @@ public class SettingMenu : MonoBehaviour
     public void SetMouseSensitivity(float mouseSensitivity)
     {
         PlayerPrefs.SetFloat("MouseSensitivity", mouseSensitivity);
-        // thirdPersonCameraManager.UpdateMouseSensitivity(mouseSensitivity);
+        if (ThirdPersonCameraManager.Instance != null)
+        {
+            ThirdPersonCameraManager.Instance.UpdateMouseSensitivity(mouseSensitivity);
+        }
     }
 
     public void SetResolution(int curResIdx)
@@ -62,8 +71,10 @@ public class SettingMenu : MonoBehaviour
     public void LoadSetting()
     {
         // Debug.Log(mouseSensitivity.value);
-        SetMouseSensitivity(mouseSensitivity.value);
-        SetVolume(volume.value);
+        float _mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
+        float _volume = PlayerPrefs.GetFloat("Volume");
+        SetMouseSensitivity(_mouseSensitivity);
+        SetVolume(_volume);
     }
 
     public void ResetSetting()

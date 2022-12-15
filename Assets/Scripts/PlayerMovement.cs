@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public int soundWaveSetCount;
     public SoundWaveManager soundWaveManager;
 
-    public AudioSource MyAudioSource;
+    // public AudioSource MyAudioSource;
 
     private Vector3 velocity;
     private bool isGrounded;
@@ -29,22 +29,22 @@ public class PlayerMovement : MonoBehaviour
     private float timer = 0.2f;
 
     public float waveThickness;
-    public float waveSpeed;
-    public float waveLifespan;
+    public float waveSpeed;    public float waveLifespan;
 
     public bool isDead = false;
     public GameObject deathBG;
 
     public AudioClip GrassSteps;
     public AudioClip WaterSteps;
-    public AudioClip deathSound;
+    public AudioClip DeathSound;
+    public AudioClip GroundSteps;
     public GameObject deathScreen;
 
     // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
     void Start()
     {
-        MyAudioSource = GetComponent<AudioSource>();
+        // MyAudioSource = GetComponent<AudioSource>();
         //Load Player Setting
         // speed = PlayerPrefs.GetFloat("playerSpeed");
         // waveThickness = PlayerPrefs.GetFloat("waveThickness");
@@ -143,19 +143,23 @@ public class PlayerMovement : MonoBehaviour
                 switch (hit.collider.tag)
                 {
                     case "Footsteps/WATER":
-                        MyAudioSource.PlayOneShot(WaterSteps);
+                        AudioManager.Instance.PlayAudioClip(WaterSteps);
+                        // MyAudioSource.PlayOneShot(WaterSteps);
                         break;
                     case "Footsteps/GRASS":
-                        MyAudioSource.PlayOneShot(GrassSteps);
+                        AudioManager.Instance.PlayAudioClip(GrassSteps);
+                        // MyAudioSource.PlayOneShot(GrassSteps);
                         break;
                     default:
-                        MyAudioSource.Play();
+                        AudioManager.Instance.PlayAudioClip(GroundSteps);
+                        // MyAudioSource.Play();
                         break;
                 }
             }
             else
             {
-                MyAudioSource.Play();
+                AudioManager.Instance.PlayAudioClip(GroundSteps);
+                // MyAudioSource.Play();
             }
         }
     }
@@ -167,7 +171,8 @@ public class PlayerMovement : MonoBehaviour
         {
             case "Trap":
                 speed = 0;
-                MyAudioSource.PlayOneShot(deathSound);
+                AudioManager.Instance.PlayAudioClip(DeathSound);
+                // MyAudioSource.PlayOneShot(DeathSound);
                 isDead = true;
                 break;
             case "Destination":
