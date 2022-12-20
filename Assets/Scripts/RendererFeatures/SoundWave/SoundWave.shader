@@ -48,6 +48,11 @@ Shader "Hidden/SoundWave"
             float _AlphaAttenuation[100]; // the age of the wave 0 ~ 1
             float _Weight[] = {0.0, 0.4, 0.3, 0.3}; // weight for each attribute
 
+            // trigger lights
+            float4 _TriggerLight[100];
+            float _TriggerLightRadius[100];
+            int _NofTirggerLight = 0;
+
             v2f vert (appdata v)
             {
                 v2f o;
@@ -91,6 +96,19 @@ Shader "Hidden/SoundWave"
                 return clamp(alpha, 0, 1);
             }
 
+            float intersectWithTriggerLight(float3 worldPos)
+            {
+                float alpha = 0;
+                for (int i = 0; i < _NofTirggerLight; ++i)
+                {
+                    float r = distance(worldPos.xyz, _TriggerLight[i].xyz);
+                    if (r < _TriggerLightRadius[i])
+                    {
+                        alpha += (1 - pow(r / _TriggerLightRadius[i], 2));
+                    }
+                }
+                return alpha;
+            }
 
             fixed4 frag (v2f i) : SV_Target
             {
@@ -100,9 +118,10 @@ Shader "Hidden/SoundWave"
                 // fixed4 col = tex2D(_MainTex, i.uv);
                                 
                 // Calculate alpha of this pixel
-                float waveWeight = 0.7;
+                float waveWeight = 0.7, triggerLightWeight = 0.3;
                 float waveAlpha = intersectWithWave(worldPos.xyz);
-                float alpha = waveWeight * waveAlpha;
+                float triggerLightAlpha = intersectWithTriggerLight(worldPos.xyz);
+                float alpha = waveWeight * waveAlpha + triggerLightWeight * triggerLightAlpha;
 
                 // Scale the color with alpha
                 fixed4 col = fixed4(0,0,0, 1 - clamp(alpha, 0, 1));
