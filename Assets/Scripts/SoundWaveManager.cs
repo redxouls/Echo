@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 public class SoundWaveManager : MonoBehaviour
 {   
     // Set the right postProcessingMaterial
-    public Material postProcessingMaterial;
+    // public Material postProcessingMaterial;
     public int maxNumOfWave = 100;
     public Wave[] waves;
 
@@ -18,12 +18,6 @@ public class SoundWaveManager : MonoBehaviour
     float[] _Attributes;  // wave attributes (e.g DEAD, PLAYER...), update every Update()
     float[] _AlphaAttenuation;  // wave alpha attenuation 0 ~ 1, update every Update()
     // Use float for _Attributes because there is not setIntegerArray function -> use SetFloatArray instead
-
-    // Some parameters for envLight
-    int[] envLightDir;
-    float[] envLightSpeed;
-    float[] envLightSmallestRange;
-    float [] envLightLargestRange;
 
     // Start is called before the first frame update
     void Start()
@@ -55,9 +49,9 @@ public class SoundWaveManager : MonoBehaviour
             _AlphaAttenuation[i] = waves[i].GetAlphaAttenuation();
             _Attributes[i] = (float)waves[i].GetAttribute();
         }
-        postProcessingMaterial.SetFloatArray("_Radius", _Radius);
-        postProcessingMaterial.SetFloatArray("_AlphaAttenuation", _AlphaAttenuation);
-        postProcessingMaterial.SetFloatArray("_Attributes", _Attributes);
+        Shader.SetGlobalFloatArray("_Radius", _Radius);
+        Shader.SetGlobalFloatArray("_AlphaAttenuation", _AlphaAttenuation);
+        Shader.SetGlobalFloatArray("_Attributes", _Attributes);
     }
 
     public void AddWave(float thickness, float lifeSpan, float speed, float alphaAttenuation, Vector3 position, WAVE_ATTRIBUTE attribute)
@@ -74,8 +68,8 @@ public class SoundWaveManager : MonoBehaviour
                 _Attributes[i] = (float)attribute;
                 
                 // Update _Points, _Thickness to shader
-                postProcessingMaterial.SetVectorArray("_Points", _Points);
-                postProcessingMaterial.SetFloatArray("_thickness", _thickness);
+                Shader.SetGlobalVectorArray("_Points", _Points);
+                Shader.SetGlobalFloatArray("_thickness", _thickness);
                 return;
             }
         }
