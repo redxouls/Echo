@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float gravity = -9.8f;
     public Transform groundCheck;
-    public float groundDis = 0.4f;
+    public float groundDis = 0.5f;
     public LayerMask groundMask;
     public Transform camera;
 
@@ -25,8 +25,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
     private bool moving;
-
-    private float timer = 0.2f;
+    private bool WhichFoot;
+    private Vector3 LastFootprint;
+    public float FootprintSpacer = 1.0f;
+    public GameObject LeftFoorPrefab = null;
+    public GameObject RightFootPrefab = null;
 
     public float waveThickness;
     public float waveSpeed;    public float waveLifespan;
@@ -63,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
             JumpAndGravity();
             Move();
             HandleFootsteps();
-            Echo();
         }
         // if (Input.GetKeyDown(KeyCode.P))
         // {
@@ -80,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
             deathScreen.SetActive(isDead);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            timer = 0;
             var color = deathBG.GetComponent<Image>().color;
             if(color.a < 0.8f)
             {
@@ -110,33 +111,14 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
     }
 
-    private void Echo()
-    {
-        if (timer < minEchoInterval) 
-        {
-            timer += Time.deltaTime;
-        }
-        if (timer >= minEchoInterval && moving) 
-        {
-            // soundWaveManager.AddWave(waveThickness, waveLifespan, waveSpeed, 1, transform.position, WAVE_ATTRIBUTE.PLAYER);
-            // soundWaveManager.AddPlayerWave(transform.position);
-            // Add a sound source upon moving
-            // soundWaveManager.AddWaveSource(transform.position);
-            // soundWaveManager.AddWaveSet(transform.position, soundWaveSetInterval, soundWaveSetCount, SoundWaveManager.WAVE_ATTRIBUTE.PLAYER);
-            // GameObject echo = Instantiate(prefab, transform.position, Quaternion.identity);
-            // echo.SetActive(true);
-            // Destroy(echo, echoLifeSpan);
-            // MyAudioSource.Play();
-            timer = 0f;
-        }
-    }
-
     private void HandleFootsteps()
     {
         // Debug.LogFormat("timer :{0} | minEchoInterval :{1} | Time.deltaTime:{2}",timer,minEchoInterval,Time.deltaTime);
-        minEchoInterval = 0.8f;
-        if (timer >= minEchoInterval - Time.deltaTime && moving)
+        float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
+        if (moving && isGrounded && DistanceSinceLastFootprint >= FootprintSpacer)
         {
+            Color foot_color = Color.white;
+            // Audio play according to ground type
             if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
             {
                 // Debug.Log(hit.collider.tag);
@@ -144,17 +126,30 @@ public class PlayerMovement : MonoBehaviour
                 {
                     case "Footsteps/WATER":
                         AudioManager.Instance.PlayAudioClip(WaterSteps);
+                        foot_color = Color.white;
                         // MyAudioSource.PlayOneShot(WaterSteps);
                         break;
                     case "Footsteps/GRASS":
                         AudioManager.Instance.PlayAudioClip(GrassSteps);
+                        foot_color = Color.green;
                         // MyAudioSource.PlayOneShot(GrassSteps);
                         break;
                     default:
                         AudioManager.Instance.PlayAudioClip(GroundSteps);
+                        foot_color = Color.white;
                         // MyAudioSource.Play();
                         break;
                 }
+
+                //where the ray hits the ground we will place a footprint
+                GameObject decal = Instantiate(WhichFoot?LeftFoorPrefab:RightFootPrefab);
+                decal.transform.position = hit.point + new Vector3(0.0f,0.1f,0.0f);
+                //turn the footprint to match the direction the player is facing
+                // decal.transform.Rotate(Vector3.up, transform.eulerAngles.y);
+                decal.GetComponent<Renderer>().material.SetColor("_EmissionColor", foot_color);
+                decal.transform.rotation = Quaternion.Euler(90, camera.eulerAngles.y, 0);
+                LastFootprint = transform.position;
+                WhichFoot = !WhichFoot;
             }
             else
             {

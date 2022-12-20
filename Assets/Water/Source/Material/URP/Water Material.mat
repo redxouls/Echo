@@ -42,22 +42,6 @@ Material:
         m_Texture: {fileID: 2800000, guid: 52b9ed90e5d2d9844b86c1c3608c082e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -83,8 +67,7 @@ Material:
     - Vector1_a28b3589c9ae479c8af5a8534ea77b7b: 0.02
     - Vector1_d1d2d6bd42824fd8b2721a4b9f9629c2: 0
     - Vector1_d939cb74029c4ed3b79a4f910950f7d3: 0.37
-    - Vector1_da3a3a6e41c749aebbc020d95a2f7f97: 0.01
-    - _EnableExternalAlpha: 0
+    - Vector1_da3a3a6e41c749aebbc020d95a2f7f97: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
@@ -92,7 +75,4 @@ Material:
         a: 0}
     - Color_fac0fcd1e2974160ae513ca0e0dd7154: {r: 0.34349412, g: 0.72556454, b: 0.7830189,
         a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
