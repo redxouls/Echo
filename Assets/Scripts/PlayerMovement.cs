@@ -117,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
         float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
         if (moving && isGrounded && DistanceSinceLastFootprint >= FootprintSpacer)
         {
+            Color foot_color = Color.white;
             // Audio play according to ground type
             if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
             {
@@ -125,14 +126,17 @@ public class PlayerMovement : MonoBehaviour
                 {
                     case "Footsteps/WATER":
                         AudioManager.Instance.PlayAudioClip(WaterSteps);
+                        foot_color = Color.white;
                         // MyAudioSource.PlayOneShot(WaterSteps);
                         break;
                     case "Footsteps/GRASS":
                         AudioManager.Instance.PlayAudioClip(GrassSteps);
+                        foot_color = Color.green;
                         // MyAudioSource.PlayOneShot(GrassSteps);
                         break;
                     default:
                         AudioManager.Instance.PlayAudioClip(GroundSteps);
+                        foot_color = Color.white;
                         // MyAudioSource.Play();
                         break;
                 }
@@ -142,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
                 decal.transform.position = hit.point + new Vector3(0.0f,0.1f,0.0f);
                 //turn the footprint to match the direction the player is facing
                 // decal.transform.Rotate(Vector3.up, transform.eulerAngles.y);
+                decal.GetComponent<Renderer>().material.SetColor("_EmissionColor", foot_color);
                 decal.transform.rotation = Quaternion.Euler(90, camera.eulerAngles.y, 0);
                 LastFootprint = transform.position;
                 WhichFoot = !WhichFoot;

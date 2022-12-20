@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1608895556403670787}
   - component: {fileID: 7095606553550735896}
   - component: {fileID: 1813544136295459556}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FootStepLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,4 +96,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da27a28ae82b54804a13db421be327a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lifetime: 50
+  Lifetime: 5

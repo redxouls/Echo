@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6647364630620732052}
   - component: {fileID: 2912552986650779535}
   - component: {fileID: 5996789035415371635}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: FootStepRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
@@ -96,4 +96,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da27a28ae82b54804a13db421be327a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lifetime: 50
+  Lifetime: 5
