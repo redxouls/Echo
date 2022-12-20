@@ -46,6 +46,7 @@ public class PauseController : MonoBehaviour
                 audio.Pause();
             }
             PauseCanvas.SetActive(GamePaused);
+            TutorialManager.Instance.paused = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             // Screen.lockCursor = false;
@@ -57,6 +58,7 @@ public class PauseController : MonoBehaviour
                 audio.UnPause();
             }
             PauseCanvas.SetActive(GamePaused);
+            TutorialManager.Instance.paused = false;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             // Screen.lockCursor = true;

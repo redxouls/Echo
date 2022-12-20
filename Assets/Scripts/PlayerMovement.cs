@@ -109,7 +109,10 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, camera.eulerAngles.y, 0);
         moving = x != 0 || z != 0;
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        if (TutorialManager.Instance.move_check != 0)
+        {
+            controller.Move(move * speed * Time.deltaTime);
+        }
     }
 
     private void HandleFootsteps()

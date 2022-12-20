@@ -15,12 +15,19 @@ EditorUserSettings:
       value: 535302505504595a54575f7547775e4217161d297f7d7766742a4935e1b96739
       flags: 0
     RecentlyUsedSceneGuid-3:
-      value: 5250520003560f0f5d0c0e7749770b4044154c722f7d7468287d4b30e0b16368
+      value: 535302505504595a54575f7547775e4217161d297f7d7766742a4935e1b96739
       flags: 0
     RecentlyUsedSceneGuid-4:
+<<<<<<< HEAD
       value: 5a08575f5207595a0f5d59741173094444164f7d7d2a23317c7a4465bbe1646d
+=======
+      value: 5002075e57010f5f5e590d7415775a154e4f1e7a2a782060797b1b62b0b06561
+>>>>>>> 413102a (add tutor playground that shows the player how to play the game step by step.)
       flags: 0
     RecentlyUsedSceneGuid-5:
+      value: 5250520003560f0f5d0c0e7749770b4044154c722f7d7468287d4b30e0b16368
+      flags: 0
+    RecentlyUsedSceneGuid-6:
       value: 530403525d0d5f085d570d771377091113161c297d2b7562742c4531b2e56068
       flags: 0
     RecentlyUsedSceneGuid-6:
