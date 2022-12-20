@@ -6,6 +6,9 @@ public class Skills : MonoBehaviour
 {
     public float minLifeSpan;
     public float maxLifeSpan;
+    public float waveThickness;
+    public float waveSpeed;    
+    public float waveLifespan;
     
     public SoundWaveManager soundWaveManager;
     
@@ -15,6 +18,9 @@ public class Skills : MonoBehaviour
     void Start()
     {
         Trail = transform.Find("Trail");
+        waveThickness = PlayerPrefs.GetFloat("waveThickness");
+        waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
+        waveLifespan = PlayerPrefs.GetFloat("waveLifespan");
     }
 
     // Update is called once per frame
@@ -49,24 +55,25 @@ public class Skills : MonoBehaviour
             // }
 
             // Medium wave: search area arround the player (far)
-            if (factor < 0.75f)
-            {
-                // Debug.Log("Medium Wave");
-                lifeSpan = factor * 10f;
-                thickness = 2f;
-                speed = 2.5f;
-            }
+            // if (factor < 0.75f)
+            // {
+            //     // Debug.Log("Medium Wave");
+            //     lifeSpan = factor * 10f;
+            //     thickness = 2f;
+            //     speed = 2.5f;
+            // }
 
             // Large wave: obeserve the entire environment
-            else
-            {
-                // Debug.Log("Large Wave");
-                lifeSpan = factor * 20f;
-                thickness = 4f;
-                speed = 3f;
-            }
+            // else
+            // {
+            //     // Debug.Log("Large Wave");
+            //     lifeSpan = factor * 20f;
+            //     thickness = 4f;
+            //     speed = 3f;
+            // }
 
-            soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, Trail.position, WAVE_ATTRIBUTE.PLAYER);
+            // soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, Trail.position, WAVE_ATTRIBUTE.PLAYER);
+            soundWaveManager.AddWave(waveThickness, waveLifespan, waveSpeed, 1, Trail.position, WAVE_ATTRIBUTE.PLAYER);
         }
     }
 }

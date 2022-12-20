@@ -43,7 +43,7 @@ Material:
     - _QueueOffset: 0
     - _Smoothness: 0
     - _TopLine: 0.639
-    - _Transparency: 0
+    - _Transparency: 1
     - _hehe: 1
     - _test: 1.85
     m_Colors:
