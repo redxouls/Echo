@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
         if (!PauseController.GamePaused)
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDis, groundMask); // Ground Check
-            Debug.Log(isGrounded);
             JumpAndGravity();
             Move();
             HandleFootsteps();
