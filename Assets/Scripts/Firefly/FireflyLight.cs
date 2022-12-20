@@ -11,40 +11,42 @@ public class FireflyLight : MonoBehaviour
     public float period = 1;
 
     private Light light;
-    private Vector3 origin;
+    private Vector3 origin, startLocalPosition;
     private int direction;
     // Start is called before the first frame update
     void Start()
     {
         light = GetComponent<Light>();
         origin = transform.position;
+        startLocalPosition = transform.localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        damping();
+        Damping();
+        
     }
 
-    void damping()
+    void Damping()
     {
-        // float time = Time.time;
-        // light.intensity	= Mathf.Lerp(intensityMin, intensityMax, easeInOutBounce(0.5f + 0.5f * Mathf.Sin(time)));
-        // transform.position = origin + new Vector3(radius * Mathf.Cos(time) * 0f, Mathf.Sin(time), radius * Mathf.Sin(time) * 0f);
+        float time = Time.time;
+        light.intensity	= Mathf.Lerp(intensityMin, intensityMax, EaseInOutBounce(0.5f + 0.5f * Mathf.Sin(time)));
+        transform.position = origin + new Vector3(radius * Mathf.Cos(time) * 0f, deltaHeight * Mathf.Sin(time), radius * Mathf.Sin(time) * 0f);
     }
 
-    float easeInOutBounce(float x)
+    float EaseInOutBounce(float x)
     {
         if (x < 0.5){
-            return (1 - easeOutBounce(1 - 2 * x)) / 2;
+            return (1 - EaseOutBounce(1 - 2 * x)) / 2;
         }
         else
         {
-            return(1 + easeOutBounce(2 * x - 1)) / 2;
+            return(1 + EaseOutBounce(2 * x - 1)) / 2;
         }
     }
 
-    float easeOutBounce(float x)
+    float EaseOutBounce(float x)
     {
         float n1 = 7.5625f;
         float d1 = 2.75f;
@@ -60,14 +62,8 @@ public class FireflyLight : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void SetOrigin(Vector3 newOrigin)
     {
-        Debug.Log(other);
-        transform.position = transform.position + new Vector3(2.0f, 0.0f, 2.0f);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log(other);
+        origin = newOrigin + startLocalPosition;
     }
 }
