@@ -29,22 +29,22 @@ public class FireflyParticleSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        switch (state)
-        {
-            case (State.Still):
-                break;
-            case (State.Spread):
-                Spread();
-                break;
-            case (State.Shrink):
-                Shrink();
-                break;
-            case (State.Move):
-                Move();
-                break;
-            default:
-                break;
-        }
+        // switch (state)
+        // {
+        //     case (State.Still):
+        //         break;
+        //     case (State.Spread):
+        //         Spread();
+        //         break;
+        //     case (State.Shrink):
+        //         Shrink();
+        //         break;
+        //     case (State.Move):
+        //         Move();
+        //         break;
+        //     default:
+        //         break;
+        // }
     }
 
     void Shrink()

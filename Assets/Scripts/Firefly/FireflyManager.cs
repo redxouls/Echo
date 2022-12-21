@@ -5,13 +5,14 @@ using PathCreation;
 
 public class FireflyManager : MonoBehaviour
 {   
-    public PathCreator pathCreator;
+    public PathCreator[] pathCreators;
     public float speed;
 
     private float distanceTravelled;
     private FireflyLight fireflyLight;
     private FireflyParticleSystem fireflyParticleSystem;
     private bool moveToNext;
+    private int currentPathIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +21,14 @@ public class FireflyManager : MonoBehaviour
         fireflyParticleSystem = transform.GetChild(1).GetComponent<ParticleSystem>().GetComponent<FireflyParticleSystem>();
 
         moveToNext = false;
+        currentPathIndex = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (moveToNext)
-            MoveToDesitination();
+            MoveToDesitination(currentPathIndex);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,13 +43,15 @@ public class FireflyManager : MonoBehaviour
         }
     }
 
-    private void MoveToDesitination()
+    private void MoveToDesitination(int pathCreatorIndex)
     {
+        PathCreator pathCreator = pathCreators[pathCreatorIndex];
         distanceTravelled += speed * Time.deltaTime;
         if (distanceTravelled >= pathCreator.path.length)
         {
             moveToNext = false;
             distanceTravelled = 0.0f;
+            currentPathIndex += 1;
             return;
         }
         transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
