@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour
-{   
+{
     public GameObject prefab;
     public CharacterController controller;
     public float speed;
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject RightFootPrefab = null;
 
     public float waveThickness;
-    public float waveSpeed;    public float waveLifespan;
+    public float waveSpeed; public float waveLifespan;
 
     public bool isDead = false;
     public GameObject deathBG;
@@ -55,18 +55,14 @@ public class PlayerMovement : MonoBehaviour
         // waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
         // waveLifespan = PlayerPrefs.GetFloat("waveLifespan");
         // minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
-<<<<<<< Updated upstream
         if (deathScreen)
             deathScreen.SetActive(isDead);
-=======
         Trail = transform.Find("Trail");
-        deathScreen.SetActive(isDead);
->>>>>>> Stashed changes
     }
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         if (!PauseController.GamePaused)
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDis, groundMask); // Ground Check
@@ -90,19 +86,19 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             var color = deathBG.GetComponent<Image>().color;
-            if(color.a < 0.8f)
+            if (color.a < 0.8f)
             {
                 color.a += 1f * Time.deltaTime;
             }
             deathBG.GetComponent<Image>().color = color;
         }
     }
-    
+
     // TODO: maybe can add jump ?
     private void JumpAndGravity()
-    { 
+    {
         if (isGrounded && velocity.y < 0f)
-        { 
+        {
             velocity.y = -2f;
         }
         velocity.y += gravity * Time.deltaTime;
@@ -129,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Color foot_color = Color.white;
             // Audio play according to ground type
-            if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
+            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
             {
                 // Debug.Log(hit.collider.tag);
                 switch (hit.collider.tag)
@@ -157,8 +153,8 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 //where the ray hits the ground we will place a footprint
-                GameObject decal = Instantiate(WhichFoot?LeftFoorPrefab:RightFootPrefab);
-                decal.transform.position = hit.point + new Vector3(0.0f,0.1f,0.0f);
+                GameObject decal = Instantiate(WhichFoot ? LeftFoorPrefab : RightFootPrefab);
+                decal.transform.position = hit.point + new Vector3(0.0f, 0.1f, 0.0f);
                 //turn the footprint to match the direction the player is facing
                 // decal.transform.Rotate(Vector3.up, transform.eulerAngles.y);
                 decal.GetComponent<Renderer>().material.SetColor("_EmissionColor", foot_color);
