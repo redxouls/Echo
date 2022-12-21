@@ -49,6 +49,13 @@ Shader "Custom/GrassComputeHLSL"
     float3 _OrthographicCamPos;
     uniform sampler2D _TerrainDiffuse;
     float _AmbientAdjustment;
+    
+    float4 _Points[100];
+    float _Radius[100];
+    float _thickness[100];
+    float _Attributes[100]; // DEAD = 0, PLAYER = 1, GRENADE = 2, PASSIVE = 3
+    float _AlphaAttenuation[100]; // the age of the wave 0 ~ 1
+    float _Weight[] = {0.0, 0.4, 0.3, 0.3}; // weight for each attribute
     // ----------------------------------------
     
     // Vertex function
@@ -80,6 +87,42 @@ Shader "Custom/GrassComputeHLSL"
     }
     
     // ----------------------------------------
+
+    // caculate sound wave alpha
+    float intersectWithWave(float3 worldPos) 
+    {
+        // Initial alpha set to 0.0
+        float alpha = 0.0;
+
+        // Circular calculation
+        for (uint i = 0; i < 100; ++i)
+        {
+            if (_Attributes[i] == 0) // DEAD
+            {
+                continue;
+            }
+            // Calculate distance to the wave source
+            float r = distance(worldPos.xyz, _Points[i].xyz);
+            // Caululate (distance - wave_radius)
+            float delta = r - _Radius[i]/4;
+            
+            // double side smooth to simulate ripple
+            // if (delta <  _Thickness)
+            // {
+            //     alpha += pow(1 - delta/_Thickness, 3);
+            // }
+            
+            // Single side smooth more sharp on one side
+            if (abs(delta) < _thickness[i])
+            {
+                // TODO: add _Weight[i]
+                alpha += smoothstep(0, _thickness[i], delta) * _AlphaAttenuation[i];
+            }
+        }
+        // Set maximum alpha to 1
+        return clamp(alpha, 0, 1);
+    }
+
     
     // Fragment function
     
@@ -148,11 +191,17 @@ Shader "Custom/GrassComputeHLSL"
                 // add in ambient
                 final += (ambient * baseColor) ;
             #endif
+            
+            float3 worldPos = i.positionWS;
+            float waveAlpha = intersectWithWave(worldPos.xyz);
+            float alpha = clamp(waveAlpha, 0, 1);
+
             final += float4(extraLights,1);
             // fog
             float fogFactor = i.fogFactor;
             // Mix the pixel color with fogColor. 
-            final.rgb = MixFog(final.rgb, fogFactor);         
+            final.rgb = MixFog(final.rgb, fogFactor); 
+            // final = lerp(half4(0,0,0,0), final, alpha);
             return final;
             
         #endif  // SHADERPASS_SHADOWCASTER

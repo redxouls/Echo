@@ -89,7 +89,7 @@ Shader "Hidden/SoundWave"
                     if (abs(delta) < _thickness[i])
                     {
                         // TODO: add _Weight[i]
-                        alpha += 0.3 * smoothstep(0, _thickness[i], delta) * _AlphaAttenuation[i];
+                        alpha += smoothstep(0, _thickness[i], delta) * _AlphaAttenuation[i];
                     }
                 }
                 // Set maximum alpha to 1
