@@ -39,6 +39,8 @@ public class TutorialManager : MonoBehaviour
     private int grenade_check_flag;
     private bool[] move_check_flag = new bool[4]; // [w, a, s, d]
     private float canvas_fade_out_t;
+    private bool red_user_check;
+    private bool gem_user_check;
 
     public CanvasGroup redcanvasGroup;
     public CanvasGroup gemcanvasGroup;
@@ -68,6 +70,8 @@ public class TutorialManager : MonoBehaviour
         
         grenade_check_flag = 0;
         canvas_fade_out_t = -1f;
+        red_user_check = false;
+        gem_user_check = false;
         for (int i  = 0; i < 4; i++) move_check_flag[i] = false;
         ResetAllCanvas();
     }
@@ -175,19 +179,23 @@ public class TutorialManager : MonoBehaviour
         if (red_warning_check == CheckStatus.Checking)
         {
             RedWarningTutor.enabled = true;
-            if (Input.anyKeyDown)
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            if (red_user_check)
             {
                 canvas_fade_out_t = 0f;
                 red_warning_check = CheckStatus.Checked;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
-        if (canvas_fade_out_t >= 0f && canvas_fade_out_t < 3f)
+        if (canvas_fade_out_t >= 0f && red_warning_check == CheckStatus.Checked)
         {
             canvas_fade_out_t += Time.deltaTime;
             float alpha = redcanvasGroup.alpha;
             alpha = 1 - Mathf.Pow(canvas_fade_out_t, 3);
             redcanvasGroup.alpha = alpha;
-            if (alpha < 0.01f)
+            if (canvas_fade_out_t >= 2.9f)
             {
                 RedWarningTutor.enabled = false;
                 canvas_fade_out_t = -1f;
@@ -197,24 +205,27 @@ public class TutorialManager : MonoBehaviour
 
     void CollecGemCheck()
     {
-        Debug.Log(collect_gem_check);
         if (collect_gem_check == CheckStatus.Checking)
         {
             CollectGemTutor.enabled = true;
-            if (Input.anyKeyDown)
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            if (gem_user_check)
             {
                 canvas_fade_out_t = 0f;
                 collect_gem_check = CheckStatus.Checked;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
-        if (canvas_fade_out_t >= 0f && canvas_fade_out_t < 3f)
+        if (canvas_fade_out_t >= 0f && collect_gem_check == CheckStatus.Checked)
         {
-            Debug.Log(canvas_fade_out_t);
+            // Debug.Log(canvas_fade_out_t);
             canvas_fade_out_t += Time.deltaTime;
             float alpha = gemcanvasGroup.alpha;
             alpha = 1 - Mathf.Pow(canvas_fade_out_t, 3);
             gemcanvasGroup.alpha = alpha;
-            if (alpha < 0.01f)
+            if (canvas_fade_out_t >= 2.9f)
             {
                 CollectGemTutor.enabled = false;
                 tutorial_finished = true;
@@ -266,6 +277,16 @@ public class TutorialManager : MonoBehaviour
         var color = img.color;
         color.a = 255;
         img.color = color;
+    }
+
+    public void RedCheck()
+    {
+        red_user_check = true;
+    }
+
+    public void GemCheck()
+    {
+        gem_user_check = true;
     }
 
 }
