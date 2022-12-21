@@ -11,6 +11,7 @@ public class Skills : MonoBehaviour
     
     private float pressedDuration;
     private Transform Trail;
+    public AudioClip SkillSteps;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +66,7 @@ public class Skills : MonoBehaviour
                 thickness = 4f;
                 speed = 3f;
             }
-
+            AudioManager.Instance.PlayAudioClip(SkillSteps, "footstep");
             soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, Trail.position, WAVE_ATTRIBUTE.PLAYER);
         }
     }

@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip DeathSound;
     public AudioClip GroundSteps;
     public GameObject deathScreen;
+    private Transform Trail;
 
     // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
@@ -54,8 +55,13 @@ public class PlayerMovement : MonoBehaviour
         // waveSpeed = PlayerPrefs.GetFloat("waveSpeed");
         // waveLifespan = PlayerPrefs.GetFloat("waveLifespan");
         // minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
+<<<<<<< Updated upstream
         if (deathScreen)
             deathScreen.SetActive(isDead);
+=======
+        Trail = transform.Find("Trail");
+        deathScreen.SetActive(isDead);
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
@@ -129,18 +135,23 @@ public class PlayerMovement : MonoBehaviour
                 switch (hit.collider.tag)
                 {
                     case "Footsteps/WATER":
-                        AudioManager.Instance.PlayAudioClip(WaterSteps);
+                        AudioManager.Instance.PlayAudioClip(WaterSteps, "footstep");
                         foot_color = Color.white;
+                        float lifeSpan, thickness, speed;
+                        lifeSpan = 2f;
+                        thickness = 0.5f;
+                        speed = 4f;
+                        soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, Trail.position, WAVE_ATTRIBUTE.PLAYER);
                         // MyAudioSource.PlayOneShot(WaterSteps);
                         break;
-                    case "Footsteps/GRASS":
-                        AudioManager.Instance.PlayAudioClip(GrassSteps);
-                        foot_color = Color.green;
+                    case "Footsteps/CAVE":
+                        AudioManager.Instance.PlayAudioClip(GroundSteps, "footstep");
+                        foot_color = Color.white;
                         // MyAudioSource.PlayOneShot(GrassSteps);
                         break;
                     default:
-                        AudioManager.Instance.PlayAudioClip(GroundSteps);
-                        foot_color = Color.white;
+                        AudioManager.Instance.PlayAudioClip(GrassSteps, "footstep");
+                        foot_color = Color.green;
                         // MyAudioSource.Play();
                         break;
                 }
@@ -157,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                AudioManager.Instance.PlayAudioClip(GroundSteps);
+                AudioManager.Instance.PlayAudioClip(GroundSteps, "footstep");
                 // MyAudioSource.Play();
             }
         }
@@ -170,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
         {
             case "Trap":
                 speed = 0;
-                AudioManager.Instance.PlayAudioClip(DeathSound);
+                AudioManager.Instance.PlayAudioClip(DeathSound, "others");
                 // MyAudioSource.PlayOneShot(DeathSound);
                 isDead = true;
                 break;

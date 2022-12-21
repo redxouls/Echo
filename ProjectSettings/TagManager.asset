@@ -9,6 +9,7 @@ TagManager:
   - Trap
   - Destination
   - Footsteps/WATER
+  - Footsteps/CAVE
   layers:
   - Default
   - TransparentFX
