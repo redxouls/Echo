@@ -10,7 +10,7 @@ public class GrenadeManager : MonoBehaviour
     public float shootForce;
     public float timeBetweenShoot;
     public PlayerMovement player;
-    
+
     private bool aiming;
     private bool readyToShoot;
 
@@ -29,8 +29,9 @@ public class GrenadeManager : MonoBehaviour
         HandleInput();
     }
 
-    void HandleInput() {
-        if (!readyToShoot && TutorialManager.Instance.space_check == TutorialManager.CheckStatus.Checked)
+    void HandleInput()
+    {
+        if (!readyToShoot || TutorialManager.Instance.space_check != TutorialManager.CheckStatus.Checked)
         {
             return;
         }
@@ -40,7 +41,7 @@ public class GrenadeManager : MonoBehaviour
             aiming = true;
         }
         if (Input.GetMouseButtonUp(0) && aiming)
-        {   
+        {
             cursor.SetActive(false);
             readyToShoot = false;
             aiming = false;
@@ -49,7 +50,8 @@ public class GrenadeManager : MonoBehaviour
         }
     }
 
-    void Shoot() {
+    void Shoot()
+    {
         Ray ray = fpsCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Vector3 shootDir = (ray.GetPoint(75) - transform.position).normalized;
         grenade.SetActive(true);
@@ -59,7 +61,8 @@ public class GrenadeManager : MonoBehaviour
         grenade.SetActive(false);
     }
 
-    void Reload() {
+    void Reload()
+    {
         readyToShoot = true;
     }
 }

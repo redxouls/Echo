@@ -202,7 +202,7 @@ Shader "Custom/GrassComputeHLSL"
             // Mix the pixel color with fogColor. 
             final.rgb = MixFog(final.rgb, fogFactor); 
             // final = lerp(half4(0,0,0,0), final, alpha);
-            return final;
+g            return final;
             
         #endif  // SHADERPASS_SHADOWCASTER
     }
