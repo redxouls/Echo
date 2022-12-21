@@ -12,7 +12,7 @@ public class CollectionManager : MonoBehaviour
 
     public bool[] collectionGems = new bool[4];
     public bool[] completeGems = new bool[4];
-    private List<Image> gems = new List<Image>(); 
+    private List<Image> gems = new List<Image>();
     private CanvasGroup canvasGroup;
     private float easefunc_t;
     private int fadeStatus; // 0: steady, 1: fade out, 2: fade in
@@ -20,7 +20,7 @@ public class CollectionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < collectionGems.Length; i++)
+        for (int i = 0; i < collectionGems.Length; i++)
         {
             collectionGems[i] = false;
             completeGems[i] = false;
@@ -56,7 +56,7 @@ public class CollectionManager : MonoBehaviour
             easefunc_t += 0.4f * Time.deltaTime;
             // Debug.Log(easefunc_t);
             float alpha = canvasGroup.alpha;
-            if (fadeStatus == 2) 
+            if (fadeStatus == 2)
             {
                 // alpha = 1 - Mathf.Pow(1 - easefunc_t, 3);
                 alpha = Mathf.Sqrt(1 - Mathf.Pow(easefunc_t - 1, 2));
@@ -66,7 +66,7 @@ public class CollectionManager : MonoBehaviour
                     easefunc_t = 0f;
                 }
             }
-            else if (fadeStatus == 1) 
+            else if (fadeStatus == 1)
             {
                 // alpha = 1 - Mathf.Pow(easefunc_t, 3);
                 alpha = Mathf.Sqrt(1 - Mathf.Pow(easefunc_t, 2));
@@ -111,7 +111,7 @@ public class CollectionManager : MonoBehaviour
             collectionGems[0] = true;
             fadeStatus = 2;
             easefunc_t = 0f;
-        } 
+        }
         else if (gemName == "Water")
         {
             collectionGems[1] = true;
@@ -129,6 +129,10 @@ public class CollectionManager : MonoBehaviour
             collectionGems[3] = true;
             fadeStatus = 2;
             easefunc_t = 0f;
+            if (TutorialManager.Instance.red_warning_check == TutorialManager.CheckStatus.Checked && TutorialManager.Instance.collect_gem_check == TutorialManager.CheckStatus.NotChecking)
+            {
+                TutorialManager.Instance.collect_gem_check = TutorialManager.CheckStatus.Checking;
+            }
         }
         else
         {
@@ -137,18 +141,17 @@ public class CollectionManager : MonoBehaviour
         //test for tutor (should removed in the build version)
         // Debug.Log(TutorialManager.Instance.red_warning_check);
         // Debug.Log(TutorialManager.Instance.collect_gem_check);
-        if (TutorialManager.Instance.red_warning_check == TutorialManager.CheckStatus.Checked && TutorialManager.Instance.collect_gem_check == TutorialManager.CheckStatus.NotChecking)
-            TutorialManager.Instance.collect_gem_check = TutorialManager.CheckStatus.Checking;
+
     }
 
     public void CompleteGem(string gemName)
     {
-        Debug.Log("complete "+gemName+" gem.");
+        Debug.Log("complete " + gemName + " gem.");
         if (gemName == "Fire")
         {
             collectionGems[0] = false;
             completeGems[0] = true;
-        } 
+        }
         else if (gemName == "Water")
         {
             collectionGems[1] = false;
@@ -182,6 +185,6 @@ public class CollectionManager : MonoBehaviour
 
     public bool Win()
     {
-        return completeGems[0]&&completeGems[1]&&completeGems[2]&&completeGems[3];
+        return completeGems[0] && completeGems[1] && completeGems[2] && completeGems[3];
     }
 }

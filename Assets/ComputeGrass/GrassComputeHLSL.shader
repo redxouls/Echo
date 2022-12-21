@@ -92,7 +92,7 @@ Shader "Custom/GrassComputeHLSL"
     float intersectWithWave(float3 worldPos) 
     {
         // Initial alpha set to 0.0
-        float alpha = 0.0;
+        float alpha = 0.05;
 
         // Circular calculation
         for (uint i = 0; i < 100; ++i)
@@ -202,7 +202,7 @@ Shader "Custom/GrassComputeHLSL"
             // Mix the pixel color with fogColor. 
             final.rgb = MixFog(final.rgb, fogFactor); 
             // final = lerp(half4(0,0,0,0), final, alpha);
-g            return final;
+            return final;
             
         #endif  // SHADERPASS_SHADOWCASTER
     }

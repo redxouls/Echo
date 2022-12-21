@@ -13,17 +13,18 @@ public class TriggerDoor : MonoBehaviour
     public Material[] RBGY_mat; // length = 4, order should be R, B, G, Y   
 
     public CollectionManager collectionMgr;
-    
+
     void Start()
     {
         Gems = new ActivateGem[4];
-        Gems[0] =  RedGem;
-        Gems[1] =  BlueGem;
-        Gems[2] =  GreenGem;
-        Gems[3] =  YellowGem;
+        Gems[0] = RedGem;
+        Gems[1] = BlueGem;
+        Gems[2] = GreenGem;
+        Gems[3] = YellowGem;
     }
     void OnTriggerEnter(Collider collisionInfo)
     {
+        Debug.Log(collisionInfo.tag);
         if (collisionInfo.tag == "Player")
         {
             Debug.Log("EnterTriggerPlane");
@@ -33,7 +34,7 @@ public class TriggerDoor : MonoBehaviour
 
     void CompleteGem()
     {
-        string[] gemName = new string[4]{"Fire", "Water", "Grass", "Light"};
+        string[] gemName = new string[4] { "Fire", "Water", "Grass", "Light" };
         int gemCollection = collectionMgr.GetGemCollection();
         Debug.Log(gemCollection);
         for (int i = 0; i < 4; ++i)

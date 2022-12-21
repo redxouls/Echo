@@ -121,13 +121,13 @@ public class PlayerMovement : MonoBehaviour
     {
         // Debug.LogFormat("timer :{0} | minEchoInterval :{1} | Time.deltaTime:{2}",timer,minEchoInterval,Time.deltaTime);
         float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
-        if (moving && isGrounded && DistanceSinceLastFootprint >= FootprintSpacer)
+        if (moving && DistanceSinceLastFootprint >= FootprintSpacer)
         {
             Color foot_color = Color.white;
             // Audio play according to ground type
             if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
             {
-                // Debug.Log(hit.collider.tag);
+                Debug.Log(hit.collider.tag);
                 switch (hit.collider.tag)
                 {
                     case "Footsteps/WATER":

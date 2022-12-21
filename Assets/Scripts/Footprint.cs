@@ -34,7 +34,7 @@ public class Footprint : MonoBehaviour
             // color.a = PercentTimeLeft;
             // this.GetComponent<Renderer>().material.color = color;
             Material foot = this.GetComponent<Renderer>().material;
-            foot.SetColor("_EmissionColor", foot_color * PercentTimeLeft);
+            foot.SetColor("_EmissionColor", foot_color * PercentTimeLeft * 0.5f);
             // Debug.Log(foot_color * PercentTimeLeft);
             if (ElapsedTime > Lifetime)
             {
