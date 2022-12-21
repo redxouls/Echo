@@ -30,7 +30,7 @@ public class GrenadeManager : MonoBehaviour
     }
 
     void HandleInput() {
-        if (!readyToShoot)
+        if (!readyToShoot && TutorialManager.Instance.space_check == TutorialManager.CheckStatus.Checked)
         {
             return;
         }
