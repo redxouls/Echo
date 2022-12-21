@@ -92,7 +92,7 @@ Shader "Custom/GrassComputeHLSL"
     float intersectWithWave(float3 worldPos) 
     {
         // Initial alpha set to 0.0
-        float alpha = 0.05;
+        float alpha = 0.0;
 
         // Circular calculation
         for (uint i = 0; i < 100; ++i)

@@ -4,7 +4,7 @@ using UnityEngine;
 using PathCreation;
 
 public class FireflyManager : MonoBehaviour
-{   
+{
     public PathCreator[] pathCreators;
     public float speed;
 
@@ -52,6 +52,10 @@ public class FireflyManager : MonoBehaviour
             moveToNext = false;
             distanceTravelled = 0.0f;
             currentPathIndex += 1;
+            if (currentPathIndex >= 4)
+            {
+                currentPathIndex = 0;
+            }
             return;
         }
         transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
