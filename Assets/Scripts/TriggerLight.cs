@@ -28,7 +28,14 @@ public class TriggerLight : MonoBehaviour
         pointLight = gameObject.transform.GetChild(0).GetComponent<Light>();
         pointLight.range = 0;
         _Points = new Vector4[numberOfPoints];
+        _Attributes = new float[numberOfPoints];
+        _Radius = new float[numberOfPoints];
         triggered = false;
+
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            _Attributes[i] = 0;
+        }
     }
 
     // Update is called once per frame
