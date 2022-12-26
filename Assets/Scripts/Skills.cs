@@ -6,11 +6,12 @@ public class Skills : MonoBehaviour
 {
     public float minLifeSpan;
     public float maxLifeSpan;
-    
+
     public SoundWaveManager soundWaveManager;
-    
+
     private float pressedDuration;
     private Transform Trail;
+    public AudioClip SkillSteps;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class Skills : MonoBehaviour
     }
 
     void Clap()
-    {   
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             pressedDuration = Time.time;
@@ -38,7 +39,7 @@ public class Skills : MonoBehaviour
 
             float factor = Mathf.Min(Mathf.Max(pressedDuration, minLifeSpan), maxLifeSpan) / maxLifeSpan;
             float lifeSpan, thickness, speed;
-            
+
             // Small wave: search area arround the player (near)
             // if (factor < 0.45f)
             // {
@@ -52,20 +53,20 @@ public class Skills : MonoBehaviour
             if (factor < 0.75f)
             {
                 // Debug.Log("Medium Wave");
-                lifeSpan = factor * 10f;
+                lifeSpan = factor * 5f;
                 thickness = 2f;
-                speed = 2.5f;
+                speed = 1.5f;
             }
 
             // Large wave: obeserve the entire environment
             else
             {
                 // Debug.Log("Large Wave");
-                lifeSpan = factor * 20f;
+                lifeSpan = factor * 10f;
                 thickness = 4f;
-                speed = 3f;
+                speed = 2f;
             }
-
+            AudioManager.Instance.PlayAudioClip(SkillSteps, "footstep");
             soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, Trail.position, WAVE_ATTRIBUTE.PLAYER);
         }
     }

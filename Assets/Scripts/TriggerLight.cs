@@ -12,7 +12,7 @@ public class TriggerLight : MonoBehaviour
     static public float maxRange;
     static public float stayLightInterval;
 
-    
+
     static public float[] _TriggerLightRadius = new float[100];
     int id; // each light with different id (assigned start from 0), and set position and radius accordingly
 
@@ -28,7 +28,14 @@ public class TriggerLight : MonoBehaviour
         pointLight = gameObject.transform.GetChild(0).GetComponent<Light>();
         pointLight.range = 0;
         _Points = new Vector4[numberOfPoints];
+        _Attributes = new float[numberOfPoints];
+        _Radius = new float[numberOfPoints];
         triggered = false;
+
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            _Attributes[i] = 0;
+        }
     }
 
     // Update is called once per frame
@@ -37,15 +44,15 @@ public class TriggerLight : MonoBehaviour
         TriggeredByWave();
         HandleLight();
     }
-    
-    public void setId(int num) {id = num;}
+
+    public void setId(int num) { id = num; }
 
     // Triggered if pass by a wave front
     void TriggeredByWave()
     {
         if (triggered)
             return;
-        
+
         for (int i = 0; i < numberOfPoints; ++i)
         {
             if (_Attributes[i] == 0)
@@ -53,7 +60,7 @@ public class TriggerLight : MonoBehaviour
                 continue;
             }
             float distance = Vector3.Distance(_Points[i], transform.position);
-            Debug.LogFormat("id: {0}, distance: {1}, radius: {2}", id, distance, _Radius[i]);
+            // Debug.LogFormat("id: {0}, distance: {1}, radius: {2}", id, distance, _Radius[i]);
             if (_Radius[i] < distance && distance < _Radius[i] + triggerThickness)
             {
                 // Debug.Log(id);
@@ -83,7 +90,7 @@ public class TriggerLight : MonoBehaviour
         }
         if (timer > stayLightInterval)
         {
-            range = maxRange * easeOutExpo(1 - (timer-stayLightInterval) / raisingTime);
+            range = maxRange * easeOutExpo(1 - (timer - stayLightInterval) / raisingTime);
         }
         if (timer > stayLightInterval + raisingTime)
         {
@@ -104,7 +111,7 @@ public class TriggerLight : MonoBehaviour
         float c4 = (2 * Mathf.PI) / 3;
         if (t <= 0)
             return 0;
-        if (t >= 1) 
+        if (t >= 1)
             return 1;
         return Mathf.Pow(2, -10 * t) * Mathf.Sin((t * 10 - 0.75f) * c4) + 1;
     }

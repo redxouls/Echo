@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour
-{   
+{
     public GameObject prefab;
     public CharacterController controller;
     public float speed;
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject RightFootPrefab = null;
 
     public float waveThickness;
-    public float waveSpeed;    public float waveLifespan;
+    public float waveSpeed; public float waveLifespan;
 
     public bool isDead = false;
     public GameObject deathBG;
@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip DeathSound;
     public AudioClip GroundSteps;
     public GameObject deathScreen;
+    private Transform Trail;
 
     // private float GetCurrentOffset => isCrouching ? baseStepSpeed * crouchStepMultipler : IsSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
     // Start is called before the first frame update
@@ -56,11 +57,12 @@ public class PlayerMovement : MonoBehaviour
         // minEchoInterval = PlayerPrefs.GetFloat("minEchoInterval");
         if (deathScreen)
             deathScreen.SetActive(isDead);
+        Trail = transform.Find("Trail");
     }
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         if (!PauseController.GamePaused)
         {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDis, groundMask); // Ground Check
@@ -84,19 +86,19 @@ public class PlayerMovement : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             var color = deathBG.GetComponent<Image>().color;
-            if(color.a < 0.8f)
+            if (color.a < 0.8f)
             {
                 color.a += 1f * Time.deltaTime;
             }
             deathBG.GetComponent<Image>().color = color;
         }
     }
-    
+
     // TODO: maybe can add jump ?
     private void JumpAndGravity()
-    { 
+    {
         if (isGrounded && velocity.y < 0f)
-        { 
+        {
             velocity.y = -2f;
         }
         velocity.y += gravity * Time.deltaTime;
@@ -119,35 +121,40 @@ public class PlayerMovement : MonoBehaviour
     {
         // Debug.LogFormat("timer :{0} | minEchoInterval :{1} | Time.deltaTime:{2}",timer,minEchoInterval,Time.deltaTime);
         float DistanceSinceLastFootprint = Vector3.Distance(LastFootprint, this.transform.position);
-        if (moving && isGrounded && DistanceSinceLastFootprint >= FootprintSpacer)
+        if (moving && DistanceSinceLastFootprint >= FootprintSpacer)
         {
             Color foot_color = Color.white;
             // Audio play according to ground type
-            if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
+            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
             {
-                // Debug.Log(hit.collider.tag);
+                Debug.Log(hit.collider.tag);
                 switch (hit.collider.tag)
                 {
                     case "Footsteps/WATER":
-                        AudioManager.Instance.PlayAudioClip(WaterSteps);
+                        AudioManager.Instance.PlayAudioClip(WaterSteps, "footstep");
                         foot_color = Color.white;
+                        float lifeSpan, thickness, speed;
+                        lifeSpan = 2f;
+                        thickness = 0.5f;
+                        speed = 4f;
+                        soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, Trail.position, WAVE_ATTRIBUTE.PLAYER);
                         // MyAudioSource.PlayOneShot(WaterSteps);
                         break;
-                    case "Footsteps/GRASS":
-                        AudioManager.Instance.PlayAudioClip(GrassSteps);
-                        foot_color = Color.green;
+                    case "Footsteps/CAVE":
+                        AudioManager.Instance.PlayAudioClip(GroundSteps, "footstep");
+                        foot_color = Color.white;
                         // MyAudioSource.PlayOneShot(GrassSteps);
                         break;
                     default:
-                        AudioManager.Instance.PlayAudioClip(GroundSteps);
-                        foot_color = Color.white;
+                        AudioManager.Instance.PlayAudioClip(GrassSteps, "footstep");
+                        foot_color = Color.green;
                         // MyAudioSource.Play();
                         break;
                 }
 
                 //where the ray hits the ground we will place a footprint
-                GameObject decal = Instantiate(WhichFoot?LeftFoorPrefab:RightFootPrefab);
-                decal.transform.position = hit.point + new Vector3(0.0f,0.1f,0.0f);
+                GameObject decal = Instantiate(WhichFoot ? LeftFoorPrefab : RightFootPrefab);
+                decal.transform.position = hit.point + new Vector3(0.0f, 0.1f, 0.0f);
                 //turn the footprint to match the direction the player is facing
                 // decal.transform.Rotate(Vector3.up, transform.eulerAngles.y);
                 decal.GetComponent<Renderer>().material.SetColor("_EmissionColor", foot_color);
@@ -157,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                AudioManager.Instance.PlayAudioClip(GroundSteps);
+                AudioManager.Instance.PlayAudioClip(GroundSteps, "footstep");
                 // MyAudioSource.Play();
             }
         }
@@ -170,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
         {
             case "Trap":
                 speed = 0;
-                AudioManager.Instance.PlayAudioClip(DeathSound);
+                AudioManager.Instance.PlayAudioClip(DeathSound, "others");
                 // MyAudioSource.PlayOneShot(DeathSound);
                 isDead = true;
                 break;

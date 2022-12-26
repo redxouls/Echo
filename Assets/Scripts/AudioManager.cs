@@ -21,8 +21,14 @@ public class AudioManager : MonoBehaviour
         } 
     }
     
-    public void PlayAudioClip(AudioClip audioClip) 
+    public void PlayAudioClip(AudioClip audioClip, string type) 
     {
+        if (type=="footstep")
+        {
+            MyAudioSource.volume = Random.Range(0.7f,1f);
+            MyAudioSource.pitch = Random.Range(0.8f,1.1f);
+        }
+        
         MyAudioSource.PlayOneShot(audioClip);
     }
 

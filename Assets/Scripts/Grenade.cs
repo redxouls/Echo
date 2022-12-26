@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
-    
+
     public SoundWaveManager soundWaveManager;
     public float lifeSpan;
     // public float flyingTime; // how long can grenade fly without collide with object
@@ -15,7 +15,7 @@ public class Grenade : MonoBehaviour
     public float initAlpha; // initial alphaAttenuation
 
     // grenade wave parameters
-    public float waveThickness; 
+    public float waveThickness;
     public float waveLifeSpan;
     public float waveSpeed;
 
@@ -26,7 +26,7 @@ public class Grenade : MonoBehaviour
     // audio
     public AudioClip[] clips;
     AudioSource audioSource;
-    
+
     // Start is called before the first frame update
     void Start()
     {
