@@ -24,10 +24,10 @@ public class TriggerDoor : MonoBehaviour
     }
     void OnTriggerEnter(Collider collisionInfo)
     {
-        Debug.Log(collisionInfo.tag);
+        // Debug.Log(collisionInfo.tag);
         if (collisionInfo.tag == "Player")
         {
-            Debug.Log("EnterTriggerPlane");
+            // Debug.Log("EnterTriggerPlane");
             CompleteGem();
         }
     }
@@ -36,7 +36,7 @@ public class TriggerDoor : MonoBehaviour
     {
         string[] gemName = new string[4] { "Fire", "Water", "Grass", "Light" };
         int gemCollection = collectionMgr.GetGemCollection();
-        Debug.Log(gemCollection);
+        // Debug.Log(gemCollection);
         for (int i = 0; i < 4; ++i)
         {
             if ((gemCollection & (1 << i)) > 0)

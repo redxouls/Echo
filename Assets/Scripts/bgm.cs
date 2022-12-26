@@ -23,7 +23,7 @@ public class bgm : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 3))
         {
-            Debug.Log(hit.collider.tag);
+            // Debug.Log(hit.collider.tag);
             switch (hit.collider.tag)
             {
                 case "Footsteps/CAVE":
@@ -62,7 +62,7 @@ public class bgm : MonoBehaviour
         float start = audioSource.volume;
         while (currentTime < duration)
         {
-            Debug.Log(currentTime);
+            // Debug.Log(currentTime);
             currentTime += Time.deltaTime;
             audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
             yield return null;

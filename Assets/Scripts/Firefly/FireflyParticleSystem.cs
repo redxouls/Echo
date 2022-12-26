@@ -29,22 +29,7 @@ public class FireflyParticleSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        // switch (state)
-        // {
-        //     case (State.Still):
-        //         break;
-        //     case (State.Spread):
-        //         Spread();
-        //         break;
-        //     case (State.Shrink):
-        //         Shrink();
-        //         break;
-        //     case (State.Move):
-        //         Move();
-        //         break;
-        //     default:
-        //         break;
-        // }
+
     }
 
     void Shrink()
@@ -54,22 +39,13 @@ public class FireflyParticleSystem : MonoBehaviour
 
         if (main.startSpeed.constant < 0)
         {
-            Debug.Log("Shrink Ended");
             state = State.Still;
         }
-        Debug.Log(main.startSpeed.constant);
     }
 
     void Spread()
     {
-        // var startSpeed = main.startSpeed;
-        // startSpeed.constant += 1 * Time.deltaTime;
-        // if (startSpeed.constant > 3f)
-        // {
-        //     Debug.Log("Shrinked");
-        //     state = State.Still;
-        // }
-        // Debug.Log(startSpeed.constant);
+
     }
 
     void Move()

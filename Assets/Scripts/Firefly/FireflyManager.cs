@@ -35,10 +35,6 @@ public class FireflyManager : MonoBehaviour
     {
         if (other.name == "Player" && !moveToNext)
         {
-            // fireflyParticleSystem.state = FireflyParticleSystem.State.Shrink;
-            // transform.position += new Vector3(5.0f, 0.0f, 5.0f);
-            // fireflyLight.SetOrigin(transform.position);
-            Debug.Log(other.name);
             moveToNext = true;
         }
     }
