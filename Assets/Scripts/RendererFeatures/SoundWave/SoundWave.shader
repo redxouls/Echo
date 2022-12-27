@@ -126,8 +126,14 @@ Shader "Hidden/SoundWave"
                 float triggerLightAlpha = intersectWithTriggerLight(worldPos.xyz);
                 float alpha = waveWeight * waveAlpha + triggerLightWeight * triggerLightAlpha;
 
+                fixed4 col;
+                
                 // Scale the color with alpha
-                fixed4 col = fixed4(0,0,0, 1 - clamp(alpha, 0, 1));
+                if (alpha > 0.01)
+                    col = fixed4(alpha,alpha,alpha,alpha) * 0.3;
+                else
+                    col = fixed4(0,0,0, 1 - alpha);
+                // col = fixed4(0,0,0, 1 - alpha);
                 return col;
             }
             ENDCG

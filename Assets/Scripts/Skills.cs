@@ -38,7 +38,7 @@ public class Skills : MonoBehaviour
         {
             if (timer < reloadSpeed) return;
             AudioManager.Instance.PlayAudioClip(SkillSteps, "footstep");
-            soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, Trail.position, WAVE_ATTRIBUTE.PLAYER);
+            soundWaveManager.AddWave(thickness, lifeSpan, speed, 1.5f, Trail.position, WAVE_ATTRIBUTE.PLAYER);
             timer = 0.0f;
         }
         timer += Time.deltaTime;
