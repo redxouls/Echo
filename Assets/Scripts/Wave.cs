@@ -80,7 +80,6 @@ public class Wave
         return x * x * x * x * x;
     }
 
-
     public WAVE_ATTRIBUTE GetAttribute()
     {
         return attribute;
