@@ -82,6 +82,8 @@ public class EvilTracing : MonoBehaviour
             if (attribute == WAVE_ATTRIBUTE.PLAYER || attribute == WAVE_ATTRIBUTE.GRENADE)
             {
                 float distance = Vector3.Distance(soundWaveManager._Points[i], transform.position);
+                Debug.Log(distance);
+                Debug.Log(soundWaveManager._Points[i]);
                 if (distance < minDistance)
                 {
                     minDistance = distance;
