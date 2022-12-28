@@ -71,6 +71,7 @@ public class ActivateGem : MonoBehaviour
             gemMaterial.SetFloat("_Transparency", 0);
             collectionMgr.CollectGem(gemName);
             triggered = false;
+            gameObject.SetActive(false);
         }
     }
     
