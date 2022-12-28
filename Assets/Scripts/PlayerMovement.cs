@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
         switch (collisionInfo.tag)
         {
             case "Trap":
-                speed = 0;
+                //speed = 0;
                 AudioManager.Instance.PlayAudioClip(DeathSound, "others");
                 // MyAudioSource.PlayOneShot(DeathSound);
                 isDead = true;
