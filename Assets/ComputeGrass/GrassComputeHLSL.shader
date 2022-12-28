@@ -92,7 +92,7 @@ Shader "Custom/GrassComputeHLSL"
     float intersectWithWave(float3 worldPos) 
     {
         // Initial alpha set to 0.0
-        float alpha = 0.05;
+        float alpha = 0;
 
         // Circular calculation
         for (uint i = 0; i < 100; ++i)
@@ -104,7 +104,7 @@ Shader "Custom/GrassComputeHLSL"
             // Calculate distance to the wave source
             float r = distance(worldPos.xyz, _Points[i].xyz);
             // Caululate (distance - wave_radius)
-            float delta = r - _Radius[i]/4;
+            float delta = r - _Radius[i];
             
             // double side smooth to simulate ripple
             // if (delta <  _Thickness)
@@ -200,8 +200,9 @@ Shader "Custom/GrassComputeHLSL"
             // fog
             float fogFactor = i.fogFactor;
             // Mix the pixel color with fogColor. 
-            final.rgb = MixFog(final.rgb, fogFactor); 
-            // final = lerp(half4(0,0,0,0), final, alpha);
+            final.rgb = MixFog(final.rgb, fogFactor);
+            // final.rgb += float3(alpha, alpha, alpha) * 0.1;
+            final = lerp(half4(0,0,0,0), final, alpha);
             return final;
             
         #endif  // SHADERPASS_SHADOWCASTER

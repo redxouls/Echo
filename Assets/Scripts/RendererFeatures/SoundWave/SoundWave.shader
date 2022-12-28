@@ -129,11 +129,11 @@ Shader "Hidden/SoundWave"
                 fixed4 col;
                 
                 // Scale the color with alpha
-                if (alpha > 0.01)
-                    col = fixed4(alpha,alpha,alpha,alpha) * 0.3;
-                else
-                    col = fixed4(0,0,0, 1 - alpha);
+                // if (alpha > 0.3)
+                //     col = fixed4(alpha,alpha,alpha,alpha) * 0.3;
+                // else
                 // col = fixed4(0,0,0, 1 - alpha);
+                col = fixed4(0,0,0, 1 - alpha);
                 return col;
             }
             ENDCG
