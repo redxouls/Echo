@@ -56,7 +56,8 @@ public class Wave
 
     public float GetAlphaAttenuation()
     {
-        return alphaAttenuation * (1 - EaseInQuint(age / lifeSpan));
+        // return alphaAttenuation * (1 - EaseInQuint(age / lifeSpan));
+        return alphaAttenuation;
     }
 
     private float GetAge()
@@ -79,7 +80,6 @@ public class Wave
     {
         return x * x * x * x * x;
     }
-
 
     public WAVE_ATTRIBUTE GetAttribute()
     {

@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class Skills : MonoBehaviour
 {
-    public float minLifeSpan;
-    public float maxLifeSpan;
+    public float reloadSpeed = 1.0f;
+    public float thickness = 2.0f;
+    public float lifeSpan = 5.0f;
+    public float speed = 2f;
 
     public SoundWaveManager soundWaveManager;
+    public AudioClip SkillSteps;
 
     private float pressedDuration;
     private Transform Trail;
-    public AudioClip SkillSteps;
+    private float timer;
+
     // Start is called before the first frame update
     void Start()
     {
-        Trail = transform.Find("Trail");
+        Trail = transform.Find("LightSource");
+        timer = 0.0f;
     }
 
     // Update is called once per frame
@@ -29,45 +34,13 @@ public class Skills : MonoBehaviour
 
     void Clap()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            pressedDuration = Time.time;
-        }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            pressedDuration = Time.time - pressedDuration;
-
-            float factor = Mathf.Min(Mathf.Max(pressedDuration, minLifeSpan), maxLifeSpan) / maxLifeSpan;
-            float lifeSpan, thickness, speed;
-
-            // Small wave: search area arround the player (near)
-            // if (factor < 0.45f)
-            // {
-            //     lifeSpan = factor * 3.5f;
-            //     thickness = 0.4f;
-            //     speed = 0.65f;
-            //     Debug.Log("Small Wave");
-            // }
-
-            // Medium wave: search area arround the player (far)
-            if (factor < 0.75f)
-            {
-                // Debug.Log("Medium Wave");
-                lifeSpan = factor * 5f;
-                thickness = 2f;
-                speed = 1.5f;
-            }
-
-            // Large wave: obeserve the entire environment
-            else
-            {
-                // Debug.Log("Large Wave");
-                lifeSpan = factor * 10f;
-                thickness = 4f;
-                speed = 2f;
-            }
+            if (timer < reloadSpeed) return;
             AudioManager.Instance.PlayAudioClip(SkillSteps, "footstep");
-            soundWaveManager.AddWave(thickness, lifeSpan, speed, 1, Trail.position, WAVE_ATTRIBUTE.PLAYER);
+            soundWaveManager.AddWave(thickness, lifeSpan, speed, 1.5f, Trail.position, WAVE_ATTRIBUTE.PLAYER);
+            timer = 0.0f;
         }
+        timer += Time.deltaTime;
     }
 }

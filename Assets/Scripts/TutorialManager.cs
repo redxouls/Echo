@@ -42,6 +42,8 @@ public class TutorialManager : MonoBehaviour
     private bool red_user_check;
     private bool gem_user_check;
 
+    private float timer;
+
     public CanvasGroup redcanvasGroup;
     public CanvasGroup gemcanvasGroup;
 
@@ -68,6 +70,7 @@ public class TutorialManager : MonoBehaviour
         initializeTutorial();
         initializeCheckStatus();
         
+        timer = 5f;
         grenade_check_flag = 0;
         canvas_fade_out_t = -1f;
         red_user_check = false;
@@ -106,12 +109,15 @@ public class TutorialManager : MonoBehaviour
         if (space_check == CheckStatus.Checking)
         {
             SpaceTutor.enabled = true;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || timer <= 0f)
             {
                 space_check = CheckStatus.Checked;
-                grenade_check = CheckStatus.Checking;
+                // grenade_check = CheckStatus.Checking;
+                move_check = CheckStatus.Checking;
                 SpaceTutor.enabled = false;
+                timer = 5f;
             }
+            timer -= Time.deltaTime;
         }
     }
 
@@ -138,6 +144,15 @@ public class TutorialManager : MonoBehaviour
                     move_check = CheckStatus.Checking;
                 }
             }
+            if (timer <= 0f)
+            {
+                GrenadeTutorAim.enabled = false;
+                GrenadeTutorLaunch.enabled = false;
+                grenade_check = CheckStatus.Checked;
+                move_check = CheckStatus.Checking;
+                timer = 5f;
+            }
+            timer -= Time.deltaTime;
         }
     }
 
@@ -171,6 +186,13 @@ public class TutorialManager : MonoBehaviour
                 MoveTutor.enabled = false;
                 move_check = CheckStatus.Checked;
             }
+            if (timer <= 0f)
+            {
+                MoveTutor.enabled = false;
+                move_check = CheckStatus.Checked;
+                timer = 5f;
+            }
+            timer -= Time.deltaTime;
         }
     }
 
@@ -181,13 +203,15 @@ public class TutorialManager : MonoBehaviour
             RedWarningTutor.enabled = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            if (red_user_check)
+            if (red_user_check || timer <= 0f)
             {
                 canvas_fade_out_t = 0f;
                 red_warning_check = CheckStatus.Checked;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                timer = 5f;
             }
+            timer -= Time.deltaTime;
         }
         if (canvas_fade_out_t >= 0f && red_warning_check == CheckStatus.Checked)
         {
@@ -210,13 +234,15 @@ public class TutorialManager : MonoBehaviour
             CollectGemTutor.enabled = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            if (gem_user_check)
+            if (gem_user_check || timer <= 0f)
             {
                 canvas_fade_out_t = 0f;
                 collect_gem_check = CheckStatus.Checked;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                timer = 5f;
             }
+            timer -= Time.deltaTime;
         }
         if (canvas_fade_out_t >= 0f && collect_gem_check == CheckStatus.Checked)
         {
@@ -256,7 +282,7 @@ public class TutorialManager : MonoBehaviour
     void initializeCheckStatus()
     {
         space_check = CheckStatus.Checking;
-        grenade_check = CheckStatus.NotChecking;
+        grenade_check = CheckStatus.Checked;
         move_check = CheckStatus.NotChecking;
         red_warning_check = CheckStatus.NotChecking;
         collect_gem_check = CheckStatus.NotChecking;

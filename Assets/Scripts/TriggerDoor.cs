@@ -41,6 +41,7 @@ public class TriggerDoor : MonoBehaviour
         {
             if ((gemCollection & (1 << i)) > 0)
             {
+                Gems[i].gameObject.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = true;
                 collectionMgr.CompleteGem(gemName[i]);
                 Gems[i].timer = 0;
                 Gems[i].triggered = true;
